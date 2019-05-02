@@ -78,6 +78,13 @@ Use this method to get QR Code for specified user.
 ### getStatistics
 Use this method to get statistics of specified user.
 
+| Field | Type   | Required | Description              |
+|-------|--------|----------|--------------------------|
+| name  | String | Yes      | User's name.             |
+| tel   | String | Yes      | User's telephone number. |
+
+#### Response
+
 | Field              | Type    | Description                                           |
 |--------------------|---------|-------------------------------------------------------|
 | sent               | Integer | The number of sent capsules.                          |
