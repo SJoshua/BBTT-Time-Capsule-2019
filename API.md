@@ -7,12 +7,38 @@ All queries to the API need to be presented in this form: `/api/METHOD_NAME`. Li
 http://server.sforest.in/api/sendCapsule
 ```
 
-It supports **POST** HTTP method only. Please pass parameters by `application/json` only.
+Please pass parameters by `application/json` for those API using **POST** HTTP Request Method.
 
 The response contains a JSON object. The Boolean field `ok` will be `true` if **the API call successed**, otherwise `false`. In the case of API call failed, a String field `description` and a Integer field `error_code` will be returned to explain the error.
 
+### bindWechat
+Use this method to bind user's wechat account. Please redirect to this API before any action. After getting user's OpenID, the API will redirect to the url specified in `callback`.
+
+HTTP Request Method: **GET**
+
+| Field    | Type   | Required | Description      |
+|----------|--------|----------|------------------|
+| callback | String | Yes      | The current url. |
+
+### sign
+Use this method to bind user's wechat account. Please redirect to this API before any action. After getting user's OpenID, the API will redirect to the url specified in `callback`.
+
+HTTP Request Method: **GET**
+
+| Field    | Type   | Required | Description      |
+|----------|--------|----------|------------------|
+| noncestr | String | Yes      | A random string. |
+
+#### Response
+| Field     | Type    | Description                       |
+|-----------|---------|-----------------------------------|
+| signature | String  | Signature for Wechat API Calling. |
+| timestamp | Integer | The timestamp of signing.         |
+
 ### sendTimeCapsule
-Use this method to send time capsule.
+Use this method to send time capsule. 
+
+HTTP Request Method: **POST**
 
 | Field         | Type   | Required | Description                                                    |
 |---------------|--------|----------|----------------------------------------------------------------|
@@ -30,16 +56,20 @@ Use this method to send time capsule.
 ### sendQuestionCapsule
 Use this method to send question capsule.
 
-| Field       | Type    | Required | Description                                                    |
-|-------------|---------|----------|----------------------------------------------------------------|
-| sender_name | String  | Yes      | Sender's name.                                                 |
-| sender_tel  | String  | Yes      | Sender's telephone number.                                     |
-| period      | String  | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
-| question    | Integer | Yes      | The id of selected question.                                   |
-| message     | String  | Yes      | The answer to selected question.                               |
+HTTP Request Method: **POST**
+
+| Field       | Type   | Required | Description                                                    |
+|-------------|--------|----------|----------------------------------------------------------------|
+| sender_name | String | Yes      | Sender's name.                                                 |
+| sender_tel  | String | Yes      | Sender's telephone number.                                     |
+| period      | String | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
+| question    | String | Yes      | The id of selected question. Such as `1-1`.                    |
+| message     | String | Yes      | The answer to selected question.                               |
 
 ### sendOfflineCapsule
 Use this method to send offline capsule.
+
+HTTP Request Method: **POST**
 
 | Field         | Type    | Required | Description                                                    |
 |---------------|---------|----------|----------------------------------------------------------------|
@@ -55,15 +85,19 @@ Use this method to send offline capsule.
 ### getQuestions
 Use this method to get questions.
 
+HTTP Request Method: **GET**
+
 Requires no parameters.
 
 #### Response
-| Field         | Type            | Description                                             |
-|---------------|-----------------|---------------------------------------------------------|
-| question_list | Array of String | A list of questions. The index of a question is its id. |
+| Field         | Type                     | Description                                                                                                                  |
+|---------------|--------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| question_list | Array of Array of String | A array of **three** arrays of questions. The id of a question is `[CATEGORY_INDEX]-[QUESTION_INDEX]`, such as `1-1`, `2-3`. |
 
 ### getQRCode
 Use this method to get QR Code for specified user.
+
+HTTP Request Method: **POST**
 
 | Field | Type   | Required | Description              |
 |-------|--------|----------|--------------------------|
@@ -77,6 +111,8 @@ Use this method to get QR Code for specified user.
 
 ### getStatistics
 Use this method to get statistics of specified user.
+
+HTTP Request Method: **POST**
 
 | Field | Type   | Required | Description              |
 |-------|--------|----------|--------------------------|
