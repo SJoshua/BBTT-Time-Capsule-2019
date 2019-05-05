@@ -75,6 +75,11 @@ HTTP Request Method: **POST**
 | vocative      | String | Optional | The vocative of receiver.                                      |
 | file_id       | String | Optional | The file id of recorded voice.                                 |
 
+#### Response
+| Field | Type    | Description                       |
+|-------|---------|-----------------------------------|
+| count | Integer | The number of sent time capsules. |
+
 ### sendQuestionCapsule
 Use this method to send question capsule.
 
