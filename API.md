@@ -64,8 +64,6 @@ HTTP Request Method: **POST**
 
 | Field         | Type   | Required | Description                                                    |
 |---------------|--------|----------|----------------------------------------------------------------|
-| sender_name   | String | Yes      | Sender's name.                                                 |
-| sender_tel    | String | Yes      | Sender's telephone number.                                     |
 | receiver_name | String | Yes      | Receiver's name.                                               |
 | receiver_tel  | String | Yes      | Receiver's telephone number.                                   |
 | type          | String | Yes      | The type of time capsule. Must be `text` or `voice`.           |
@@ -82,8 +80,6 @@ HTTP Request Method: **POST**
 
 | Field       | Type   | Required | Description                                                    |
 |-------------|--------|----------|----------------------------------------------------------------|
-| sender_name | String | Yes      | Sender's name.                                                 |
-| sender_tel  | String | Yes      | Sender's telephone number.                                     |
 | period      | String | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
 | question    | String | Yes      | The id of selected question. Such as `1-1`.                    |
 | message     | String | Yes      | The answer to selected question.                               |
@@ -95,8 +91,6 @@ HTTP Request Method: **POST**
 
 | Field         | Type    | Required | Description                                                    |
 |---------------|---------|----------|----------------------------------------------------------------|
-| sender_name   | String  | Yes      | Sender's name.                                                 |
-| sender_tel    | String  | Yes      | Sender's telephone number.                                     |
 | receiver_name | String  | Yes      | Receiver's name.                                               |
 | receiver_tel  | String  | Yes      | Receiver's telephone number.                                   |
 | receiver_addr | String  | Yes      | Receiver's address.                                            |
