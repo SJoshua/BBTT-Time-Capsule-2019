@@ -36,7 +36,7 @@ HTTP Request Method: **GET**
 | signature | String  | Signature for Wechat API Calling. |
 | timestamp | Integer | The timestamp of signing.         |
 
-### getStatus
+### getInfo
 Use this method to check if user's info have been recorded.
 
 HTTP Request Method: **GET**
@@ -44,9 +44,10 @@ HTTP Request Method: **GET**
 Requires no parameters.
 
 #### Response
-| Field  | Type    | Description                        |
-|--------|---------|------------------------------------|
-| record | Boolean | If user's info have been recorded. |
+| Field  | Type    | Description                          |
+|--------|---------|--------------------------------------|
+| record | Boolean | If user's info have been recorded.   |
+| name   | String  | User's name if `record` is **true**. |
 
 ### updateInfo
 Use this method to update user's info.

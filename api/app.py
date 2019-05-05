@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 from api.resources.sign import sign
-from api.resources.getStatus import getStatus
+from api.resources.getInfo import getInfo
 from api.resources.getQRCode import getQRCode
 from api.resources.getQuestions import getQuestions
 from api.resources.getStatistics import getStatistics
@@ -15,7 +15,7 @@ app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(sign, '/api/sign')
-api.add_resource(getStatus, '/api/getStatus')
+api.add_resource(getInfo, '/api/getInfo')
 api.add_resource(getQRCode, '/api/getQRCode')
 api.add_resource(getQuestions, '/api/getQuestions')
 api.add_resource(getStatistics, '/api/getStatistics')

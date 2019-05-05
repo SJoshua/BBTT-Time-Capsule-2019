@@ -1,5 +1,5 @@
 from flask_restful import Resource
 
-class getStatus(Resource):
+class getInfo(Resource):
 	def get(self):
 		pass
