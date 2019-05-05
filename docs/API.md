@@ -4,7 +4,7 @@
 All queries to the API need to be presented in this form: `/api/METHOD_NAME`. Like this for example:
 
 ```
-http://server.sforest.in/api/sendCapsule
+http://server.sforest.in/api/sendTimeCapsule
 ```
 
 Please pass parameters by `application/json` for those API using **POST** HTTP Request Method.
