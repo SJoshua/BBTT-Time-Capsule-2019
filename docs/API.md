@@ -21,7 +21,7 @@ HTTP Request Method: **GET**
 | callback | String | Yes      | The current url. |
 
 ### sign
-Use this method to bind user's wechat account. Please redirect to this API **before any action**. After getting user's OpenID, the API will redirect to the url specified in `callback`.
+Use this method to get signature for JS-SDK.
 
 HTTP Request Method: **GET**
 
