@@ -21,7 +21,7 @@ HTTP Request Method: **GET**
 | callback | String | Yes      | The current url. |
 
 ### sign
-Use this method to bind user's wechat account. Please redirect to this API before any action. After getting user's OpenID, the API will redirect to the url specified in `callback`.
+Use this method to bind user's wechat account. Please redirect to this API **before any action**. After getting user's OpenID, the API will redirect to the url specified in `callback`.
 
 HTTP Request Method: **GET**
 
@@ -34,6 +34,28 @@ HTTP Request Method: **GET**
 |-----------|---------|-----------------------------------|
 | signature | String  | Signature for Wechat API Calling. |
 | timestamp | Integer | The timestamp of signing.         |
+
+### getStatus
+Use this method to check if user's info have been recorded.
+
+HTTP Request Method: **GET**
+
+Requires no parameters.
+
+#### Response
+| Field  | Type    | Description                        |
+|--------|---------|------------------------------------|
+| record | Boolean | If user's info have been recorded. |
+
+### updateInfo
+Use this method to update user's info.
+
+HTTP Request Method: **POST**
+
+| Field | Type   | Required | Description              |
+|-------|--------|----------|--------------------------|
+| name  | String | Yes      | User's name.             |
+| tel   | String | Yes      | User's telephone number. |
 
 ### sendTimeCapsule
 Use this method to send time capsule. 
@@ -112,12 +134,7 @@ HTTP Request Method: **POST**
 ### getStatistics
 Use this method to get statistics of specified user.
 
-HTTP Request Method: **POST**
-
-| Field | Type   | Required | Description              |
-|-------|--------|----------|--------------------------|
-| name  | String | Yes      | User's name.             |
-| tel   | String | Yes      | User's telephone number. |
+Requires no parameters.
 
 #### Response
 
