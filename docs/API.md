@@ -64,16 +64,17 @@ Use this method to send time capsule.
 
 HTTP Request Method: **POST**
 
-| Field         | Type   | Required | Description                                                    |
-|---------------|--------|----------|----------------------------------------------------------------|
-| receiver_name | String | Yes      | Receiver's name.                                               |
-| receiver_tel  | String | Yes      | Receiver's telephone number.                                   |
-| type          | String | Yes      | The type of time capsule. Must be `text` or `voice`.           |
-| period        | String | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
-| message       | String | Optional | The message of time capsule.                                   |
-| signature     | String | Optional | The signature to time capsule.                                 |
-| vocative      | String | Optional | The vocative of receiver.                                      |
-| file_id       | String | Optional | The file id of recorded voice.                                 |
+| Field         | Type    | Required | Description                                                    |
+|---------------|---------|----------|----------------------------------------------------------------|
+| receiver_name | String  | Yes      | Receiver's name.                                               |
+| receiver_tel  | String  | Yes      | Receiver's telephone number.                                   |
+| type          | String  | Yes      | The type of time capsule. Must be `text` or `voice`.           |
+| period        | String  | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
+| from_qrcode   | Boolean | Yes      | If the sender scanned a QR Code.                               |
+| message       | String  | Optional | The message of time capsule.                                   |
+| signature     | String  | Optional | The signature to time capsule.                                 |
+| vocative      | String  | Optional | The vocative of receiver.                                      |
+| file_id       | String  | Optional | The file id of recorded voice.                                 |
 
 #### Response
 | Field | Type    | Description                       |
