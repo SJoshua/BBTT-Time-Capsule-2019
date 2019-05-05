@@ -1,6 +1,6 @@
 # Time Capsule 2019 - Backend
 ## Introduction
-API document is [here](./API.md).
+API document is [here](./docs/API.md). Database document is [here](./docs/Database.md).
 
 ## Requirement
 * Python 3.6+
@@ -11,4 +11,14 @@ API document is [here](./API.md).
 * Todo?
 
 ## To-do
-* Implementation of basic features.
+* Common database interactions
+* API bindWechat
+* API getQRCode
+* API getStatistics
+* API getStatus
+* API sendOfflineCapsule
+* API sendQuestionCapsule
+* API sendTImeCapsule
+* API sign
+* API updateInfo
+* Installation
