@@ -24,3 +24,4 @@ api.add_resource(sendTimeCapsule, '/api/sendTimeCapsule')
 api.add_resource(sendOfflineCapsule, '/api/sendOfflineCapsule')
 api.add_resource(sendQuestionCapsule, '/api/sendQuestionCapsule')
 api.add_resource(updateInfo, '/api/updateInfo')
+

@@ -25,9 +25,10 @@ Use this method to bind user's wechat account. Please redirect to this API **bef
 
 HTTP Request Method: **GET**
 
-| Field    | Type   | Required | Description      |
-|----------|--------|----------|------------------|
-| noncestr | String | Yes      | A random string. |
+| Field    | Type   | Required | Description                        |
+|----------|--------|----------|------------------------------------|
+| noncestr | String | Yes      | A random string.                   |
+| url      | String | Yes      | The url of the page calling JSSDK. |
 
 #### Response
 | Field     | Type    | Description                       |
