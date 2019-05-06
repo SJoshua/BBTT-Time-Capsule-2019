@@ -15,7 +15,6 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * API bindWechat
 * API getQRCode
 * API getStatistics
-* API getStatus
 * API sendOfflineCapsule
 * API sendQuestionCapsule
 * API sendTImeCapsule

@@ -11,31 +11,6 @@ Please pass parameters by `application/json` for those API using **POST** HTTP R
 
 The response contains a JSON object. The Boolean field `ok` will be `true` if **the API call successed**, otherwise `false`. In the case of API call failed, a String field `description` and a Integer field `error_code` will be returned to explain the error.
 
-### bindWechat
-Use this method to bind user's wechat account. Please redirect to this API before any action. After getting user's OpenID, the API will redirect to the url specified in `callback`.
-
-HTTP Request Method: **GET**
-
-| Field    | Type   | Required | Description      |
-|----------|--------|----------|------------------|
-| callback | String | Yes      | The current url. |
-
-### sign
-Use this method to get signature for JS-SDK.
-
-HTTP Request Method: **GET**
-
-| Field    | Type   | Required | Description                        |
-|----------|--------|----------|------------------------------------|
-| noncestr | String | Yes      | A random string.                   |
-| url      | String | Yes      | The url of the page calling JSSDK. |
-
-#### Response
-| Field     | Type    | Description                       |
-|-----------|---------|-----------------------------------|
-| signature | String  | Signature for Wechat API Calling. |
-| timestamp | Integer | The timestamp of signing.         |
-
 ### getInfo
 Use this method to check if user's info have been recorded.
 
