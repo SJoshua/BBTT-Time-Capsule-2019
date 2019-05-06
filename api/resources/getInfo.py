@@ -10,7 +10,7 @@ class getInfo(Resource):
 				"error_code": 403,
 				"description": "Please bind Wechat account first."
 			}
-		info = database.getInfo()
+		info = database.getInfo(session["open_id"])
 		if info is None:
 			return {
 				"ok": True,

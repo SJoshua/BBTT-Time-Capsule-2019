@@ -6,18 +6,17 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * Python 3.6+
 * Flask
 * Flask-RESTful
+* Pillow
+* qrcode
 
 ## Installation
 * Todo?
 
 ## To-do
 * Common database interactions
-* API bindWechat
 * API getQRCode
 * API getStatistics
 * API sendOfflineCapsule
 * API sendQuestionCapsule
 * API sendTImeCapsule
-* API sign
 * API updateInfo
-* Installation

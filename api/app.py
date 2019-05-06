@@ -1,5 +1,5 @@
-from flask import Flask
-from flask_restful import Api
+import flask
+import flask_restful
 from api.resources.getInfo import getInfo
 from api.resources.getQRCode import getQRCode
 from api.resources.getQuestions import getQuestions
@@ -9,8 +9,11 @@ from api.resources.sendOfflineCapsule import sendOfflineCapsule
 from api.resources.sendQuestionCapsule import sendQuestionCapsule
 from api.resources.updateInfo import updateInfo
 
-app = Flask(__name__)
-api = Api(app)
+app = flask.Flask(__name__)
+
+app.secret_key = "dev"
+
+api = flask_restful.Api(app)
 
 api.add_resource(getInfo, '/api/getInfo')
 api.add_resource(getQRCode, '/api/getQRCode')
@@ -21,3 +24,30 @@ api.add_resource(sendOfflineCapsule, '/api/sendOfflineCapsule')
 api.add_resource(sendQuestionCapsule, '/api/sendQuestionCapsule')
 api.add_resource(updateInfo, '/api/updateInfo')
 
+def custom_abord(http_status_code, *args, **kwargs):
+    if http_status_code == 400:
+        flask.abort(400, {
+        	"ok": False,
+        	"error_code": 400,
+        	"description": "Invaild parameter."
+        })
+    return flask.abort(http_status_code)
+
+flask_restful.abort = custom_abord
+
+##############################################################
+class setSession(flask_restful.Resource):
+	def get(self):
+		if "open_id" not in flask.session:
+			flask.session['open_id'] = "test_open_id"
+			return {
+				"ok": True,
+				"open_id": flask.session['open_id']
+			}
+		else:
+			return {
+				"ok": False,
+				"open_id": flask.session['open_id']
+			}
+
+api.add_resource(setSession, '/api/setSession')

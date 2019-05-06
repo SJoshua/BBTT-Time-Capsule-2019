@@ -11,6 +11,7 @@ CREATE TABLE time_capsules (
 	receiver_tel TEXT NOT NULL,
 	period TEXT NOT NULL,
 	type TEXT NOT NULL,
+	from_qrcode BOOLEAN NOT NULL,
 	message TEXT,
 	signature TEXT,
 	vocative TEXT,
