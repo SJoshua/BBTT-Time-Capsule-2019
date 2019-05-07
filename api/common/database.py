@@ -64,10 +64,10 @@ class database:
 		con.commit()
 		con.close()
 
-	def addTimeCapsule(sender_id, receiver_name, receiver_tel, type, period, from_qrcode, message, signature, vocative, file_id):
+	def addTimeCapsule(sender_id, receiver_name, receiver_tel, type, period, from_qrcode, message, file_id):
 		con = sqlite3.connect(cfg['db_name'])
 		cur = con.cursor()
-		cur.execute("INSERT INTO time_capsules(sender_id, receiver_name, receiver_tel, type, period, from_qrcode, message, signature, vocative, file_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [sender_id, receiver_name, receiver_tel, type, period, from_qrcode, message, signature, vocative, file_id])
+		cur.execute("INSERT INTO time_capsules(sender_id, receiver_name, receiver_tel, type, period, from_qrcode, message, file_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", [sender_id, receiver_name, receiver_tel, type, period, from_qrcode, message, file_id])
 		cur.close()
 		con.commit()
 		con.close()

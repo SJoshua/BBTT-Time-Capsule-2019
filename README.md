@@ -10,13 +10,7 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * qrcode
 
 ## Installation
-* Todo?
+* `python3 install.py` 
 
 ## To-do
-* Common database interactions
-* API getQRCode
-* API getStatistics
-* API sendOfflineCapsule
-* API sendQuestionCapsule
-* API sendTImeCapsule
-* API updateInfo
+* Validating parameters passed in.

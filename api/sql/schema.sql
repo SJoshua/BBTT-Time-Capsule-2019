@@ -13,8 +13,6 @@ CREATE TABLE time_capsules (
 	type TEXT NOT NULL,
 	from_qrcode BOOLEAN NOT NULL,
 	message TEXT,
-	signature TEXT,
-	vocative TEXT,
 	file_id TEXT,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

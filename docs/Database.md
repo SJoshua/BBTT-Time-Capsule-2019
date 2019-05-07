@@ -6,7 +6,7 @@
 * id, name, tel
 
 ### Table - time_capsules
-* sender_id, receiver_name, receiver_tel, type, period, message, signature, vocative, file_id, from_qrcode
+* sender_id, receiver_name, receiver_tel, type, period, message, file_id, from_qrcode
 
 ### Table - question_capsules
 * sender_id, period, question, message

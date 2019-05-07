@@ -16,8 +16,6 @@ HTTP Request Method: **POST**
 | period        | String  | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
 | from_qrcode   | Boolean | Yes      | If the sender scanned a QR Code.                               |
 | message       | String  | Optional | The message of time capsule.                                   |
-| signature     | String  | Optional | The signature to time capsule.                                 |
-| vocative      | String  | Optional | The vocative of receiver.                                      |
 | file_id       | String  | Optional | The file id of recorded voice.                                 |
 
 #### Response
@@ -34,8 +32,6 @@ parser.add_argument('type', type = str, required = True, choices = ('text', 'voi
 parser.add_argument('period', type = str, required = True, choices = ('half-year', 'one-year'))
 parser.add_argument('from_qrcode', type = bool, required = True)
 parser.add_argument('message', type = str)
-parser.add_argument('signature', type = str)
-parser.add_argument('vocative', type = str)
 parser.add_argument('file_id', type = str)
 
 class sendTimeCapsule(Resource):
@@ -48,24 +44,27 @@ class sendTimeCapsule(Resource):
 			}
 		args = parser.parse_args()
 		if args["type"] == "text":
-			if "message" not in args or "signature" not in args or "vocative" not in args:
+			if "message" not in args:
 				return {
 					"ok": False,
 					"error_code": 400,
-					"description": "Invaild parameters."
+					"description": "Missing parameter: message."
 				}
 			else:
-				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], args["message"], args["signature"], args["vocative"], None)
+				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], args["message"], None)
 		elif args["type"] == "voice":
 			if "file_id" not in args:
 				return {
 					"ok": False,
 					"error_code": 400,
-					"description": "Invaild parameters."
+					"description": "Missing parameter: file_id"
 				}
 			else:
-				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, None, None, args["file_id"])
+				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, args["file_id"])
+		info = database.getInfo(session["open_id"])
 		return {
 			"ok": True,
-			"count": database.getTimeCapsules()
+			"count": database.getTimeCapsules(),
+			"period": args["period"],
+			"name": info[1]
 		}

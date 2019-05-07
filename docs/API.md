@@ -47,8 +47,6 @@ HTTP Request Method: **POST**
 | period        | String  | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
 | from_qrcode   | Boolean | Yes      | If the sender scanned a QR Code.                               |
 | message       | String  | Optional | The message of time capsule.                                   |
-| signature     | String  | Optional | The signature to time capsule.                                 |
-| vocative      | String  | Optional | The vocative of receiver.                                      |
 | file_id       | String  | Optional | The file id of recorded voice.                                 |
 
 #### Response
