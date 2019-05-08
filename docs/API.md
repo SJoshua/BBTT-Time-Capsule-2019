@@ -87,24 +87,21 @@ HTTP Request Method: **GET**
 Requires no parameters.
 
 #### Response
-| Field         | Type                     | Description                                                                                                                  |
-|---------------|--------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| question_list | Array of Array of String | A array of **three** arrays of questions. The id of a question is `[CATEGORY_INDEX]-[QUESTION_INDEX]`, such as `1-1`, `2-3`. |
+| Field         | Type            | Description                                                                                                    |
+|---------------|-----------------|----------------------------------------------------------------------------------------------------------------|
+| question_list | Array of String | A array of three questions. The id of a question is `[CATEGORY_INDEX] * 109 + [QUESTION_INDEX]`, such as `100`, `203`. |
 
 ### getQRCode
 Use this method to get QR Code for specified user.
 
-HTTP Request Method: **POST**
+HTTP Request Method: **GET**
 
-| Field | Type   | Required | Description              |
-|-------|--------|----------|--------------------------|
-| name  | String | Yes      | User's name.             |
-| tel   | String | Yes      | User's telephone number. |
+Requires no parameters.
 
 #### Response
 | Field | Type   | Description                                |
 |-------|--------|--------------------------------------------|
-| image | String | An inlined image (png), encoded in base64. |
+| image | String | An inline image (png), encoded in base64. |
 
 ### getStatistics
 Use this method to get statistics of specified user.

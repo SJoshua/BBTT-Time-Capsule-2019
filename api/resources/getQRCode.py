@@ -11,7 +11,7 @@ class getQRCode(Resource):
 				"error_code": 403,
 				"description": "Please bind Wechat account first."
 			}
-		url = "to-be-determined"
+		url = "https://hemc.100steps.net/2019/time-capsule/QR.html?uid=" # to-do
 		qrcode.make(url).save("qrcode.png")
 		f = open("qrcode.png", "rb")
 		image = base64.b64encode(f.read())
