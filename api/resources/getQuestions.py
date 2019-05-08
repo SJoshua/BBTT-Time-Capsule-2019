@@ -7,9 +7,9 @@ class getQuestions(Resource):
 		f = open("./config/questions.json", "r")
 		r = f.read()
 		f.close()
-		ia = random.randint(0, len(r[0]))
-		ib = random.randint(0, len(r[1]))
-		ic = random.randint(0, len(r[2]))
+		ia = random.randint(0, len(r[0]) - 1)
+		ib = random.randint(0, len(r[1]) - 1)
+		ic = random.randint(0, len(r[2]) - 1)
 		return {
 			"ok": True,
 			"question_list": {
