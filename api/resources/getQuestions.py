@@ -5,7 +5,7 @@ import random
 class getQuestions(Resource):
 	def get(self):
 		f = open("./config/questions.json", "r")
-		r = f.read()
+		r = json.loads(f.read())
 		f.close()
 		ia = random.randint(0, len(r[0]) - 1)
 		ib = random.randint(0, len(r[1]) - 1)
