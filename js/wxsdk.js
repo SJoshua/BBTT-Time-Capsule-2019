@@ -1,8 +1,9 @@
 $.ajax({
-    url:"getInfo",
-    type:"post",
+    url:"http://server.sforest.in:2019/api/getInfo",
+    type:"get",
     dataType:"json",
     success:function(data){
+        console.log(data)
         if (data.record==false) {bindwx();}
     }
 })

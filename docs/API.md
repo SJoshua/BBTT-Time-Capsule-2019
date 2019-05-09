@@ -62,7 +62,7 @@ HTTP Request Method: **POST**
 | Field       | Type   | Required | Description                                                    |
 |-------------|--------|----------|----------------------------------------------------------------|
 | period      | String | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
-| question    | String | Yes      | The id of selected question. Such as `1-1`.                    |
+| question    | String | Yes      | The id of selected question. Such as `101`.                    |
 | message     | String | Yes      | The answer to selected question.                               |
 
 ### sendOfflineCapsule

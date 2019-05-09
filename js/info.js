@@ -35,7 +35,7 @@ submit.addEventListener("click",function(){
     }
     if (str==""){
         $.ajax({
-            url:"updateInfo",
+            url:"http://server.sforest.in:2019/api/updateInfo",
             data:{
                 "name":name,
                 "tel":phone,

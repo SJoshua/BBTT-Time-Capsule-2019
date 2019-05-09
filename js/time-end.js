@@ -1,6 +1,6 @@
 $.ajax({
     // url:"sendTimeCapsule",
-    url:"./json/4.JSON",
+    url:"http://server.sforest.in:2019/api/sendTimeCapsule",
     type:"post",
     dataType:"json",
     success:function(data){
@@ -19,7 +19,7 @@ $.ajax({
     }
 });
 $.ajax({
-    url:"sendTimeCapsule",
+    url:"http://server.sforest.in:2019/api/sendTimeCapsule",
     type:"post",
     dataType:"json",
     success:function(data){

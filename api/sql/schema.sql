@@ -3,6 +3,7 @@ CREATE TABLE users (
 	name TEXT NOT NULL,
 	tel TEXT NOT NULL,
 	registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	# 这里加一个UUID
 );
 
 CREATE TABLE time_capsules (

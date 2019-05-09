@@ -1,5 +1,6 @@
 import flask
 import flask_restful
+from flask_cors import CORS
 from api.resources.getInfo import getInfo
 from api.resources.getQRCode import getQRCode
 from api.resources.getQuestions import getQuestions
@@ -10,6 +11,8 @@ from api.resources.sendQuestionCapsule import sendQuestionCapsule
 from api.resources.updateInfo import updateInfo
 
 app = flask.Flask(__name__)
+
+CORS(app)
 
 app.secret_key = "dev"
 

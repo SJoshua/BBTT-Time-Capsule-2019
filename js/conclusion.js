@@ -3,7 +3,7 @@ var winHeight = $(window).height();
 document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
 $.ajax({
     // url:"getInfo",
-    url:"./json/test.JSON",
+    url:"http://server.sforest.in:2019/api/getInfo",
     type:"post",
     dataType:"json",
     success:function(data){
@@ -12,7 +12,7 @@ $.ajax({
 });
 $.ajax({
     // url:"getStatistics",
-    url:"./json/test2.JSON",
+    url:"http://server.sforest.in:2019/api/getStatistics",
     type:"post",
     dataType:"json",
     success:function(data){

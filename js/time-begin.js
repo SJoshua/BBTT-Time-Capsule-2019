@@ -7,7 +7,7 @@ document.getElementById("main").style.width=winWidth+'px';
 document.getElementById("submit").style.top=height*0.83+'px';
 $.ajax({
     // url:"getInfo",
-    url:"./json/test.JSON",
+    url:"http://server.sforest.in:2019/api/getInfo",
     type:"post",
     dataType:"json",
     success:function(data){
@@ -63,7 +63,7 @@ submit.addEventListener("click",function(){
     console.log(sel2);
     if (str==""){
         $.ajax({
-            url:"sendTimeCapsule",
+            url:"http://server.sforest.in:2019/api/sendTimeCapsule",
             data:{
                 "receiver_name":name,
                 "receiver_tel":phone,
