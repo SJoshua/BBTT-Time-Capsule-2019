@@ -1,5 +1,4 @@
 
-__pycache__/hello.cpython-36.pyc
 config/config.py
 *.pyc
 *.db
