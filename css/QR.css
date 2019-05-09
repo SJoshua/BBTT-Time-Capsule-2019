@@ -1,0 +1,13 @@
+.code{
+    width:200px;
+    height:200px;
+    border:solid black 1px;
+    margin:0 auto;   
+}
+.btn{
+    width:140px;
+    height:55.5px;
+    position:absolute;
+    top:60%;left:50%;
+    margin-left:-70px;
+}
