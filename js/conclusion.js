@@ -4,7 +4,7 @@ document.getElementById("background").style.backgroundSize=winWidth+'px '+winHei
 $.ajax({
     // url:"getInfo",
     url:"http://server.sforest.in:2019/api/getInfo",
-    type:"post",
+    type:"get",
     dataType:"json",
     ///////////////////////// TEST
     xhrFields: {
@@ -19,7 +19,7 @@ $.ajax({
 $.ajax({
     // url:"getStatistics",
     url:"http://server.sforest.in:2019/api/getStatistics",
-    type:"post",
+    type:"get",
     ///////////////////////// TEST
     xhrFields: {
         withCredentials: true

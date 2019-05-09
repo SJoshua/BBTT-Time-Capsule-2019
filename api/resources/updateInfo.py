@@ -1,5 +1,6 @@
 from flask import session
 from flask_restful import Resource, reqparse
+from api.common.database import database
 
 '''
 ### updateInfo
@@ -26,7 +27,7 @@ class updateInfo(Resource):
 				"description": "Please bind Wechat account first."
 			}
 		args = parser.parse_args()
-		insertInfo(session["open_id"], args["name"], args["tel"])
+		database.insertInfo(session["open_id"], args["name"], args["tel"])
 		return {
 			"ok": True
 		}
