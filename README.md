@@ -13,4 +13,7 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * `python3 install.py` 
 
 ## To-do
-* Validating parameters passed in.
+* Validator of parameters
+* Change database to MySQL
+* Improve database structure
+
