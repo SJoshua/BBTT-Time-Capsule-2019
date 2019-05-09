@@ -28,6 +28,12 @@ submit.addEventListener("click",function(){
      else{
         $.ajax({
             url:"http://server.sforest.in:2019/api/sendTimeCapsule",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
             data:{
                 "message":msg,
             },

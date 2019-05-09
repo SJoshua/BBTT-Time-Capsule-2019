@@ -6,6 +6,12 @@ $.ajax({
     url:"http://server.sforest.in:2019/api/getInfo",
     type:"post",
     dataType:"json",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
     success:function(data){
         document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>'+'  同学';
     }
@@ -14,6 +20,12 @@ $.ajax({
     // url:"getStatistics",
     url:"http://server.sforest.in:2019/api/getStatistics",
     type:"post",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
     dataType:"json",
     success:function(data){
         document.getElementById("sent").innerHTML='<strong>'+data.sent+'</strong>';

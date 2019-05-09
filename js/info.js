@@ -36,6 +36,12 @@ submit.addEventListener("click",function(){
     if (str==""){
         $.ajax({
             url:"http://server.sforest.in:2019/api/updateInfo",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
             data:{
                 "name":name,
                 "tel":phone,

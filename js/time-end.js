@@ -2,6 +2,12 @@ $.ajax({
     // url:"sendTimeCapsule",
     url:"http://server.sforest.in:2019/api/sendTimeCapsule",
     type:"post",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
     dataType:"json",
     success:function(data){
         var num=document.getElementById("count");
