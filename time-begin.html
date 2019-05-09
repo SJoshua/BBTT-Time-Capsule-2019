@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时光胶囊开始</title>
+    <link rel="stylesheet" href="./css/time-begin.css">
+</head>
+<body>
+    <div class="box2" id="dark">
+    </div>
+    <div id="background"class="box">
+        <div class="user">
+            <span id="who"></span>
+        </div>
+        <div class="main" id="main">
+            <input type="text" class="k1" id="name"><br/>
+            <input type="text" class="k2" id="phone"><br/>
+            <div class="sel1">
+                <label>
+                    <input type="radio" name="duration" value="half-year" class="hide">
+                    <span class="w">半年</span> <span class="o"></span>
+                </label>&nbsp;&nbsp;
+                <label>
+                    <input type="radio" name="duration" value="one-year" class="hide">
+                    <span class="w">一年</span> <span class="o"></span>
+                </label>
+            </div>
+            <br/>
+            <div class="sel2">
+                <label>
+                    <input type="radio" name="kind" value="text" class="hide">
+                    <span class="w">文字</span> <span class="o"></span>
+                </label>&nbsp;&nbsp;
+                <label>
+                    <input type="radio" name="kind" value="voice" class="hide">
+                    <span class="w">语音</span> <span class="o"></span>
+                </label>
+            </div>
+            <br/>
+        </div>
+        <img src="./img/btn7.png" class="btn" id="submit">
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/time-begin.js"></script>
+    <script src="./js/wxsdk.js"></script>
+</body>
+</html>
