@@ -12,7 +12,7 @@ from api.resources.updateInfo import updateInfo
 
 app = flask.Flask(__name__)
 
-CORS(app)
+CORS(app, resources = r'/api/*')
 
 app.secret_key = "dev"
 
