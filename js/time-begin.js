@@ -8,7 +8,7 @@ document.getElementById("submit").style.top=height*0.83+'px';
 $.ajax({
     // url:"getInfo",
     url:"http://server.sforest.in:2019/api/getInfo",
-    type:"post",
+    type:"get",
     dataType:"json",
     ///////////////////////// TEST
     xhrFields: {
