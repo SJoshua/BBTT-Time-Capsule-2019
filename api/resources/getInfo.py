@@ -16,7 +16,8 @@ class getInfo(Resource):
 					t = json.loads(r)
 					if "open_id" in t:
 						session["open_id"] = t["open_id"]
-
+				except:
+					pass
 		if "open_id" not in session:
 			return {
 				"ok": False,
