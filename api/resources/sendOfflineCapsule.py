@@ -1,6 +1,7 @@
 from flask import session
-from flask_restful import Resource, reqparse
+from flask_restful import Resource, reqparse, inputs
 from api.common.database import database
+from api.common.utils import checkTag
 
 '''
 ### sendOfflineCapsule
@@ -13,7 +14,7 @@ HTTP Request Method: **POST**
 | receiver_name | String  | Yes      | Receiver's name.                                               |
 | receiver_tel  | String  | Yes      | Receiver's telephone number.                                   |
 | receiver_addr | String  | Yes      | Receiver's address.                                            |
-| capsule_id    | String  | Yes      | The ID attached on the envelope.                               |
+| capsule_tag   | String  | Yes      | The tag ID attached on the envelope.                           |
 | period        | String  | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
 | seal          | Boolean | Yes      | Whether the seal is required.                                  |
 '''
@@ -23,9 +24,9 @@ parser = reqparse.RequestParser()
 parser.add_argument('receiver_name', type = str, required = True)
 parser.add_argument('receiver_tel', type = str, required = True)
 parser.add_argument('receiver_addr', type = str, required = True)
-parser.add_argument('capsule_id', type = str, required = True)
+parser.add_argument('capsule_tag', type = str, required = True)
 parser.add_argument('period', type = str, required = True, choices = ('half-year', 'one-year'))
-parser.add_argument('seal', type = bool, required = True)
+parser.add_argument('seal', type = inputs.boolean, required = True)
 
 class sendOfflineCapsule(Resource):
 	def post(self):
@@ -35,8 +36,27 @@ class sendOfflineCapsule(Resource):
 				"error_code": 403,
 				"description": "Please bind Wechat account first."
 			}
+		info = database.getInfo(session["open_id"])
+		if info is None:
+			return {
+				"ok": False,
+				"error_code": 403,
+				"description": "Please update information first."
+			}
 		args = parser.parse_args()
-		database.addOfflineCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_id"], args["period"], args["seal"])
+		if checkTag(args["capsule_tag"]) == False:
+			return {
+				"ok": False,
+				"error_code": 400,
+				"description": "Invaild capsule tag."
+			}
+		if not database.getTagStatus(args["capsule_tag"]):
+			return {
+				"ok": False,
+				"error_code": 410,
+				"description": "The capsule tag already exists."
+			}
+		database.addOfflineCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
 		return {
 			"ok": True
 		}

@@ -13,12 +13,12 @@ class getQRCode(Resource):
 				"error_code": 403,
 				"description": "Please bind Wechat account first."
 			}
-		info = database.getInfo()
+		info = database.getInfo(session["open_id"])
 		if info is None:
 			return {
 				"ok": False,
 				"error_code": 403,
-				"description": "Please update user's information first."
+				"description": "Please update information first."
 			}
 		url = "https://hemc.100steps.net/2019/time-capsule/QR.html?uid=%s" % encodeUID(info[0])
 		qrcode.make(url).save("qrcode.png")
@@ -27,5 +27,5 @@ class getQRCode(Resource):
 		f.close()
 		return {
 			"ok": True,
-			"image": "data:image/png;base64," + image
+			"image": "data:image/png;base64," + str(image, 'utf-8')
 		}

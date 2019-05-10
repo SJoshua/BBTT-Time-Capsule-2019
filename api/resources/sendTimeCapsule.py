@@ -1,5 +1,5 @@
 from flask import session
-from flask_restful import Resource, reqparse
+from flask_restful import Resource, reqparse, inputs
 from api.common.database import database
 
 '''
@@ -30,7 +30,7 @@ parser.add_argument('receiver_name', type = str, required = True)
 parser.add_argument('receiver_tel', type = str, required = True)
 parser.add_argument('type', type = str, required = True, choices = ('text', 'voice'))
 parser.add_argument('period', type = str, required = True, choices = ('half-year', 'one-year'))
-parser.add_argument('from_qrcode', type = bool, required = True)
+parser.add_argument('from_qrcode', type = inputs.boolean, required = True)
 parser.add_argument('message', type = str)
 parser.add_argument('file_id', type = str)
 
@@ -42,9 +42,16 @@ class sendTimeCapsule(Resource):
 				"error_code": 403,
 				"description": "Please bind Wechat account first."
 			}
+		info = database.getInfo(session["open_id"])
+		if info is None:
+			return {
+				"ok": False,
+				"error_code": 403,
+				"description": "Please update information first."
+			}
 		args = parser.parse_args()
 		if args["type"] == "text":
-			if "message" not in args:
+			if args["message"] is None:
 				return {
 					"ok": False,
 					"error_code": 400,
@@ -53,11 +60,11 @@ class sendTimeCapsule(Resource):
 			else:
 				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], args["message"], None)
 		elif args["type"] == "voice":
-			if "file_id" not in args:
+			if args["file_id"] is None:
 				return {
 					"ok": False,
 					"error_code": 400,
-					"description": "Missing parameter: file_id"
+					"description": "Missing parameter: file_id."
 				}
 			else:
 				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, args["file_id"])

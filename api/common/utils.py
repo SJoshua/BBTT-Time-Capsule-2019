@@ -1,14 +1,26 @@
-# Carol primes
-mp_prime = 16127
-ad_prime = 3967
+from config.config import mp_prime, ad_prime, fmp_prime, fad_prime, max_tag
 
 def encodeUID(id):
 	return "%x" % (int(id) * mp_prime + ad_prime)
 
 def decodeUID(uid):
-	n = int(uid, 16) - ad_prime
-	ret = n // mp_prime
-	if n * mp_prime != ret:
+	try:
+		n = int(uid, 16) - ad_prime
+		ret = n // mp_prime
+		if ret * mp_prime != n:
+			return -1
+		else:
+			return ret
+	except:
 		return -1
-	else:
-		return ret
+
+def checkTag(tag):
+	try:
+		n = int(tag, 16) - fad_prime
+		tid = n // fmp_prime
+		if tid * fmp_prime != n or tid < 1 or tid > max_tag:
+			return False
+		else:
+			return True
+	except:
+		return False

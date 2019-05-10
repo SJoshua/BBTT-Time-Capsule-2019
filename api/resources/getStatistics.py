@@ -27,6 +27,13 @@ class getStatistics(Resource):
 				"error_code": 403,
 				"description": "Please bind Wechat account first."
 			}
+		info = database.getInfo(session["open_id"])
+		if info is None:
+			return {
+				"ok": False,
+				"error_code": 403,
+				"description": "Please update information first."
+			}
 		(sent, received_by_qrcode, received_by_tel, answered) = database.getStatistics(session["open_id"])
 		return {
 			"ok": True,

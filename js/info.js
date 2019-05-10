@@ -35,7 +35,7 @@ submit.addEventListener("click",function(){
     }
     if (str==""){
         $.ajax({
-            url:"http://server.sforest.in:2019/api/updateInfo",
+            url:"http://localhost:2019/api/updateInfo",
     ///////////////////////// TEST
     xhrFields: {
         withCredentials: true
@@ -49,10 +49,9 @@ submit.addEventListener("click",function(){
             type:"post",
             dataType:"json",
             success:function(){
-              
+                window.location.href="content.html";
             }
         })
-        window.location.href="content.html";
     }
     else{
         showError(str);

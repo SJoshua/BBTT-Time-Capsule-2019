@@ -27,7 +27,7 @@ submit.addEventListener("click",function(){
     if (msg=="") {showError("信件不能为空哦")}
      else{
         $.ajax({
-            url:"http://localhost/api/sendTimeCapsule",
+            url:"http://localhost:2019/api/sendTimeCapsule",
     ///////////////////////// TEST
     xhrFields: {
         withCredentials: true
@@ -40,10 +40,9 @@ submit.addEventListener("click",function(){
             type:"post",
             dataType:"json",
             success:function(){
-
+                window.location.href="time-end.html";
             }
         })
-        window.location.href="time-end.html";
     }   
 })
 

@@ -7,7 +7,7 @@ document.getElementById("main").style.width=winWidth+'px';
 document.getElementById("submit").style.top=height*0.83+'px';
 $.ajax({
     // url:"getInfo",
-    url:"http://server.sforest.in:2019/api/getInfo",
+    url:"http://localhost:2019/api/getInfo",
     type:"get",
     dataType:"json",
     ///////////////////////// TEST
@@ -69,7 +69,7 @@ submit.addEventListener("click",function(){
     console.log(sel2);
     if (str==""){
         $.ajax({
-            url:"http://server.sforest.in:2019/api/sendTimeCapsule",
+            url:"http://localhost:2019/api/sendTimeCapsule",
             data:{
                 "receiver_name":name,
                 "receiver_tel":phone,
@@ -80,11 +80,10 @@ submit.addEventListener("click",function(){
             type:"post",
             dataType:"json",
             success:function(){
-
+                if (sel2=="text") {window.location.href="time-letter.html"} 
+                    else {window.location.href="time-voice.html"}
             }
         })
-        if (sel2=="text") {window.location.href="time-letter.html"} 
-            else {window.location.href="time-voice.html"}
     }
     else{
         showError(str);

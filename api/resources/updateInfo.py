@@ -27,6 +27,13 @@ class updateInfo(Resource):
 				"description": "Please bind Wechat account first."
 			}
 		args = parser.parse_args()
+		ret = database.getInfo(session["open_id"])
+		if ret is not None:
+			return {
+				"ok": False,
+				"error_code": 403,
+				"description": "User already exists."
+			}
 		database.insertInfo(session["open_id"], args["name"], args["tel"])
 		return {
 			"ok": True

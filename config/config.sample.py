@@ -6,3 +6,11 @@ cfg = {
 	"startTime": 1557849600,
 	"endTime": 1589471999
 }
+
+mp_prime = 2
+ad_prime = 2
+
+fmp_prime = 2
+fad_prime = 2
+
+max_tag = 1600

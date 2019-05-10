@@ -102,8 +102,7 @@ document.getElementById("finish").style.top=height*0.85+'px';
             type:"post",
             dataType:"json",
             success:function(){
-
+                window.location.href="time-end.html"
             }
         })
-        window.location.href="time-end.html"
     }

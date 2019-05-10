@@ -5,6 +5,7 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 ## Requirement
 * Python 3.6+
 * Flask
+* Flask_cors
 * Flask-RESTful
 * Pillow
 * qrcode
@@ -15,6 +16,4 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 
 ## To-do
 * Validator of parameters
-* Change database to MySQL
-* Improve database structure
 * Poster generation

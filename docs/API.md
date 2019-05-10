@@ -75,7 +75,7 @@ HTTP Request Method: **POST**
 | receiver_name | String  | Yes      | Receiver's name.                                               |
 | receiver_tel  | String  | Yes      | Receiver's telephone number.                                   |
 | receiver_addr | String  | Yes      | Receiver's address.                                            |
-| capsule_id    | String  | Yes      | The ID attached on the envelope.                               |
+| capsule_tag   | String  | Yes      | The tag ID attached on the envelope.                           |
 | period        | String  | Yes      | The period of time capsule. Must be `half-year` or `one-year`. |
 | seal          | Boolean | Yes      | Whether the seal is required.                                  |
 
@@ -127,7 +127,8 @@ HTTP Request Method: **POST**
 | uid   | String  | Yes      | UID in QR Code. |
 
 #### Response
-| Field  | Type    | Description                          |
-|--------|---------|--------------------------------------|
-| record | Boolean | If user's info have been recorded.   |
-| name   | String  | User's name if `record` is **true**. |
+| Field  | Type    | Description                                      |
+|--------|---------|--------------------------------------------------|
+| record | Boolean | If user's info have been recorded.               |
+| name   | String  | User's name if `record` is **true**.             |
+| tel    | String  | User's telephone number if `record` is **true**. |
