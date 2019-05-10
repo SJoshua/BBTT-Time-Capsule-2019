@@ -40,7 +40,6 @@ flask_restful.abort = custom_abord
 
 ##############################################################
 class setSession(flask_restful.Resource):
-	updateSession()
 	def get(self):
 		if "open_id" not in flask.session:
 			flask.session['open_id'] = "test_open_id"
