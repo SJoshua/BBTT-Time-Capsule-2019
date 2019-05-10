@@ -50,9 +50,9 @@ HTTP Request Method: **POST**
 | file_id       | String  | Optional | The file id of recorded voice.                                 |
 
 #### Response
-| Field | Type    | Description                       |
-|-------|---------|-----------------------------------|
-| count | Integer | The number of sent time capsules. |
+| Field | Type    | Description                                 |
+|-------|---------|---------------------------------------------|
+| count | Integer | The number of sent time-capsules by sender. |
 
 ### sendQuestionCapsule
 Use this method to send question capsule.
@@ -116,3 +116,18 @@ Requires no parameters.
 | received_by_qrcode | Integer | The number of received capsules via QR Code.          |
 | received_by_tel    | Integer | The number of received capsules via telephone number. |
 | answered           | Integer | The number of answers in Question Capsule.            |
+
+### getName
+Use this method to get user's name of specified UID, which is used in QR Code generation.
+
+HTTP Request Method: **POST**
+
+| Field | Type    | Required | Description     |
+|-------|---------|----------|-----------------|
+| uid   | String  | Yes      | UID in QR Code. |
+
+#### Response
+| Field  | Type    | Description                          |
+|--------|---------|--------------------------------------|
+| record | Boolean | If user's info have been recorded.   |
+| name   | String  | User's name if `record` is **true**. |
