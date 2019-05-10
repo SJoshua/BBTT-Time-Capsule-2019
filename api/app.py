@@ -9,7 +9,6 @@ from api.resources.sendTimeCapsule import sendTimeCapsule
 from api.resources.sendOfflineCapsule import sendOfflineCapsule
 from api.resources.sendQuestionCapsule import sendQuestionCapsule
 from api.resources.updateInfo import updateInfo
-from api.common.utils import updateSession
 
 app = flask.Flask(__name__)
 
