@@ -11,7 +11,7 @@ class getInfo(Resource):
 		if "open_id" not in session:
 			sess_id = request.cookies.get("PHPSESSID")
 			if sess_id is not None:
-				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", cookies = dict(PHPSESSID = sess_id))
+				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
 				try:
 					t = json.loads(r)
 					if "open_id" in t:
