@@ -15,5 +15,4 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * `python3 install.py` 
 
 ## To-do
-* Validator of parameters
-* Poster generation
+* Clear.
