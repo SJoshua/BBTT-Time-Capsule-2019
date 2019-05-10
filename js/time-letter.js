@@ -27,7 +27,7 @@ submit.addEventListener("click",function(){
     if (msg=="") {showError("信件不能为空哦")}
      else{
         $.ajax({
-            url:"http://server.sforest.in:2019/api/sendTimeCapsule",
+            url:"http://localhost/api/sendTimeCapsule",
     ///////////////////////// TEST
     xhrFields: {
         withCredentials: true

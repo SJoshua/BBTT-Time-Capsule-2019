@@ -1,5 +1,5 @@
 $.ajax({
-    url:"http://server.sforest.in:2019/api/getInfo",
+    url:"http://localhost:2019/api/getInfo",
     type:"get",
     dataType:"json",
     ///////////////////////// TEST

@@ -1,6 +1,7 @@
 import flask
 import flask_restful
 from flask_cors import CORS
+from api.resources.getName import getName
 from api.resources.getInfo import getInfo
 from api.resources.getQRCode import getQRCode
 from api.resources.getQuestions import getQuestions
@@ -18,6 +19,7 @@ app.secret_key = "dev"
 
 api = flask_restful.Api(app)
 
+api.add_resource(getName, '/api/getName')
 api.add_resource(getInfo, '/api/getInfo')
 api.add_resource(getQRCode, '/api/getQRCode')
 api.add_resource(getQuestions, '/api/getQuestions')

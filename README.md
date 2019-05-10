@@ -8,6 +8,7 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * Flask-RESTful
 * Pillow
 * qrcode
+* mysql-connector
 
 ## Installation
 * `python3 install.py` 
@@ -16,4 +17,4 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * Validator of parameters
 * Change database to MySQL
 * Improve database structure
-
+* Poster generation
