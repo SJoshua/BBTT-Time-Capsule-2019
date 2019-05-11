@@ -15,8 +15,8 @@ class database:
 			database = cfg["database"]
 		)
 		cur = con.cursor(prepared = True)
-		cur.execute("SET NAMES 'utf8'")
-		cur.execute("SET CHARACTER SET 'utf8'")
+		cur.execute("SET NAMES 'utf8mb4'")
+		cur.execute("SET CHARACTER SET 'utf8mb4'")
 		return con, cur
 
 	def getInfo(open_id):

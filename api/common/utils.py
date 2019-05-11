@@ -24,3 +24,4 @@ def checkTag(tag):
 			return True
 	except:
 		return False
+
