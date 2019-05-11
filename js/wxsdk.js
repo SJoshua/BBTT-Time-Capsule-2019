@@ -36,6 +36,9 @@ $.ajax({
             status=1;
         }
          else{status=1;}
+    },
+    error:function(data){
+        console.log(data);
     }
 })
 

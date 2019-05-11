@@ -9,7 +9,7 @@ http://server.sforest.in/api/sendTimeCapsule
 
 Please pass parameters by `application/json` for those API using **POST** HTTP Request Method.
 
-The response contains a JSON object. The Boolean field `ok` will be `true` if **the API call successed**, otherwise `false`. In the case of API call failed, a String field `description` and a Integer field `error_code` will be returned to explain the error.
+The response contains a JSON object. The HTTP status code indicates the status of API call. In case of a failed API call, there will be a `message` field to descript the error.
 
 ### getInfo
 Use this method to check if user's info have been recorded.
