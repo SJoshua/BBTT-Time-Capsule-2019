@@ -11,7 +11,7 @@ class getName(Resource):
 		args = parser.parse_args()
 		uid = decodeUID(args["uid"])
 		if uid == -1:
-			abort(400, "Invalid user id.")
+			abort(400, message = "Invalid user id.")
 		info = database.getInfoByUID(uid)
 		if info is None:
 			return {
