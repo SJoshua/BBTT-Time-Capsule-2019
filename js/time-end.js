@@ -1,7 +1,7 @@
 $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",
-    type:"post",
+    type:"get",
     ///////////////////////// TEST
     xhrFields: {
         withCredentials: true

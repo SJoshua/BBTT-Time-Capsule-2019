@@ -3,7 +3,13 @@ var status=0;
 function bindwx(){
     $.ajax({
         url:prefix+"setSession",
-        type:"post",
+        type:"get",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
         dataType:"json",
         success:function(data){
             wx.config({

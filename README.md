@@ -2,6 +2,8 @@
 ## Introduction
 API document is [here](./docs/API.md). Database document is [here](./docs/Database.md).
 
+Although Flask-RESTful is used, the API is not RESTful. swtcl.
+
 ## Requirement
 * Python 3.6+
 * Flask
@@ -15,4 +17,4 @@ API document is [here](./docs/API.md). Database document is [here](./docs/Databa
 * `python3 install.py` 
 
 ## To-do
-* Clear.
+* Disable API after specified date.

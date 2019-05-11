@@ -1,5 +1,5 @@
 $.ajax({
-    url:"http://localhost:2019/api/getQRCode",
+    url:"http://server.sforest.in:2019/api/getQRCode",
     type:"get",
     dateType:"json",
     ///////////////////////// TEST
