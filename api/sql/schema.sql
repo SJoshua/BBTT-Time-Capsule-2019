@@ -5,7 +5,7 @@ CREATE TABLE `DATABASE`.`users` (
 	`tel` TEXT NOT NULL , 
 	`registered` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
 	PRIMARY KEY (`uid`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `DATABASE`.`time_capsules` ( 
 	`capsule_id` INT NOT NULL AUTO_INCREMENT , 
@@ -19,7 +19,7 @@ CREATE TABLE `DATABASE`.`time_capsules` (
 	`from_qrcode` BOOLEAN NOT NULL , 
 	`sent` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
 	PRIMARY KEY (`capsule_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `DATABASE`.`question_capsules` ( 
 	`capsule_id` INT NOT NULL AUTO_INCREMENT , 
@@ -29,7 +29,7 @@ CREATE TABLE `DATABASE`.`question_capsules` (
 	`message` TEXT NOT NULL , 
 	`sent` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
 	PRIMARY KEY (`capsule_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `DATABASE`.`offline_capsules` ( 
 	`capsule_id` INT NOT NULL AUTO_INCREMENT , 
@@ -42,5 +42,5 @@ CREATE TABLE `DATABASE`.`offline_capsules` (
 	`seal` BOOLEAN NOT NULL , 
 	`sent` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
 	PRIMARY KEY (`capsule_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
