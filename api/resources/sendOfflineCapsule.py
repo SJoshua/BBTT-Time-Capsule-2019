@@ -1,5 +1,5 @@
 from flask import session, request
-from flask_restful import Resource, reqparse, inputs
+from flask_restful import Resource, reqparse, inputs, abort
 from api.common.database import database
 from api.common.utils import checkTag
 import json
@@ -43,32 +43,17 @@ class sendOfflineCapsule(Resource):
 				except:
 					pass
 		if "open_id" not in session:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "Please bind Wechat account first."
-			}
+			abort(401, message = "Please bind Wechat account first.")
 		info = database.getInfo(session["open_id"])
 		if info is None:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "Please update information first."
-			}
+			abort(403, message = "Please update information first.")
 		args = parser.parse_args()
 		if checkTag(args["capsule_tag"]) == False:
-			return {
-				"ok": False,
-				"error_code": 400,
-				"description": "Invaild capsule tag."
-			}
+			abort(400, message = "Invaild capsule tag.")
 		if not database.getTagStatus(args["capsule_tag"]):
-			return {
-				"ok": False,
-				"error_code": 410,
-				"description": "The capsule tag already exists."
-			}
+			abort(409, message = "The capsule tag already exists.")
 		database.addOfflineCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
 		return {
-			"ok": True
+			"receiver_name": args["receiver_name"],
+			"count": database.getStatisticsByTel(args["receiver_tel"])
 		}

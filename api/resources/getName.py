@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse
+from flask_restful import Resource, reqparse, abort
 from api.common.database import database
 from api.common.utils import decodeUID
 
@@ -11,19 +11,13 @@ class getName(Resource):
 		args = parser.parse_args()
 		uid = decodeUID(args["uid"])
 		if uid == -1:
-			return {
-				"ok": False,
-				"error_code": 400,
-				"description": "Invalid user id."
-			}
+			abort(400, "Invalid user id.")
 		info = database.getInfoByUID(uid)
 		if info is None:
 			return {
-				"ok": True,
 				"record": False
 			}
 		return {
-			"ok": True,
 			"record": True,
 			"name": info[1],
 			"tel": info[2]

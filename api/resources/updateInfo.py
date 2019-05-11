@@ -1,5 +1,5 @@
 from flask import session, request
-from flask_restful import Resource, reqparse
+from flask_restful import Resource, reqparse, abort
 from api.common.database import database
 import json
 import requests
@@ -33,19 +33,11 @@ class updateInfo(Resource):
 				except:
 					pass
 		if "open_id" not in session:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "Please bind Wechat account first."
-			}
+			abort(401, message = "Please bind Wechat account first.")
 		args = parser.parse_args()
 		ret = database.getInfo(session["open_id"])
 		if ret is not None:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "User already exists."
-			}
+			abort(409, message = "User already exists.")
 		database.insertInfo(session["open_id"], args["name"], args["tel"])
 		return {
 			"ok": True

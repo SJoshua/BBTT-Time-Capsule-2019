@@ -1,5 +1,5 @@
 from flask import session, request
-from flask_restful import Resource
+from flask_restful import Resource, abort
 from api.common.database import database
 import json
 import requests
@@ -34,21 +34,12 @@ class getStatistics(Resource):
 				except:
 					pass
 		if "open_id" not in session:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "Please bind Wechat account first."
-			}
+			abort(401, message = "Please bind Wechat account first.")
 		info = database.getInfo(session["open_id"])
 		if info is None:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "Please update information first."
-			}
+			abort(403, message = "Please update information first.")
 		(sent, received_by_qrcode, received_by_tel, answered) = database.getStatistics(session["open_id"])
 		return {
-			"ok": True,
 			"sent": sent,
 			"received_by_qrcode": received_by_qrcode,
 			"received_by_tel": received_by_tel,

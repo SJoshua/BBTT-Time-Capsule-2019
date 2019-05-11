@@ -1,5 +1,5 @@
 from flask import request, Response, make_response, session
-from flask_restful import Resource
+from flask_restful import Resource, abort
 from api.common.database import database
 import os
 import time
@@ -19,20 +19,14 @@ class getInfo(Resource):
 				except:
 					pass
 		if "open_id" not in session:
-			return {
-				"ok": False,
-				"error_code": 403,
-				"description": "Please bind Wechat account first."
-			}
+			abort(401, message = "Please bind Wechat account first.")
 		info = database.getInfo(session["open_id"])
 		if info is None:
 			return {
-				"ok": True,
 				"record": False
 			}
 		else:
 			return {
-				"ok": True,
 				"record": True,
 				"name": info[1]
 			}

@@ -31,30 +31,13 @@ api.add_resource(sendOfflineCapsule, '/api/sendOfflineCapsule')
 api.add_resource(sendQuestionCapsule, '/api/sendQuestionCapsule')
 api.add_resource(updateInfo, '/api/updateInfo')
 
-def custom_abord(http_status_code, *args, **kwargs):
-    if http_status_code == 400:
-        flask.abort(400, {
-        	"ok": False,
-        	"error_code": 400,
-        	"description": "Invaild parameter."
-        })
-    return flask.abort(http_status_code)
-
-flask_restful.abort = custom_abord
-
 ############################################################## TEST ONLY
 class setSession(flask_restful.Resource):
 	def get(self):
 		if "open_id" not in flask.session:
 			flask.session['open_id'] = "test_open_id_" + str(uuid.uuid4())
-			return {
-				"ok": True,
-				"open_id": flask.session['open_id']
-			}
-		else:
-			return {
-				"ok": False,
-				"open_id": flask.session['open_id']
-			}
+		return {
+			"open_id": flask.session['open_id']
+		}
 
 api.add_resource(setSession, '/api/setSession')

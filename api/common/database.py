@@ -56,6 +56,14 @@ class database:
 		con.close()
 		return sent[0], receive_qrcode[0], receive_tel[0], answer[0]
 
+	def getStatisticsByTel(tel):
+		(con, cur) = database.getCursor()
+		cur.execute("SELECT COUNT(*) FROM offline_capsules WHERE receiver_tel = ?", [tel])
+		cnt = cur.fetchone()
+		cur.close()
+		con.close()
+		return cnt[0]
+
 	def getTimeCapsules():
 		(con, cur) = database.getCursor()
 		cur.execute("SELECT COUNT(*) FROM time_capsules")
