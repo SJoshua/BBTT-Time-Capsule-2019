@@ -1,6 +1,8 @@
+import uuid
 import flask
 import flask_restful
 from flask_cors import CORS
+from config.config import cfg
 from api.resources.getName import getName
 from api.resources.getInfo import getInfo
 from api.resources.getQRCode import getQRCode
@@ -15,7 +17,7 @@ app = flask.Flask(__name__)
 
 CORS(app, resources = r'/api/*', supports_credentials = True)
 
-app.secret_key = "dev"
+app.secret_key = cfg["secret_key"]
 
 api = flask_restful.Api(app)
 
@@ -40,11 +42,11 @@ def custom_abord(http_status_code, *args, **kwargs):
 
 flask_restful.abort = custom_abord
 
-##############################################################
+############################################################## TEST ONLY
 class setSession(flask_restful.Resource):
 	def get(self):
 		if "open_id" not in flask.session:
-			flask.session['open_id'] = "test_open_id"
+			flask.session['open_id'] = "test_open_id_" + str(uuid.uuid4())
 			return {
 				"ok": True,
 				"open_id": flask.session['open_id']

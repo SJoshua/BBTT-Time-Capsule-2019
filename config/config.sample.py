@@ -4,7 +4,8 @@ cfg = {
 	"passwd": "DATABASE_PASSWORD",
 	"database": "DATABASE_NAME",
 	"startTime": 1557849600,
-	"endTime": 1589471999
+	"endTime": 1589471999,
+	"secret_key": "dev"
 }
 
 mp_prime = 2
