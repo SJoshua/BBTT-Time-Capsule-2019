@@ -1,6 +1,8 @@
-from flask import session
+from flask import session, request
 from flask_restful import Resource
 from api.common.database import database
+import json
+import requests
 
 '''
 ### getStatistics
@@ -21,6 +23,16 @@ Requires no parameters.
 
 class getStatistics(Resource):
 	def get(self):
+		if "open_id" not in session:
+			sess_id = request.cookies.get("PHPSESSID")
+			if sess_id is not None:
+				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
+				try:
+					t = json.loads(r)
+					if "openid" in t:
+						session["open_id"] = t["openid"]
+				except:
+					pass
 		if "open_id" not in session:
 			return {
 				"ok": False,

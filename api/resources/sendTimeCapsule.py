@@ -1,6 +1,8 @@
-from flask import session
+from flask import session, request
 from flask_restful import Resource, reqparse, inputs
 from api.common.database import database
+import json
+import requests
 
 '''
 ### sendTimeCapsule
@@ -36,6 +38,16 @@ parser.add_argument('file_id', type = str)
 
 class sendTimeCapsule(Resource):
 	def post(self):
+		if "open_id" not in session:
+			sess_id = request.cookies.get("PHPSESSID")
+			if sess_id is not None:
+				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
+				try:
+					t = json.loads(r)
+					if "openid" in t:
+						session["open_id"] = t["openid"]
+				except:
+					pass
 		if "open_id" not in session:
 			return {
 				"ok": False,

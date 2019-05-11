@@ -1,15 +1,27 @@
-from flask import session
+from flask import session, request
 from flask_restful import Resource
 from api.common.database import database
 from api.common.utils import encodeUID
 from PIL import Image
 import qrcode
 import base64
+import json
+import requests
 
 img_bg = Image.open("api/image/poster.png")
 
 class getQRCode(Resource):
 	def get(self):
+		if "open_id" not in session:
+			sess_id = request.cookies.get("PHPSESSID")
+			if sess_id is not None:
+				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
+				try:
+					t = json.loads(r)
+					if "openid" in t:
+						session["open_id"] = t["openid"]
+				except:
+					pass
 		if "open_id" not in session:
 			return {
 				"ok": False,

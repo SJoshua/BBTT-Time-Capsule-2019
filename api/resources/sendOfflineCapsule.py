@@ -1,7 +1,9 @@
-from flask import session
+from flask import session, request
 from flask_restful import Resource, reqparse, inputs
 from api.common.database import database
 from api.common.utils import checkTag
+import json
+import requests
 
 '''
 ### sendOfflineCapsule
@@ -30,6 +32,16 @@ parser.add_argument('seal', type = inputs.boolean, required = True)
 
 class sendOfflineCapsule(Resource):
 	def post(self):
+		if "open_id" not in session:
+			sess_id = request.cookies.get("PHPSESSID")
+			if sess_id is not None:
+				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
+				try:
+					t = json.loads(r)
+					if "openid" in t:
+						session["open_id"] = t["openid"]
+				except:
+					pass
 		if "open_id" not in session:
 			return {
 				"ok": False,
