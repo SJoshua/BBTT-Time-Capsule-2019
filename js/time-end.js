@@ -1,4 +1,3 @@
-var prefix="http://server.sforest.in:2019/api/";
 $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",

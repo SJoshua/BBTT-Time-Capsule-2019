@@ -121,7 +121,7 @@ document.getElementById("finish").style.top=height*0.85+'px';
             }
         });
         $.ajax({
-            url:"sendTimeCapsule",
+            url:prefix+"sendTimeCapsule",
             data:{
                 "file_id":serverId,
             },

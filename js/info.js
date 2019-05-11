@@ -4,7 +4,6 @@ document.getElementById("background").style.backgroundSize=winWidth+'px '+winHei
 var height = document.documentElement.clientHeight;  
 document.getElementById("main").style.top=height*0.4+'px';
 document.getElementById("submit").style.top=height*0.65+'px';
-var prefix="http://server.sforest.in:2019/api/";
 
 var submit=document.getElementById("submit");
 submit.addEventListener("click",function(){

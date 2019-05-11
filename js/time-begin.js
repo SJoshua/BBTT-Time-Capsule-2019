@@ -5,7 +5,6 @@ console.log(mainHeight);
 var num = bodyHeight - mainHeight;
 document.getElementById("btn").style.height = num + "px";
 
-var prefix="http://server.sforest.in:2019/api/";
 $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",
