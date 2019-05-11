@@ -19,25 +19,24 @@ body,html{
 }
 /* 主体 */
 .main{
+    width:100%;
     position:absolute;
-    left:50%;
-    margin-left:-150px;
 }
 input{
-    width:250px;
-    height:35px;
+    width:60%;
+    height:36px;
     border:solid black 2px;
     border-radius:10px;
-    margin-bottom:25px;
+    margin-bottom:5%;
 }
 .name{
     background:#FFFFFF url("../img/icon1.png")  no-repeat; 
-    padding-left:55px;
+    padding-left:15%;
     font-size:20px;
 }
 .phone{
     background:#FFFFFF url("../img/icon2.png")  no-repeat; 
-    padding-left:55px;
+    padding-left:15%;
     font-size:20px;
 }
 .btn{
