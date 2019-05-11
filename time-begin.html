@@ -1,49 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
     <title>时光胶囊开始</title>
     <link rel="stylesheet" href="./css/time-begin.css">
-</head>
-<body>
-    <div class="box2" id="dark">
-    </div>
-    <div id="background"class="box">
-        <div class="user">
-            <span id="who"></span>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  </head>
+  <body>
+    <div class="box">
+      
+    <div class="box2" id="dark"></div>
+    <div id="main">
+        <img src="img/top1.png" class="top" />
+        <div class="greeting">
+            <p><span id="who"></span><br/>你好呀,欢迎参加时光胶囊!</p>
         </div>
+        <div class="center">
+            <img src="img/tip1.png" class="img" />
+            <div class="content">
+                <input type="text" id="name" class="text" placeholder="请填写收信人姓名~" />
+            </div>
+        </div>
+        <div class="center">
+            <img src="img/tip2.png" class="img" />
+            <div class="content">
+                <input type="text" id="phone" class="text" placeholder="请填写TA的联系电话~"/>
+            </div>
+        </div>
+        <div class="center">
+            <img src="img/tip3.png" class="img" />
+            <div class="content">
+                <label>
+                    <input type="radio" name="duration" value="half-year" class="hide">
+                    <span class="o"></span><span class="w">半年&nbsp;</span> 
+                </label>
+                <label>
+                    <input type="radio" name="duration" value="one-year" class="hide">
+                    <span class="o"></span><span class="w">一年</span> 
+                </label>
+            </div>
+        </div>
+        <div class="center">
+            <img src="img/tip4.png" class="img" />
+            <div class="content">
+                <label>
+                    <input type="radio" name="kind" value="yes" class="hide">
+                    <span class="o"></span><span class="w">文字&nbsp;</span>
+                </label>
+                <label>
+                    <input type="radio" name="kind" value="no" class="hide">
+                    <span class="o"></span><span class="w">语音</span> 
+                </label>
+            </div>
+        </div>
+    </div>
+    <div id="btn" class="center1">
+       <img src="img/btn2.png" onclick="submit()" class="submit" id="submit" />
+    </div>
+  </div>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/wxsdk.js"></script>
+  <script src="./js/warning.js"></script>
+  <script src="./js/time-begin.js"></script>
+  </body>
+</html>
+        <!-- 
         <div class="main" id="main">
-            <input type="text" class="k1" id="name"><br/>
-            <input type="text" class="k2" id="phone"><br/>
+            <input type="text" class="k1" id="name" placeholder="请填写收信人姓名~"><br/>
+            <input type="text" class="k2" id="phone" placeholder="请填写TA的联系电话~"><br/>
             <div class="sel1">
                 <label>
                     <input type="radio" name="duration" value="half-year" class="hide">
-                    <span class="w">半年</span> <span class="o"></span>
-                </label>&nbsp;&nbsp;
+                    <span class="o"></span><span class="w">半年</span> 
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>
                     <input type="radio" name="duration" value="one-year" class="hide">
-                    <span class="w">一年</span> <span class="o"></span>
+                    <span class="o"></span><span class="w">一年</span> 
                 </label>
             </div>
             <br/>
             <div class="sel2">
                 <label>
                     <input type="radio" name="kind" value="text" class="hide">
-                    <span class="w">文字</span> <span class="o"></span>
-                </label>&nbsp;&nbsp;
+                    <span class="o"></span><span class="w">文字</span>
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>
                     <input type="radio" name="kind" value="voice" class="hide">
-                    <span class="w">语音</span> <span class="o"></span>
+                    <span class="o"></span><span class="w">语音</span> 
                 </label>
             </div>
             <br/>
         </div>
-        <img src="./img/btn7.png" class="btn" id="submit">
-    </div>
-    <script src="./js/jquery.js"></script>
-    <script src="./js/time-begin.js"></script>
-    <script src="./js/wxsdk.js"></script>
-</body>
-</html>
+        <img src="./img/btn2.png" class="btn" id="submit"> -->
