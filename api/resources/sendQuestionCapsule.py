@@ -50,6 +50,4 @@ class sendQuestionCapsule(Resource):
 		except:
 			abort(400, message = "Invaild parameter: question.")
 		database.addQuestionCapsule(session["open_id"], args["period"], args["question"], args["message"])
-		return {
-			"ok": True
-		}
+		return {}

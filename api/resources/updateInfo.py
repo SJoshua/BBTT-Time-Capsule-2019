@@ -39,6 +39,4 @@ class updateInfo(Resource):
 		if ret is not None:
 			abort(409, message = "User already exists.")
 		database.insertInfo(session["open_id"], args["name"], args["tel"])
-		return {
-			"ok": True
-		}
+		return {}
