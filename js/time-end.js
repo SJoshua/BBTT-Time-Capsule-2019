@@ -1,6 +1,7 @@
+var prefix="http://server.sforest.in:2019/api/";
 $.ajax({
-    // url:"sendTimeCapsule",
-    url:"http://server.sforest.in:2019/api/sendTimeCapsule",
+    url:prefix+"getInfo",
+    // url:"./json/test.JSON",
     type:"post",
     ///////////////////////// TEST
     xhrFields: {
@@ -10,22 +11,25 @@ $.ajax({
     //////////////////////////
     dataType:"json",
     success:function(data){
-        var num=document.getElementById("count");
-        var max=data.count;
-        var now=0;
-        function countUp(){
-            if (now<max) {now++;}
-            num.innerHTML='<strong>'+now+'</strong>';
-        }
-        var len=String(max).length;
-        len=Math.pow(10,len-1);
-        // console.log(len);
-        //数字递增特效 未更换成改进版
-       window.setInterval(countUp,10);
+        document.getElementById("who").innerHTML=data.name;
     }
 });
 $.ajax({
-    url:"http://server.sforest.in:2019/api/sendTimeCapsule",
+    url:prefix+"sendTimeCapsule",
+    type:"post",
+    dataType:"json",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
+    success:function(data){
+        document.getElementById("count").innerHTML='<strong>'+data.count+'</strong>';
+    }
+});
+$.ajax({
+    url:prefix+"sendTimeCapsule",
     type:"post",
     dataType:"json",
     ///////////////////////// TEST
