@@ -1,0 +1,1 @@
+const getInfoHtml = "offline-info.html";

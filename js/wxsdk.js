@@ -1,21 +1,8 @@
-$.ajax({
-    url:"http://localhost:2019/api/getInfo",
-    type:"get",
-    dataType:"json",
-    ///////////////////////// TEST
-    xhrFields: {
-        withCredentials: true
-    },
-    crossDomain: true,
-    //////////////////////////
-    success:function(data){
-        console.log(data)
-        if (data.record==false) {bindwx();}
-    }
-})
+var prefix="http://server.sforest.in:2019/api/";
+var status=0;
 function bindwx(){
     $.ajax({
-        url:"https://hemc.100steps.net/wechat/Home/Public/getJsApi",
+        url:prefix+"setSession",
         type:"post",
         dataType:"json",
         success:function(data){
@@ -28,8 +15,22 @@ function bindwx(){
                 jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice'] 
             });
             wx.ready(function(){
-
+                //接口调用成功
             })
         }
     })
 }
+$.ajax({
+    url:prefix+"getInfo",
+    type:"get",
+    dataType:"json",
+    success:function(data){
+        if (!data.record){
+            bindwx();
+            status=1;
+        }
+         else{status=1;}
+    }
+})
+
+

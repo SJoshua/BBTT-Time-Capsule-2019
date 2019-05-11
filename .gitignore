@@ -4,3 +4,5 @@ config/config.py
 *.db
 database.sqlite3
 qrcode.png
+发斯蒂芬.txt
+img/bg.png

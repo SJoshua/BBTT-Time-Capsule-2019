@@ -3,24 +3,7 @@ var winHeight = $(window).height();
 document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
 var height = document.documentElement.clientHeight;  
 document.getElementById("main").style.top=height*0.4+'px';
-document.getElementById("submit").style.top=height*0.6+'px';
-
-function showError(str){
-    var con=document.createElement("div");
-    con.className="err";
-    con.setAttribute('id','ww');
-    con.innerHTML =
-        '<p>'+str+'</p>'+
-        '<img class="sbtn" id="sbtn" src="./img/btn2.png">';
-    document.getElementsByTagName('body')[0].appendChild(con);
-    document.getElementById("dark").style.display="block";
-	document.getElementById("sbtn").addEventListener("click",removeError);
-}
-function removeError(){
-	var warning = document.getElementById('ww');
-    document.body.removeChild(warning);
-    document.getElementById("dark").style.display="none";
-}
+document.getElementById("submit").style.top=height*0.65+'px';
 
 var submit=document.getElementById("submit");
 submit.addEventListener("click",function(){
@@ -35,13 +18,13 @@ submit.addEventListener("click",function(){
     }
     if (str==""){
         $.ajax({
-            url:"http://localhost:2019/api/updateInfo",
-    ///////////////////////// TEST
-    xhrFields: {
-        withCredentials: true
-    },
-    crossDomain: true,
-    //////////////////////////
+            url:prefix+"updateInfo",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
             data:{
                 "name":name,
                 "tel":phone,
