@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>问题胶囊首页</title>
+    <link rel="stylesheet" href="./css/question-begin.css">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+</head>
+<body>
+    <div id="background" class="box">
+        <div class="greeting">
+            <p><span id="who"></span><br/>欢迎参加时光胶囊之问题胶囊!</p>
+        </div>
+        <div class="sel">
+            <img src="img/tip3.png" class="image" />
+            <div class="content">
+                <label>
+                    <input type="radio" name="duration" value="half-year" class="hide">
+                    <span class="o"></span><span class="w">半年&nbsp;</span> 
+                </label>
+                <label style="margin-left:5%;">
+                    <input type="radio" name="duration" value="one-year" class="hide">
+                    <span class="o"></span><span class="w">一年</span> 
+                </label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="q" id="q1" onclick="enter(1)"></div>
+            <div class="q" id="q2" onclick="enter(2)"></div>
+            <div class="q" id="q3"onclick="enter(3)"></div>
+        </div>
+        <img id="next" src="./img/btn10.png" class="btn1">
+        <img src="./img/btn8.png" class="btn2" onclick="window.location.href='content.html'">
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/conf.js"></script>
+    <script src="./js/question-begin.js"></script>
+    <!-- <script>
+        localStorage.setItem('name', 'bbt')
+    </script> -->
+</body>
+</html>

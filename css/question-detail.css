@@ -1,0 +1,79 @@
+*{
+    font-family:Microsoft YaHei;
+}
+body,html{
+    width:100%;
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    text-align:center;
+}
+.box{
+    width:100%;
+    height:100%;
+    background:url('../img/bg5.png') no-repeat; 
+}
+.box2{
+    display:none;
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    background:#e0dcdc;
+    filter: alpha(opacity=30);
+    opacity:0.3;
+    z-index:1;
+}
+.q{
+    position:absolute;
+    top:30%;left:50%;
+    transform:translate(-50%);
+    width:80%;
+    height:40px;
+    border:solid black 2px;
+    border-radius:10px;
+    padding:2px 5px 2px 5px;
+    margin-bottom:5%;
+    background:#ffffff;
+}
+.words{
+    position:absolute;
+    top:40%; left:50%;
+    margin-left:-146px;
+    border:solid black 1px;
+}
+/* 遮罩层 */
+.box2{
+    display:none;
+    position:relative;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    background:#e0dcdc;
+    filter: alpha(opacity=30);
+    opacity:0.3;
+    z-index:1;
+}
+/* 错误弹框 */
+@keyframes scaleUp {
+	from { opacity: 0; transform: scale(.8); }
+}
+.err{
+    width:300px;
+    height:200px;
+    position:absolute;
+    top:38%; left:50%;
+    margin-left:-150px;
+    background-color:white;
+    border-radius: 10px;
+    font-size:20px;
+    animation: scaleUp .3s ease both;
+    z-index:2;
+}
+.sbtn{
+    width:111.6px;
+    height:44.4px;
+    position:absolute;
+    bottom:5%; left:50%;
+    margin-left:-55.8px;
+}
