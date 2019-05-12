@@ -4,6 +4,29 @@ document.getElementById("background").style.backgroundSize=winWidth+'px '+winHei
 var height = document.documentElement.clientHeight;  
 document.getElementById("finish").style.top=height*0.85+'px';
 
+function init(){
+    var recordUrl = encodeURIComponent(location.href);
+    var addr='url='+recordUrl;
+    $.ajax({
+        url:prefix+"wechat/Home/Public/getJsApi",
+        type:"post",
+        dataType:"json",
+        data:{addr},
+        success:function(arr){
+            wx.config({
+                debug:false, 
+                appId:arr.appId, 
+                timestamp: arr.timestamp, 
+                nonceStr: arr.noncestr, 
+                signature: arr.signature,
+                jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice'] 
+            });
+            wx.ready(function(){
+                //接口调用成功
+            })
+        }
+    })
+}
     var localId=null;
     var serverId=null;
     var t;   //计时器
@@ -23,11 +46,13 @@ document.getElementById("finish").style.top=height*0.85+'px';
     }
     function Play(){
         timing(2);
+        document.getElementById("CD").style.animationPlayState = "running";
         wx.playVoice({
             localId:localId   
         })
     }
     function Pause(){
+        document.getElementById("CD").style.animationPlayState = "paused";
         wx.pauseVoice({
             localId:localId   
         })
@@ -118,17 +143,8 @@ document.getElementById("finish").style.top=height*0.85+'px';
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 serverId = res.serverId; // 返回音频的服务器端ID
+                localStorage.setItem('file_id', serverId);
+                window.location.href="time-end.html";
             }
         });
-        $.ajax({
-            url:prefix+"sendTimeCapsule",
-            data:{
-                "file_id":serverId,
-            },
-            type:"post",
-            dataType:"json",
-            success:function(){
-                window.location.href="time-end.html"
-            }
-        })
     }

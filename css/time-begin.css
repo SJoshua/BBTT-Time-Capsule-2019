@@ -27,14 +27,12 @@
 
   .greeting{
       text-align:center;
-      font-size:25px;
-      font-weight:600;
   }
  
   .img {
     width: 25%;
     margin-top: 5%;
-    vertical-align: text-bottom;
+    vertical-align:bottom;
     margin-right:7%;
   }
   
@@ -55,13 +53,19 @@
     border-radius: 10px;
   }
   @media only screen and (min-width: 320px) {
-    .text {
+    .text,.w {
       font-size: 0.8em;
+    }
+    .greeting{
+      font-size:1.2em;
     }
   }
   @media only screen and (min-width: 360px) {
-    .text {
+    .text,.w {
       font-size: 1em;
+    }
+    .greeting{
+      font-size:1.4em;
     }
   }
   .center1 {
@@ -69,7 +73,7 @@
   }
   
   .submit {
-    margin-top:30px;
+    margin-top:12%;
     width: 30%;
   }
   /* 单选圆 */
@@ -101,8 +105,6 @@
     display: block;
   }
   .w{
-    font-size:20px;
-    font-weight:600;
     vertical-align:middle;
     padding-left:10px;
   }

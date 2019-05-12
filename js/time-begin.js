@@ -10,14 +10,16 @@ $.ajax({
     // url:"./json/test.JSON",
     type:"get",
     dataType:"json",
-    ///////////////////////// TEST
-    xhrFields: {
-        withCredentials: true
-    },
-    crossDomain: true,
-    //////////////////////////
     success:function(data){
-        document.getElementById("who").innerHTML=data.name;
+        if (data.record==true) {
+             document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>'+'  同学';
+        }
+         else {window.location.href="info.html"}
+    },
+    fail:function(err){
+        if (err.status_code == 401) {
+            location.href="#BBT微信后台#/Home/Index/index?state="+encodeURIComponent( location.href );
+        }
     }
 });
 function Checked(name) {
@@ -50,22 +52,15 @@ submit.addEventListener("click",function(){
     if (sel1=="undefined") {str+="未选活动期限哦<br/>"}
     if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
     if (str==""){
-        $.ajax({
-            url:prefix+"sendTimeCapsule",
-            data:{
-                "receiver_name":name,
-                "receiver_tel":phone,
-                "type":sel2,
-                "period":sel1,
-                "from_qrcode":isQR,
-            },
-            type:"post",
-            dataType:"json",
-            success:function(){
-                if (sel2=="text") {window.location.href="time-letter.html"} 
-                    else {window.location.href="time-voice.html"}
-            }
-        })
+        localStorage.setItem('receiver_name', name);
+        localStorage.setItem('receiver_tel', phone);
+        localStorage.setItem('type', sel2);
+        localStorage.setItem('period', sel1);
+        localStorage.setItem('from_qrcode', isQR);
+        if (sel1=="half-year") {localStorage.setItem('time', "半年");}
+         else {localStorage.setItem('time', "一年");}
+        if (sel2=="text") {window.location.href="time-letter.html"} 
+          else {window.location.href="time-voice.html"}
     }
     else{
         showError(str);

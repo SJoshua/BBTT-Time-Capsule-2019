@@ -9,17 +9,9 @@ submit.addEventListener("click",function(){
     var msg=document.getElementById("msg").value;
     if (msg=="") {showError("信件不能为空哦")}
      else{
-        $.ajax({
-            url:prefix+"sendTimeCapsule",
-            data:{
-                "message":msg,
-            },
-            type:"post",
-            dataType:"json",
-            success:function(){
-                window.location.href="time-end.html";
-            }
-        })
+        console.log(msg);
+        localStorage.setItem('message', msg);
+        window.location.href="time-end.html";
     }   
 })
 
