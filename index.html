@@ -5,21 +5,11 @@
     <title>时光胶囊封面</title>
     <link rel="stylesheet" href="./css/index.css">
     <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="./js/jquery.js"></script>
 </head>
 <body>
     <div class="box">
-        <img src="./img/btn1.png" id="clickgo" class="btn">
+        <img src="./img/btn1.png" id="clickgo" class="btn" onclick="window.location.href='content.html'" >
     </div>
-    <script src="./js/jquery.js"></script>
-    <script src="./js/wxsdk.js"></script>
-    <script>
-        var clickgo=document.getElementById("clickgo");
-        clickgo.addEventListener("click",function(){
-            if (status==1){
-            window.location.href="content.html";
-            }
-            else{window.location.href="info.html";}
-        })
-    </script>
 </body>
 </html>

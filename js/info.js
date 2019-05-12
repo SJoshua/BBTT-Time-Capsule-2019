@@ -36,7 +36,7 @@ submit.addEventListener("click",function(){
             },
             fail:function(err){
                 if (err.status_code == 401) {
-                    location.href="#BBT微信后台#/Home/Index/index?state="+encodeURIComponent( location.href );
+                    location.href=bbt+encodeURIComponent( location.href );
                 }
                 if (err.status_code == 409) {
                     showError("用户名已存在");
