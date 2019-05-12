@@ -10,7 +10,7 @@ body,html{
 .box{
     width:100%;
     height:100%;
-    background:url('../img/bg9.jpg') no-repeat; 
+    background:url('../img/bg7.png') no-repeat; 
 }
 .user{
     position:absolute;
@@ -28,14 +28,14 @@ body,html{
       font-size: 18px;
     }
   }
-  @media only screen and (min-width: 400px) {
+  @media only screen and (min-width:360px) {
     html {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 375px) {
     html {
-      font-size: 25px;
+      font-size: 22px;
     }
   }
 p{
@@ -43,9 +43,9 @@ p{
     font-weight:500;
 }
 .btn{
-    width:140px;
+    width:30%;
     height:55.5px;
     position:absolute;
-    top:70%;left:50%;
-    margin-left:-70px;
+    top:80%;left:50%;
+    transform:translate(-50%);
 }
