@@ -11,6 +11,11 @@ body,html{
     background:url('../img/bg5.png') no-repeat; 
     background-size: 100% 100%;
 }
+.tip{
+    position:absolute;
+    top:40%;left:50%;
+    transform:translate(-50%);
+}
 .btn1{
     width:30%;
     position:absolute;

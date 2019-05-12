@@ -17,8 +17,8 @@ function change(){
     q2.style.display="none";
     q3.style.display="none";
     $.ajax({
-        // url:prefix+"getQuestions",
-        url:"./json/test2.JSON",
+        url:prefix+"getQuestions",
+        // url:"./json/test2.JSON",
         type:"get",
         dataType:"json",
         success:function(data){

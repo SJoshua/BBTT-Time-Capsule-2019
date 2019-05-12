@@ -1,11 +1,14 @@
 var winWidth = $(window).width();
 var winHeight = $(window).height();
 document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
+var height = document.documentElement.clientHeight; 
+document.getElementById("submit").style.top=height*0.85+'px';
 
-document.getElementById("ask").innerText=localStorage.getItem('qtext');
-function submit(){
+document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
+var submit=document.getElementById("submit");
+submit.addEventListener("click",function(){
     var ans=document.getElementById("words").value;
-    if (ans=="") {showError("回答不能为空")}
+    if (ans=="") {showError("回答不能为空");}
      else {
         $.ajax({
             url:prefix+"sendQuestionCapsule",
@@ -32,4 +35,4 @@ function submit(){
             }
         })
     }
-}
+})
