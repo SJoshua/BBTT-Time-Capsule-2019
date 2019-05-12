@@ -36,7 +36,6 @@ function submit() {
              showError("手机号格式错误")
          }
           else{
-              var prefix="http://server.sforest.in:2019/api/";
               $.ajax({
                   url:prefix+"sendOfflineCapsule",
                   data:{
@@ -50,10 +49,23 @@ function submit() {
                   type:"post",
                   dataType:"json",
                   success:function(){
-                    
+                    window.location.href="offline-success.html";
+                  },
+                  fail:function(err){
+                    if (err.status_code == 401) {
+                        location.href="#BBT微信后台#/Home/Index/index?state="+encodeURIComponent( location.href );
+                    }
+                    if (err.status_code == 403) {
+                        location.href="info.html";
+                    }
+                    if (err.status_code == 400) {
+                        showError("取信码格式错误");
+                    }
+                    if (err.status_code == 409) {
+                      showError("该取信码已存在");
                   }
+                }
               })
-              //提交成功提示？
           }
      }
 }
