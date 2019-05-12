@@ -14,7 +14,7 @@ submit.addEventListener("click",function(){
     }
     var phone=document.getElementById("phone").value;
     if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phone))){ 
-        str+="手机号格式错误<br/>";
+        str+="手机号未填或错误<br/>";
     }
     if (str==""){
         $.ajax({
