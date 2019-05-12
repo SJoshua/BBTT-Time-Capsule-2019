@@ -33,7 +33,7 @@ $.ajax({
             document.getElementById("phone").innerText=data.tel;
          }
     },
-    fail:function(err){
+    error:function(err){
         if (err.status_code == 400) {
             alert("二维码无效");
             window.location.href="index.html";//exit?

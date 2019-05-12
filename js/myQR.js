@@ -5,7 +5,7 @@ $.ajax({
     success:function(data){
         document.getElementById("share").src=data.image;
     },
-    fail:function(err){
+    error:function(err){
         if (err.status_code == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }

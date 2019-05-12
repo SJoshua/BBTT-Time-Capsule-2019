@@ -9,7 +9,7 @@ $.ajax({
         }
          else {window.location.href="info.html"}
     },
-    fail:function(err){
+    error:function(err){
         if (err.status_code == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
@@ -31,7 +31,7 @@ $.ajax({
     success:function(data){
         document.getElementById("count").innerHTML='<strong>'+data.count+'</strong>';
     },
-    fail:function(err){
+    error:function(err){
         if (err.status_code == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }

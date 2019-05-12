@@ -12,7 +12,7 @@ $.ajax({
         }
          else {window.location.href="info.html"}
     },
-    fail:function(err){
+    error:function(err){
         if (err.status_code == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
@@ -29,7 +29,7 @@ $.ajax({
         document.getElementById("received_by_tel").innerHTML='<strong>'+data.received_by_tel+'</strong>';
         document.getElementById("answered").innerHTML='<strong>'+data.answered+'</strong>';
     },
-    fail:function(err){
+    error:function(err){
         if (err.status_code == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }

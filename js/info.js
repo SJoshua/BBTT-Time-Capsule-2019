@@ -34,7 +34,7 @@ submit.addEventListener("click",function(){
             success:function(){
                 window.location.href="content.html";
             },
-            fail:function(err){
+            error:function(err){
                 if (err.status_code == 401) {
                     location.href=bbt+encodeURIComponent( location.href );
                 }

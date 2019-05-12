@@ -7,7 +7,7 @@ $.ajax({
         if (!data.record) {window.location.href="info.html";}
         //else 留在当前页面
     },
-    fail: function(err) {
+    error: function(err) {
         if (err.status_code == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }

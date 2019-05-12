@@ -51,7 +51,7 @@ function submit() {
                   success:function(){
                     window.location.href="offline-success.html";
                   },
-                  fail:function(err){
+                  error:function(err){
                     if (err.status_code == 401) {
                         location.href="#BBT微信后台#/Home/Index/index?state="+encodeURIComponent( location.href );
                     }
