@@ -138,13 +138,16 @@ function init(){
          else {Redo();}
     }
     document.getElementById("finish").onclick=function(){
-        wx.uploadVoice({
-            localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-            isShowProgressTips: 1, // 默认为1，显示进度提示
-            success: function (res) {
-                serverId = res.serverId; // 返回音频的服务器端ID
-                localStorage.setItem('file_id', serverId);
-                window.location.href="time-end.html";
-            }
-        });
+        if (jud==0){showError("你还没录音呢");}
+         else {
+            wx.uploadVoice({
+                localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    serverId = res.serverId; // 返回音频的服务器端ID
+                    localStorage.setItem('file_id', serverId);
+                    window.location.href="time-end.html";
+                }
+            });
+         }
     }
