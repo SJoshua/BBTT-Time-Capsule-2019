@@ -3,6 +3,7 @@ var winHeight = $(window).height();
 document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
 var height = document.documentElement.clientHeight; 
 document.getElementById("submit").style.top=height*0.85+'px';
+document.getElementById("main").style.top=height*0.3+'px';
 
 document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
 var submit=document.getElementById("submit");
@@ -23,13 +24,13 @@ submit.addEventListener("click",function(){
                 window.location.href="problem-success.html";
             },
             error:function(err){
-                if (err.status_code == 401) {
+                if (err.status == 401) {
                     location.href=bbt+encodeURIComponent( location.href );
                 }
-                if (err.status_code == 403) {
+                if (err.status == 403) {
                     location.href="info.html";
                 }
-                if (err.status_code == 400) {
+                if (err.status == 400) {
                     console.log(err.message);
                 }
             }

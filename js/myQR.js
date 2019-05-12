@@ -6,10 +6,10 @@ $.ajax({
         document.getElementById("share").src=data.image;
     },
     error:function(err){
-        if (err.status_code == 401) {
+        if (err.status == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
-        if (err.status_code == 403) {
+        if (err.status == 403) {
             location.href="info.html";
         }
     }

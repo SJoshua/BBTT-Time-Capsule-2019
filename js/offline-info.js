@@ -52,16 +52,16 @@ function submit() {
                     window.location.href="offline-success.html";
                   },
                   error:function(err){
-                    if (err.status_code == 401) {
+                    if (err.status == 401) {
                         location.href="#BBT微信后台#/Home/Index/index?state="+encodeURIComponent( location.href );
                     }
-                    if (err.status_code == 403) {
+                    if (err.status == 403) {
                         location.href="info.html";
                     }
-                    if (err.status_code == 400) {
+                    if (err.status == 400) {
                         showError("取信码格式错误");
                     }
-                    if (err.status_code == 409) {
+                    if (err.status == 409) {
                       showError("该取信码已存在");
                   }
                 }

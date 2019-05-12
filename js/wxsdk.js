@@ -1,4 +1,4 @@
-//绑定微信
+// 绑定微信
 $.ajax({
     url:prefix+"getInfo",
     type:"get",
@@ -8,10 +8,11 @@ $.ajax({
         //else 留在当前页面
     },
     error: function(err) {
-        if (err.status_code == 401) {
+        if (err.status == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
     }
 })
+// location.href=bbt+encodeURIComponent( location.href );
 
 

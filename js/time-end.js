@@ -10,7 +10,7 @@ $.ajax({
          else {window.location.href="info.html"}
     },
     error:function(err){
-        if (err.status_code == 401) {
+        if (err.status == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
     }
@@ -32,13 +32,13 @@ $.ajax({
         document.getElementById("count").innerHTML='<strong>'+data.count+'</strong>';
     },
     error:function(err){
-        if (err.status_code == 401) {
+        if (err.status == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
-        if (err.status_code == 403) {
+        if (err.status == 403) {
             location.href="info.html";
         }
-        if (err.status_code == 400) {
+        if (err.status == 400) {
             console.log(err.message);
         }
     }

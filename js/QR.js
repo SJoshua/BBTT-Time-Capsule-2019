@@ -34,7 +34,7 @@ $.ajax({
          }
     },
     error:function(err){
-        if (err.status_code == 400) {
+        if (err.status == 400) {
             alert("二维码无效");
             window.location.href="index.html";//exit?
         }

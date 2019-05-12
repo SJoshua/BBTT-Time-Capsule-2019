@@ -17,7 +17,7 @@ $.ajax({
          else {window.location.href="info.html"}
     },
     error:function(err){
-        if (err.status_code == 401) {
+        if (err.status == 401) {
             location.href=bbt+encodeURIComponent( location.href );
         }
     }

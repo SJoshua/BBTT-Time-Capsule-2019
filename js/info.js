@@ -35,10 +35,10 @@ submit.addEventListener("click",function(){
                 window.location.href="content.html";
             },
             error:function(err){
-                if (err.status_code == 401) {
+                if (err.status == 401) {
                     location.href=bbt+encodeURIComponent( location.href );
                 }
-                if (err.status_code == 409) {
+                if (err.status == 409) {
                     showError("用户名已存在");
                 }
             }
