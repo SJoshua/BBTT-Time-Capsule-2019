@@ -36,6 +36,7 @@ function submit() {
              showError("手机号格式错误")
          }
           else{
+            window.location.href="offline-success.html";
               $.ajax({
                   url:prefix+"sendOfflineCapsule",
                   data:{

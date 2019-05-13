@@ -1,6 +1,3 @@
-var winWidth = $(window).width();
-var winHeight = $(window).height();
-document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
 $.ajax({
     url:prefix+"getInfo",
     type:"get",
@@ -34,11 +31,15 @@ function change(){
             q1.innerHTML="<strong>Q&nbsp</strong>"+text[1];
             q2.innerHTML="<strong>Q&nbsp</strong>"+text[2];
             q3.innerHTML="<strong>Q&nbsp</strong>"+text[3]; 
-            // q1.innerHTML="<strong>Q&nbsp</strong>"+"你有没有一次偷偷哭过？";
-            // q2.innerHTML="<strong>Q&nbsp</strong>"+"在你想象中，最可怕的心理折磨是什么？";
-            // q3.innerHTML="<strong>Q&nbsp</strong>"+"也许未来的自己很忙碌，经常不记得吃早饭，你想对那时的自己叮嘱写什么？";  
         },
     });
+    // id=new Array(4);
+    // text=new Array(4);
+    // id[1]=1; id[2]=2; id[3]=3;
+    // text[1]="你好"; text[2]="哈哈哈哈哈哈哈哈哈哈"; text[3]="大学之道在明明德在亲民在止于至善知止而后有定定";
+    // q1.innerHTML="<strong>Q&nbsp</strong>"+"你有没有一次偷偷哭过？";
+    // q2.innerHTML="<strong>Q&nbsp</strong>"+"在你想象中，最可怕的心理折磨是什么？";
+    // q3.innerHTML="<strong>Q&nbsp</strong>"+"也许未来的自己很忙碌，经常不记得吃早饭，你想对那时的自己叮嘱写什么？";     
     var t1=window.setTimeout(pop1,50);
     var t2=window.setTimeout(pop2,200);
     var t3=window.setTimeout(pop3,300);

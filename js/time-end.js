@@ -15,37 +15,6 @@ $.ajax({
         }
     }
 });
+document.getElementById("who").innerHTML='<strong>'+"未命名"+'</strong>';
 document.getElementById("time").innerHTML='<strong>'+localStorage.getItem('time')+'</strong>';
-$.ajax({
-    url:prefix+"sendTimeCapsule",
-            ///////////////////////// TEST
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            //////////////////////////
-    data:{
-        "receiver_name":localStorage.getItem('receiver_name'),
-        "receiver_tel":localStorage.getItem('receiver_tel'),
-        "type":localStorage.getItem('type'),
-        "period":localStorage.getItem('receiver_period'),
-        "from_qrcode":localStorage.getItem('from_qrcode'),
-        "message":localStorage.getItem('message'),
-    },
-    type:"post",
-    dataType:"json",
-    success:function(data){
-        document.getElementById("count").innerHTML='<strong>'+data.count+'</strong>';
-    },
-    error:function(err){
-        if (err.status == 401) {
-            location.href=bbt+encodeURIComponent( location.href );
-        }
-        if (err.status == 403) {
-            location.href="info.html";
-        }
-        if (err.status == 400) {
-            console.log(err.message);
-        }
-    }
-})
+

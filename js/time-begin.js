@@ -1,10 +1,3 @@
-var bodyHeight = window.innerHeight;
-console.log(bodyHeight);
-var mainHeight = document.getElementById("main").offsetHeight;
-console.log(mainHeight);
-var num = bodyHeight - mainHeight;
-document.getElementById("btn").style.height = num + "px";
-
 $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",
@@ -22,6 +15,7 @@ $.ajax({
         }
     }
 });
+document.getElementById("who").innerHTML='<strong>'+"未命名"+'</strong>'+'  同学';
 function Checked(name) {
     var radios = document.getElementsByName(name);
     for (var i = 0; i < radios.length; ++i) {
@@ -66,5 +60,6 @@ submit.addEventListener("click",function(){
         showError(str);
     }
 })
+
 
 

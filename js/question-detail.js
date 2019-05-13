@@ -1,9 +1,9 @@
-var winWidth = $(window).width();
-var winHeight = $(window).height();
-document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
-var height = document.documentElement.clientHeight; 
-document.getElementById("submit").style.top=height*0.85+'px';
-document.getElementById("main").style.top=height*0.3+'px';
+// var winWidth = $(window).width();
+// var winHeight = $(window).height();
+// document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
+// var height = document.documentElement.clientHeight; 
+// document.getElementById("submit").style.top=height*0.85+'px';
+// document.getElementById("main").style.top=height*0.3+'px';
 
 document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
 var submit=document.getElementById("submit");

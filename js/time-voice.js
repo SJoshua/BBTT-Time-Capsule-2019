@@ -1,9 +1,3 @@
-var winWidth = $(window).width();
-var winHeight = $(window).height();
-document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
-var height = document.documentElement.clientHeight;  
-document.getElementById("finish").style.top=height*0.85+'px';
-
 function init(){
     var recordUrl = encodeURIComponent(location.href);
     var addr='url='+recordUrl;
@@ -121,8 +115,8 @@ function init(){
             jud=1;
         }
          else{
-            // localId=1;
-            // stopTiming();
+            // localId=1; //
+            // stopTiming();//
             wx.stopRecord({
                 success:function(res){
                     localId=res.localId;
@@ -145,9 +139,36 @@ function init(){
                 isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res) {
                     serverId = res.serverId; // 返回音频的服务器端ID
-                    localStorage.setItem('file_id', serverId);
                     window.location.href="time-end.html";
                 }
             });
+            window.location.href="time-end.html";
          }
     }
+    $.ajax({
+        url:prefix+"sendTimeCapsule",
+        data:{
+            "receiver_name":localStorage.getItem('receiver_name'),
+            "receiver_tel":localStorage.getItem('receiver_tel'),
+            "type":localStorage.getItem('type'),
+            "period":localStorage.getItem('receiver_period'),
+            "from_qrcode":localStorage.getItem('from_qrcode'),
+            "file_id":localStorage.getItem('serverId'),
+        },
+        type:"post",
+        dataType:"json",
+        success:function(data){
+            document.getElementById("count").innerHTML='<strong>'+data.count+'</strong>';
+        },
+        error:function(err){
+            if (err.status == 401) {
+                location.href=bbt+encodeURIComponent( location.href );
+            }
+            if (err.status == 403) {
+                location.href="info.html";
+            }
+            if (err.status == 400) {
+                console.log(err.message);
+            }
+        }
+      })
