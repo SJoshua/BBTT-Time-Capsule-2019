@@ -1,9 +1,7 @@
 * {
   font-family:Microsoft YaHei;
 }
-.box{
-  position:absolute;
-  top:0;left:0;
+body{
   background:url(../img/background.png);  
   background-size:100%;
 }
@@ -31,11 +29,12 @@
 .img {
   width: 40%;
   margin-top: 5%;
-  vertical-align: text-bottom;
+  vertical-align: bottom;
 }
 
 .content {
   display: inline;
+  vertical-align: bottom;
 }
 
 .center {
@@ -44,8 +43,7 @@
 
 .text {
   font-size: 1.2em;
-  height: 1.6em;
-  width: 50%;
+  width: 50%; height:1%;
   padding-left: 0.2em;
   background-color: #ffffff;
   border: solid black 2px;
@@ -91,6 +89,7 @@
 .w{
   font-size:20px;
   font-weight:600;
+  word-spacing:20px;
   vertical-align:middle;
   padding-left:10px;
 }
