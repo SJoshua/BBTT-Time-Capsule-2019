@@ -1,6 +1,12 @@
 $.ajax({
     url:prefix+"getQRCode",
     type:"get",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
     dateType:"json",
     success:function(data){
         document.getElementById("share").src=data.image;

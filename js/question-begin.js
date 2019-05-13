@@ -5,6 +5,12 @@ $.ajax({
     url:prefix+"getInfo",
     type:"get",
     dataType:"json",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
     success:function(data){
         document.getElementById("who").innerHTML=data.name;
     }
