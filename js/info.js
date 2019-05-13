@@ -1,10 +1,20 @@
-var winWidth = $(window).width();
-var winHeight = $(window).height();
-document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
-var height = document.documentElement.clientHeight;  
-document.getElementById("main").style.top=height*0.4+'px';
-document.getElementById("submit").style.top=height*0.65+'px';
-
+$.ajax({
+    url:prefix+"getInfo",
+    type:"get",
+    dataType:"json",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
+    error: function(err) {
+        if (err.status == 401) {
+            showError("未绑定微信");
+            location.href=bbt+encodeURIComponent( location.href );
+        }
+    }
+})
 var submit=document.getElementById("submit");
 submit.addEventListener("click",function(){
     var str="";
@@ -35,9 +45,6 @@ submit.addEventListener("click",function(){
                 window.location.href="content.html";
             },
             error:function(err){
-                if (err.status == 401) {
-                    location.href=bbt+encodeURIComponent( location.href );
-                }
                 if (err.status == 409) {
                     showError("用户名已存在");
                 }
