@@ -10,6 +10,12 @@ function init(){
     $.ajax({
         url:prefix+"wechat/Home/Public/getJsApi",
         type:"post",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
         dataType:"json",
         data:{addr},
         success:function(arr){

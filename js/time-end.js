@@ -3,6 +3,12 @@ $.ajax({
     // url:"./json/test.JSON",
     type:"get",
     dataType:"json",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
     success:function(data){
         if (data.record==true) {
             document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>';

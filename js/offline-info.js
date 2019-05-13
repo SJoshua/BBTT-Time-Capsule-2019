@@ -37,6 +37,12 @@ function submit() {
          }
           else{
               $.ajax({
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
                   url:prefix+"sendOfflineCapsule",
                   data:{
                     "receiver_name":receivepeople,
