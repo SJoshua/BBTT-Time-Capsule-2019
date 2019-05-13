@@ -89,7 +89,7 @@ Requires no parameters.
 #### Response
 | Field         | Type            | Description                                                                                                    |
 |---------------|-----------------|----------------------------------------------------------------------------------------------------------------|
-| question_list | Array of String | A array of three questions. The id of a question is `[CATEGORY_INDEX] * 109 + [QUESTION_INDEX]`, such as `100`, `203`. |
+| question_list | Array of String | A array of three questions. The id of a question is `[CATEGORY_INDEX] * 100 + [QUESTION_INDEX]`, such as `100`, `203`. |
 
 ### getQRCode
 Use this method to get QR Code for specified user.
