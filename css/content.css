@@ -1,21 +1,14 @@
-*{
-    font-family:Microsoft YaHei
-}
-body,html{
-    width:100%;
-    height:100%;
-    margin:0;
-    overflow:hidden;
-    text-align:center;
-}
-.box{
-    width:100%;
-    height:100%;
-    background:url('../img/bg3.png') no-repeat; 
-    background-size: 100% 100%;
-    text-align:center;
-}
-img{
+body {
+    background-image: url(../img/background.png);
+    background-size: 100%;
+    text-align: center;
+  }
+  
+  .top {
+    width: 100%;
+    margin-top:2%;
+  }
+.banner{
     width:90%;
 }
 .event{
@@ -24,16 +17,16 @@ img{
     width:100%;
 }
 .event.e1{
-    top:30%;
+    top:20%;
 }
 .event.e2{
-    top:40%;
+    top:30%;
 }
 .event.e3{
-    top:50%;
+    top:40%;
 }
 .event.e4{
-    top:60%;
+    top:50%;
 }
 @keyframes pop{
     from {
@@ -46,3 +39,11 @@ img{
         display:block;
     }
 }
+.center{
+    width:100%;
+    text-align:center;
+}
+.bottom{
+   width: 100%;
+   margin-top:75%;
+  }

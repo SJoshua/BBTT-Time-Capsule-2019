@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>时光胶囊</title>
-  <link rel="stylesheet" type="text/css" href="./css/time-letter.css" />
-</head>
-
-<body>
-	<div class="box2" id="dark"></div>
-	<img id="top" src="./img/top1.png" class="top" />
-	<div id="msg" contenteditable class="input-textarea"></div>
-	<div class="center">
-	<img src="./img/btn7.png" class="btn" id="submit">
-</div>
-</div>
+<svg viewBox="0 0 500 40" xmlns="http://www.w3.org/2000/svg">
+  <rect y="36" x="0" height="0.8" width="500" stroke="black" />
 <!-- Code injected by live-server -->
 <script type="text/javascript">
 	// <![CDATA[  <-- For SVG support
@@ -54,12 +37,4 @@
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
 	// ]]>
-</script>
-<script src="./js/conf.js"></script>
-<script src="./js/jquery.js"></script>
-<script src="./js/wxsdk.js"></script>
-<script src="./js/warning.js"></script>
-<script src="./js/time-letter.js"></script>
-</body>
-
-</html>
+</script></svg>

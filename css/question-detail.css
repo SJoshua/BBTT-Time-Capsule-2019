@@ -1,34 +1,31 @@
-*{
-    font-family:Microsoft YaHei;
+/* 背景 */
+* {
+  font-family:Microsoft YaHei;
 }
-body,html{
-  width:100%;
-  height:100%;
-  margin:0;
-  overflow:hidden;
+body{
+  background:url(../img/background.png);  
+  background-size:100%;
 }
-.box{
+.top {
+  width: 100%;
+  margin-top: 10%;
+}
+.center{
   width:100%;
-  height:100%;
-  background:url('../img/bg5.png') no-repeat; 
-  background-size: 100% 100%;
+  text-align:center;
 }
 .q{
-    position:absolute;
-    top:30%;left:50%;
-    transform:translate(-50%);
+    margin-top:5%;
     width:80%;
+    margin-left:10%;
     border:solid black 2px;
     border-radius:10px;
     padding:2px 5px 2px 5px;
-    margin-bottom:5%;
     background:#ffffff;
 }
 .words{
-    width:80%; height:38%;
-    position:absolute;
-    top:40%; left:50%;
-    transform:translate(-50%);
+    width:80%; height:300px;
+    margin-left:10%;
     border-radius:10px;
     border:solid black 2px;
     padding:5px;
@@ -36,9 +33,8 @@ body,html{
 }
 .btn{
   width:30%;
-  position:absolute;
-  left:50%;
-  transform: translate(-50%);
+  margin-left:35%;
+  margin-top:8%; 
 }
 @media only screen and (min-width: 320px) {
     html,.words {

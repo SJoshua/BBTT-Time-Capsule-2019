@@ -39,6 +39,7 @@ body{
 
 .center {
   margin-left: 8%;
+  margin-top:4%;
 }
 
 .text {
@@ -52,6 +53,7 @@ body{
 
 .center1 {
   text-align: center;
+  margin-top:8%;
 }
 
 .submit {

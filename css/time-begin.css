@@ -1,10 +1,7 @@
 * {
     font-family:Microsoft YaHei;
   }
-  
-  .box{
-    position:absolute;
-    top:0;left:0;
+  body{
     background:url(../img/background.png);  
     background-size:100%;
   }
@@ -19,16 +16,20 @@
     opacity:0.3;
     z-index:1;
   }
-  
+  p{
+    margin:0;
+  }
+  .sj{
+    text-indent:2em;
+  }
   .top {
     width: 100%;
     margin-top: 10%;
   }
-
   .greeting{
-      text-align:center;
+    margin-left:8%;
   }
- 
+
   .img {
     width: 25%;
     margin-top: 5%;
@@ -56,7 +57,7 @@
     .text,.w {
       font-size: 0.8em;
     }
-    .greeting{
+    p{
       font-size:1.2em;
     }
   }
@@ -64,7 +65,7 @@
     .text,.w {
       font-size: 1em;
     }
-    .greeting{
+    p{
       font-size:1.4em;
     }
   }
@@ -120,7 +121,7 @@
     margin-left:-150px;
     background-color:white;
     border-radius: 10px;
-    font-size:20px;
+    font-size:16px;
     animation: scaleUp .3s ease both;
     z-index:2;
     text-align:center;
