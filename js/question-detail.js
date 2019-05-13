@@ -19,12 +19,6 @@ submit.addEventListener("click",function(){
                 "question":localStorage.getItem('qid'),
                 "ans":ans,
             },
-            ///////////////////////// TEST
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            //////////////////////////
             dataType:"json",
             success:function(){
                 window.location.href="problem-success.html";

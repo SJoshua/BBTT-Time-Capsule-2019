@@ -23,12 +23,6 @@ $.ajax({
     // url:"./json/test.JSON",
     type:"post",
     dataType:"json",
-            ///////////////////////// TEST
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            //////////////////////////
     data:{
         "uid":GetRequest(),
     },

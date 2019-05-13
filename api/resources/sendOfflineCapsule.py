@@ -1,7 +1,7 @@
 from flask import session, request
 from flask_restful import Resource, reqparse, inputs, abort
 from api.common.database import database
-from api.common.utils import checkTag, checkTime
+from api.common.utils import checkTag
 import json
 import requests
 
@@ -32,8 +32,6 @@ parser.add_argument('seal', type = inputs.boolean, required = True)
 
 class sendOfflineCapsule(Resource):
 	def post(self):
-		if checkTime() != 0:
-			abort(416, message = "Event is not ongoing.")
 		if "open_id" not in session:
 			sess_id = request.cookies.get("PHPSESSID")
 			if sess_id is not None:

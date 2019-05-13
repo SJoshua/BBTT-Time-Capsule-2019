@@ -18,4 +18,3 @@ Although Flask-RESTful is used, the API is not RESTful. swtcl.
 
 ## To-do
 * Disable API after specified date.
-* Script for catching voice files.

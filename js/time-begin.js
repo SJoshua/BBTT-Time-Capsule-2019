@@ -9,12 +9,6 @@ $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",
     type:"get",
-            ///////////////////////// TEST
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            //////////////////////////
     dataType:"json",
     success:function(data){
         if (data.record==true) {
