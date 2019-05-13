@@ -37,7 +37,7 @@ class sendOfflineCapsule(Resource):
 			if sess_id is not None:
 				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
 				try:
-					t = json.loads(r)
+					t = json.loads(r.text)
 					if "openid" in t:
 						session["open_id"] = t["openid"]
 				except:
