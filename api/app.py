@@ -3,6 +3,7 @@ import flask
 import flask_restful
 from flask_cors import CORS
 from config.config import cfg
+from api.resources.isOngoing import isOngoing
 from api.resources.getName import getName
 from api.resources.getInfo import getInfo
 from api.resources.getQRCode import getQRCode
@@ -21,6 +22,7 @@ app.secret_key = cfg["secret_key"]
 
 api = flask_restful.Api(app)
 
+api.add_resource(isOngoing, '/api/isOngoing')
 api.add_resource(getName, '/api/getName')
 api.add_resource(getInfo, '/api/getInfo')
 api.add_resource(getQRCode, '/api/getQRCode')

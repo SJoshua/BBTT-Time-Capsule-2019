@@ -132,3 +132,15 @@ HTTP Request Method: **POST**
 | record | Boolean | If user's info have been recorded.               |
 | name   | String  | User's name if `record` is **true**.             |
 | tel    | String  | User's telephone number if `record` is **true**. |
+
+### isOngoing
+Use this method to know if the event is on-going.
+
+Requires no parameters.
+
+#### Response
+| Field  | Type      | Description                                                                |
+| status | Integer   | 0 if event is on-going, 1 if event has ended, -1 if event not started yet. |
+| begin  | Timestamp | The timestamp of the beginning of event.                                   |
+| end    | Timestamp | The timestamp of the ending of event.                                      |
+

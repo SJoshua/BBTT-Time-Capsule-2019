@@ -1,6 +1,8 @@
 from flask import session, request
 from flask_restful import Resource, reqparse, inputs, abort
 from api.common.database import database
+from api.common.utils import checkTime
+from config.config import cfg
 import json
 import requests
 
@@ -38,6 +40,8 @@ parser.add_argument('file_id', type = str)
 
 class sendTimeCapsule(Resource):
 	def post(self):
+		if checkTime() != 0:
+			abort(416, message = "Event is not ongoing.")
 		if "open_id" not in session:
 			sess_id = request.cookies.get("PHPSESSID")
 			if sess_id is not None:
