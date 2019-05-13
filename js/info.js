@@ -2,6 +2,12 @@ $.ajax({
     url:prefix+"getInfo",
     type:"get",
     dataType:"json",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
     error: function(err) {
         if (err.status == 401) {
             showError("未绑定微信");
