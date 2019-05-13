@@ -24,6 +24,12 @@ $.ajax({
 document.getElementById("time").innerHTML='<strong>'+localStorage.getItem('time')+'</strong>';
 $.ajax({
     url:prefix+"sendTimeCapsule",
+            ///////////////////////// TEST
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //////////////////////////
     data:{
         "receiver_name":localStorage.getItem('receiver_name'),
         "receiver_tel":localStorage.getItem('receiver_tel'),
