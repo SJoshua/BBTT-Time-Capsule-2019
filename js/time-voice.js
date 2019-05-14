@@ -40,7 +40,6 @@ function Redo(){
     document.getElementById("time").innerText="00:00";
     jud=0;
     c=0;
-    document.getElementById("btn1").src="./img/start.png";
     document.getElementById("btn2").src="./img/play.png";
 }
 
@@ -139,6 +138,7 @@ function init(){
                                 stopTiming();
                             }
                         });
+                        document.getElementById("btn1").src="./img/start.png";
                         document.getElementById("CD").style.animationPlayState = "paused";
                     }
                 }

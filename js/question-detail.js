@@ -1,4 +1,4 @@
-document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
+document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+sessionStorage.getItem('qtext');
 console.log(localStorage.getItem('qperiod'));
 var submit=document.getElementById("submit");
 var ok=true;
