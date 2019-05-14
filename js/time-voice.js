@@ -9,7 +9,7 @@ function timing(k){ //k=1 录音计时 k=2试听计时
     x++;
     if (x<10) { document.getElementById("time").innerText="00:0"+x;}
      else {
-         if (x==60) {document.getElementById("time").innerText="00:01:00";}
+         if (x==60) {document.getElementById("time").innerText="01:00";}
            else {document.getElementById("time").innerText="00:"+x;}
         }
     if (k==1) {t=setTimeout("timing(1)",1000);}
