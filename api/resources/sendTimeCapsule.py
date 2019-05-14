@@ -79,7 +79,6 @@ class sendTimeCapsule(Resource):
 						database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, args["file_id"])
 				except:
 					abort(404, message = "Media not found.")
-		info = database.getInfo(session["open_id"])
 		return {
 			"count": database.getTimeCapsules(),
 			"period": args["period"],
