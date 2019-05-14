@@ -7,8 +7,11 @@ var jud= 0;         //有无录音
 var flag = false;   //播放暂停状态
 function timing(k){ //k=1 录音计时 k=2试听计时
     x++;
-    if (x<10) { document.getElementById("time").innerText="0"+x;}
-     else {document.getElementById("time").innerText=x;}
+    if (x<10) { document.getElementById("time").innerText="00:0"+x;}
+     else {
+         if (x==60) {document.getElementById("time").innerText="00:01:00";}
+           else {document.getElementById("time").innerText="00:"+x;}
+        }
     if (k==1) {t=setTimeout("timing(1)",1000);}
     if ((k==2) && (flag==true)) {t=setTimeout("timing(2)",1000);}
 }
