@@ -48,7 +48,7 @@ function Stop(pause){
     document.getElementById("CD").style.animationPlayState = "paused";
     x=0;
     document.getElementById("time").innerText="00:00";
-    document.getElementById("btn1").src="./img/start.png";
+    //document.getElementById("btn1").src="./img/start.png";
     document.getElementById("btn2").src="./img/play.png";
     if(!pause) flag = false;
 }
