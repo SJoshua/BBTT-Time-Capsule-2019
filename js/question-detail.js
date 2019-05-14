@@ -28,6 +28,7 @@ submit.addEventListener("click",function(){
                 window.location.href="question-success.html";
             },
             error:function(err){
+                ok=true;
                 if (err.status == 401) {
                     location.href=bbt+encodeURIComponent( location.href );
                 }

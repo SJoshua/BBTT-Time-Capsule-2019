@@ -50,6 +50,7 @@ submit.addEventListener("click",function(){
                 window.location.href="content.html";
             },
             error:function(err){
+                ok=true;
                 if (err.status == 409) {
                     showError("用户名已存在");
                 }

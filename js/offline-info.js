@@ -62,6 +62,7 @@ function submit() {
                     window.location.href="offline-success.html";
                   },
                   error:function(err){
+                    ok=true;
                     if (err.status == 401) {
                         location.href=bbt+encodeURIComponent( location.href );
                     }

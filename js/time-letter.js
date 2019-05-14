@@ -31,6 +31,7 @@ submit.addEventListener("click",function(){
                 window.location.href="time-end.html";
             },
             error:function(err){
+                ok=true;
                 if (err.status == 401) {
                     location.href=bbt+encodeURIComponent( location.href );
                 }
