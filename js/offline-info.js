@@ -32,10 +32,12 @@ function submit() {
     if (sel2=="yes") {ifseal=true;}
      else {ifseal=false;}
     if (sendpeople == "" || sendphone == "" || code == "" || receivepeople == "" || receivephone == "" || address == "" || sel1 == "undefined" || sel2 == "undefined") {
+      ok=true;
      showError("消息没填完整哦")
     }
      else{
          if ((!judge(sendphone)) || (!judge(receivephone))){
+          ok=true;
              showError("手机号格式错误")
          }
           else{
@@ -50,6 +52,8 @@ function submit() {
                                 type:"post",
                                 dataType:"json",
                   data:{
+                    "sender_name":sendpeople,
+                    "sender_tel":sendphone,
                     "receiver_name":receivepeople,
                     "receiver_tel":receivephone,
                     "receiver_addr":address,
