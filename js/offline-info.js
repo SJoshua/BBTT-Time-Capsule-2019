@@ -17,7 +17,6 @@ var ok=true;
 function submit() {
     if (ok==true) {
     ok=false;
-    var str="";
     var sendpeople = document.getElementById("sendpeople").value;
     var sendphone = document.getElementById("sendphone").value;
     var code = document.getElementById("code").value;
@@ -32,57 +31,60 @@ function submit() {
     if (sel2=="yes") {ifseal=true;}
      else {ifseal=false;}
     if (sendpeople == "" || sendphone == "" || code == "" || receivepeople == "" || receivephone == "" || address == "" || sel1 == "undefined" || sel2 == "undefined") {
-      str=str+"消息没填完整哦";
-      exit;
+      ok=true;
+      showError("消息没填完整哦~");
     }
-    if (!judge(sendphone)) {
-          str=str+"寄信人手机号格式错误";
-    }
-    if (!judge(receivephone)){
-          str=str+"收件人手机号格式错误";
-    }
-    if (str="" ){
-              $.ajax({
-                  url:prefix+"sendOfflineCapsule",
-                                  ///////////////////////// TEST
-                                  xhrFields: {
-                                    withCredentials: true
-                                },
-                                crossDomain: true,
-                                //////////////////////////
-                                type:"post",
-                                dataType:"json",
-                  data:{
-                    "sender_name":sendpeople,
-                    "sender_tel":sendphone,
-                    "receiver_name":receivepeople,
-                    "receiver_tel":receivephone,
-                    "receiver_addr":address,
-                    "capsule_tag":code,
-                    "period":sel1,
-                    "seal":ifseal,
-                  },
-                  success:function(){
-                    ok=true;
-                    window.location.href="offline-success.html";
-                  },
-                  error:function(err){
-                    ok=true;
-                    if (err.status == 401) {
-                        location.href=bbt+encodeURIComponent( location.href );
-                    }
-                    if (err.status == 403) {
-                        location.href="info.html";
-                    }
-                    if (err.status == 400) {
-                        showError("取信码格式错误");
-                    }
-                    if (err.status == 409) {
-                      showError("该取信码已存在");
-                  }
-                }
-              })
+      else{
+      var str="";
+      if (!judge(sendphone)) {
+            str+="寄信人手机号格式错误<br>";
+      }
+      if (!judge(receivephone)){
+            str+="收件人手机号格式错误<br>";
+      }
+      if (str=="" ){
+      $.ajax({
+          url:prefix+"sendOfflineCapsule",
+          ///////////////////////// TEST
+          xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        //////////////////////////
+        type:"post",
+        dataType:"json",
+          data:{
+            "sender_name":sendpeople,
+            "sender_tel":sendphone,
+            "receiver_name":receivepeople,
+            "receiver_tel":receivephone,
+            "receiver_addr":address,
+            "capsule_tag":code,
+            "period":sel1,
+            "seal":ifseal,
+          },
+          success:function(){
+            ok=true;
+            window.location.href="offline-success.html";
+          },
+          error:function(err){
+            ok=true;
+            if (err.status == 401) {
+                location.href=bbt+encodeURIComponent( location.href );
+            }
+            if (err.status == 403) {
+                location.href="info.html";
+            }
+            if (err.status == 400) {
+                showError("取信码格式错误");
+            }
+            if (err.status == 409) {
+              showError("该取信码已存在");
           }
-     }
+        }
+      })
+    }
+    else {ok=true; showError(str);}
     }
 }
+  }
