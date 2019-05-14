@@ -28,8 +28,11 @@ class getQRCode(Resource):
 		if info is None:
 			abort(403, message = "Please update information first.")
 		url = "https://hemc.100steps.net/2019/time-capsule/QR.html?uid=%s" % encodeUID(info[0])
-		img_qr = qrcode.make(url, border = 2).resize((200, 200), Image.ANTIALIAS)
-		pos = (img_bg.size[0] // 2 - img_qr.size[0] // 2, img_bg.size[1] - img_qr.size[1] * 2 - 10)
+		qr = qrcode.QRCode(border = 2)
+		qr.add_data(url)
+		qr.make(fit = True)
+		img_qr = qr.make_image(back_color = "#fffcd3").resize((130, 130), Image.ANTIALIAS)
+		pos = (img_bg.size[0] // 2 - img_qr.size[0] // 2, img_bg.size[1] - img_qr.size[1] * 2 - 110)
 		img_bg.paste(img_qr, pos)
 		img_bg.save("qrcode.jpg")
 		f = open("qrcode.jpg", "rb")
