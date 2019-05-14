@@ -1,11 +1,10 @@
 function init(){
     var recordUrl = encodeURIComponent(location.href);
-    var addr='url='+recordUrl;
     $.ajax({
         url:"https://hemc.100steps.net/2017/wechat/Home/Public/getJsApi",
         type:"post",
         dataType:"json",
-        data:{addr},
+        data:{recordUrl},
         success:function(arr){
             wx.config({
                 debug:false, 
