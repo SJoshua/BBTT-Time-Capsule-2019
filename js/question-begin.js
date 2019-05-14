@@ -1,21 +1,40 @@
-document.getElementById("who").innerHTML='<strong>'+localStorage.getItem('username')+'</strong>'+'  同学';
+$.ajax({
+  url:prefix+"getInfo",
+  // url:"./json/test.JSON",
+                              ///////////////////////// TEST
+                              xhrFields: {
+                                  withCredentials: true
+                              },
+                              crossDomain: true,
+                              //////////////////////////
+  type:"get",
+  dataType:"json",
+  success:function(data){
+      if (data.record==true) {
+           document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>';
+      }
+       else {window.location.href="info.html"}
+  },
+  error:function(err){
+      if (err.status_code == 401) {
+          location.href=bbt+encodeURIComponent( location.href );
+      }
+  }
+});
 function change(){
     var q1=document.getElementById("q1");
     var q2=document.getElementById("q2");
     var q3=document.getElementById("q3");
-    q1.style.display="none";
-    q2.style.display="none";
-    q3.style.display="none";
     $.ajax({
         url:prefix+"getQuestions",
         type:"get",
         dataType:"json",
-                    ///////////////////////// TEST
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    crossDomain: true,
-                    //////////////////////////
+        ///////////////////////// TEST
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        //////////////////////////
         success:function(data){
             var i=0;
             id=new Array(4);
@@ -31,18 +50,6 @@ function change(){
             q3.innerHTML="<strong>Q&nbsp</strong>"+text[3]; 
         },
     });    
-    var t1=window.setTimeout(pop1,50);
-    var t2=window.setTimeout(pop2,200);
-    var t3=window.setTimeout(pop3,300);
-    function pop1(){
-        q1.style.display="block";
-    }
-    function pop2(){
-        q2.style.display="block";
-    }
-    function pop3(){
-        q3.style.display="block";
-    }
 }
 change();
 var next=document.getElementById("next");

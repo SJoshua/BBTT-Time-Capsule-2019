@@ -1,4 +1,3 @@
-
 $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",

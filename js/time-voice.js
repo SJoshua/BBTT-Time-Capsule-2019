@@ -31,11 +31,12 @@ function Pause(){
 function Redo(){
     localId=null;
     serverId=null;
+    stopTiming();
     x=0;
     document.getElementById("time").innerText="00";
     jud=0;
     c=0;
-    ctl2.src="./img/start.png";
+    document.getElementById("btn1").src="./img/start.png";
 }
 init();
 function init(){
@@ -67,6 +68,8 @@ function init(){
                 wx.onVoicePlayEnd({
                     success: function (res) {
                         window.localId = res.localId; // 返回音频的本地ID
+                        x=0;
+                        document.getElementById("time").innerText="00";
                     }
                 });
                 //播放 暂停
@@ -89,13 +92,6 @@ function init(){
                             Pause();
                             ctl.src="./img/play.png";
                         }
-                        wx.stopVoice({
-                            localId:localId,
-                            success:function(){
-                                stopTiming();
-                                c=0;
-                            } 
-                        })
                     }
                 }
                 //录音 开始 结束
@@ -123,49 +119,67 @@ function init(){
                 //重录
                 document.getElementById("btn3").onclick=function(){
                     if (localId==null) {showError("你还没录音呢");}
-                     else {Redo();}
+                     else {
+                         if (c==1) {
+                            wx.stopVoice({
+                                localId:localId,
+                                success:function(){
+                                    stopTiming();
+                                    x=0;
+                                    document.getElementById("time").innerText="00";
+                                } 
+                            })
+                         }
+                         Redo();
+                        }
                 }
+                var ok=true;
                 document.getElementById("finish").onclick=function(){
                     if (jud==0){showError("你还没录音呢");}
                      else {
-                        wx.uploadVoice({
-                            localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-                            isShowProgressTips: 1, // 默认为1，显示进度提示
-                            success: function (res) {
-                                serverId = res.serverId; // 返回音频的服务器端ID
-                                $.ajax({
-                                    url:prefix+"sendTimeCapsule",
-                                    data:{
-                                        "receiver_name":localStorage.getItem('receiver_name'),
-                                        "receiver_tel":localStorage.getItem('receiver_tel'),
-                                        "type":localStorage.getItem('type'),
-                                        "period":localStorage.getItem('period'),
-                                        "from_qrcode":localStorage.getItem('from_qrcode'),
-                                        "file_id":serverId,
-                                    },
-                                    type:"post",
-                                    dataType:"json",
-                                    success:function(data){
-                                        localStorage.setItem('count', data.count);
-                                        window.location.href="time-end.html";
-                                    },
-                                    error:function(err){
-                                        if (err.status == 401) {
-                                            location.href=bbt+encodeURIComponent( location.href );
+                         if (ok==true) {
+                            ok=false;
+                            wx.uploadVoice({
+                                localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                                isShowProgressTips: 1, // 默认为1，显示进度提示
+                                success: function (res) {
+                                    serverId = res.serverId; // 返回音频的服务器端ID
+                                    $.ajax({
+                                        url:prefix+"sendTimeCapsule",
+                                        data:{
+                                            "receiver_name":localStorage.getItem('receiver_name'),
+                                            "receiver_tel":localStorage.getItem('receiver_tel'),
+                                            "type":localStorage.getItem('type'),
+                                            "period":localStorage.getItem('period'),
+                                            "from_qrcode":localStorage.getItem('from_qrcode'),
+                                            "file_id":serverId,
+                                        },
+                                        type:"post",
+                                        dataType:"json",
+                                        success:function(data){
+                                            ok=true;
+                                            localStorage.setItem('count', data.count);
+                                            window.location.href="time-end.html";
+                                        },
+                                        error:function(err){
+                                            ok=true;
+                                            if (err.status == 401) {
+                                                location.href=bbt+encodeURIComponent( location.href );
+                                            }
+                                            if (err.status == 403) {
+                                                location.href="info.html";
+                                            }
+                                            if (err.status == 400) {
+                                                console.log(err.message);
+                                            }
+                                            if (err.status == 404) {
+                                                showError("上传录音失败");
+                                            }
                                         }
-                                        if (err.status == 403) {
-                                            location.href="info.html";
-                                        }
-                                        if (err.status == 400) {
-                                            console.log(err.message);
-                                        }
-                                        if (err.status == 404) {
-                                            showError("上传录音失败");
-                                        }
-                                    }
-                                  })
-                            }
-                        });
+                                    })
+                                }
+                            });
+                         }
                      }
                 }
             })

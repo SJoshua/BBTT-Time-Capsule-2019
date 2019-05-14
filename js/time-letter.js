@@ -1,5 +1,8 @@
 var submit=document.getElementById("submit");
+var ok=true;
 submit.addEventListener("click",function(){
+    if (ok==true) {
+    ok=false;
     var msg=document.getElementById("msg").innerHTML;
     if (msg=="") {showError("信件不能为空哦")}
      else{
@@ -23,10 +26,12 @@ submit.addEventListener("click",function(){
                 "message":msg,
             },
             success:function(data){
+                ok=true;
                 localStorage.setItem('count', data.count);
                 window.location.href="time-end.html";
             },
             error:function(err){
+                ok=true;
                 if (err.status == 401) {
                     location.href=bbt+encodeURIComponent( location.href );
                 }
@@ -38,6 +43,8 @@ submit.addEventListener("click",function(){
                 }
             }
           })
-    }   
+    }  
+
+    } 
 })
 

@@ -17,14 +17,15 @@ function GetRequest() {
     }  
     return theRequest;  
  }   
-
+//  console.log(url);
+// console.log(GetRequest().uid);
 $.ajax({
     url:prefix+"getName",
     // url:"./json/test.JSON",
     type:"post",
     dataType:"json",
     data:{
-        "uid":GetRequest(),
+        "uid":GetRequest().uid,
     },
     success:function(data){
         if (data.record==false) {showError("收件人信息不存在")}
@@ -36,7 +37,7 @@ $.ajax({
     error:function(err){
         if (err.status == 400) {
             alert("二维码无效");
-            window.location.href="index.html";//exit?
+            // window.location.href="index.html";//exit?
         }
     }
 });

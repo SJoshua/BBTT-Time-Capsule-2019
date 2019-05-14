@@ -13,7 +13,10 @@ function judge(num){
     if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(num))) {return false}
      else {return true}
 }
+var ok=true;
 function submit() {
+    if (ok==true) {
+    ok=false;
     var str="";
     var sendpeople = document.getElementById("sendpeople").value;
     var sendphone = document.getElementById("sendphone").value;
@@ -50,14 +53,16 @@ function submit() {
                     "receiver_name":receivepeople,
                     "receiver_tel":receivephone,
                     "receiver_addr":address,
-                    "capsule_id":code,
+                    "capsule_tag":code,
                     "period":sel1,
                     "seal":ifseal,
                   },
                   success:function(){
-                    // window.location.href="offline-success.html";
+                    ok=true;
+                    window.location.href="offline-success.html";
                   },
                   error:function(err){
+                    ok=true;
                     if (err.status == 401) {
                         location.href=bbt+encodeURIComponent( location.href );
                     }
@@ -74,4 +79,5 @@ function submit() {
               })
           }
      }
+    }
 }
