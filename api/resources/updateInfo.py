@@ -1,6 +1,7 @@
 from flask import session, request
 from flask_restful import Resource, reqparse, abort
 from api.common.database import database
+from api.common.utils import checkTel
 import json
 import requests
 
@@ -35,6 +36,8 @@ class updateInfo(Resource):
 		if "open_id" not in session:
 			abort(401, message = "Please bind Wechat account first.")
 		args = parser.parse_args()
+		if not checkTel(args["tel"]):
+			abort(400, message = "Invalid telephone number.")
 		ret = database.getInfo(session["open_id"])
 		if ret is not None:
 			abort(409, message = "User already exists.")

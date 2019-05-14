@@ -1,7 +1,7 @@
 from flask import session, request
 from flask_restful import Resource, reqparse, inputs, abort
 from api.common.database import database
-from api.common.utils import checkTime
+from api.common.utils import checkTime, checkTel
 from config.config import cfg
 import hashlib
 import base64
@@ -60,6 +60,8 @@ class sendTimeCapsule(Resource):
 		if info is None:
 			abort(403, message = "Please update information first.")
 		args = parser.parse_args()
+		if not checkTel(args["receiver_tel"]):
+			abort(400, message = "Invaild telephone number.")
 		if args["type"] == "text":
 			if args["message"] is None:
 				abort(400, message = "Missing parameter: message.")
