@@ -1,9 +1,9 @@
 var flag=sessionStorage.getItem('from_qrcode');
-if (flag==true){
+if (flag=="true"){
     document.getElementById("words").innerHTML=
     "<p style='text-align:center'>"+
-    "第"+sessionStorage.setItem('count')+"个给"
-    +sessionStorage.getItem('receiver_name')+"写信的人已经诞生！</p>"+
+    "第"+sessionStorage.getItem('count')+"个给"
+    +sessionStorage.getItem('receiver_name')+"写的信已经诞生！</p>"+
     "<p style='text-align:center'>感谢你的来信！</p>";
 }
 else{
