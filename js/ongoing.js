@@ -10,8 +10,12 @@ $.ajax({
     type:"get",
     dataType:"json",
     success:function(data){
-        //活动结束
         if (data.status==1) {
+            alert("活动已经结束，感谢关注");
+            window.location.href="blank.html";
+        }
+        if (data.status==-1) {
+            alert("活动还未开始，敬请期待");
             window.location.href="blank.html";
         }
     },
