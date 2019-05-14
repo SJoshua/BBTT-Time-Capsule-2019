@@ -19,7 +19,8 @@ function stopTiming(){
     clearTimeout(t);
 }
 function Play(){
-    timing(2);
+    t=setTimeout("timing(2)",1000);
+    //timing(2);
     document.getElementById("CD").style.animationPlayState = "running";
     wx.playVoice({
         localId:localId   
