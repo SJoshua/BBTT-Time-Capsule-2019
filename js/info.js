@@ -18,7 +18,6 @@ var submit=document.getElementById("submit");
 var ok=true;
 submit.addEventListener("click",function(){
     if (ok==true) {
-
     ok=false;
     var str="";
     var name=document.getElementById("name").value;
@@ -59,6 +58,7 @@ submit.addEventListener("click",function(){
     }
     else{
         showError(str);
+        ok=true;
     }
 
     }
