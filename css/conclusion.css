@@ -1,26 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
+  margin:0;
   background-image: url(../img/background.png);
   background-size: 100%;
 }
 .user{
     position:absolute;
-    top:32%;left:10px;
-    font-size:24px;
+    top:32%;
+    margin-left:10%;
 }
 .top {
   width: 100%;
   margin-top:8%;
 }
+.center{
+  width:100%;
+  text-align:center;
+}
 .content{
     width:80%;
     position:absolute;
     top:40%;left:50%;
-    margin-left:-40%;
+    transform:translate(-50%);
+    text-align:center;
 }
 @media only screen and (min-width: 320px) {
     html {
@@ -44,5 +45,5 @@ p{
 .btn{
     width:30%;
     margin-left:35%;
-    margin-top:60%;
+    margin-top:80%;
 }

@@ -7,8 +7,11 @@ var jud= 0;         //有无录音
 var flag = false;   //播放暂停状态
 function timing(k){ //k=1 录音计时 k=2试听计时
     x++;
-    if (x<10) { document.getElementById("time").innerText="0"+x;}
-     else {document.getElementById("time").innerText=x;}
+    if (x<10) { document.getElementById("time").innerText="00:0"+x;}
+     else {
+         if (x==60) {document.getElementById("time").innerText="01:00";}
+           else {document.getElementById("time").innerText="00:"+x;}
+        }
     if (k==1) {t=setTimeout("timing(1)",1000);}
     if ((k==2) && (flag==true)) {t=setTimeout("timing(2)",1000);}
 }
@@ -33,10 +36,21 @@ function Redo(){
     serverId=null;
     stopTiming();
     x=0;
-    document.getElementById("time").innerText="00";
+    document.getElementById("time").innerText="00:00";
     jud=0;
     c=0;
     document.getElementById("btn1").src="./img/start.png";
+    document.getElementById("btn2").src="./img/play.png";
+}
+
+function Stop(pause){
+    stopTiming();
+    document.getElementById("CD").style.animationPlayState = "paused";
+    x=0;
+    document.getElementById("time").innerText="00:00";
+    //document.getElementById("btn1").src="./img/start.png";
+    document.getElementById("btn2").src="./img/play.png";
+    if(!pause) flag = false;
 }
 init();
 function init(){
@@ -52,25 +66,35 @@ function init(){
                 timestamp: arr.timestamp, 
                 nonceStr: arr.nonceStr, 
                 signature: arr.signature,
-                jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice'] 
+                jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice','stopVoice'] 
             });
             wx.ready(function(){
                 wx.onVoiceRecordEnd({
                     // 录音时间超过一分钟没有停止的时候会执行 complete 回调
                     complete: function (res) {
                         window.localId = res.localId;
+                        Stop();
+                        /*
                         stopTiming();
                         document.getElementById("CD").style.animationPlayState = "paused";
                         x=0;
-                        document.getElementById("time").innerText="00";
+                        document.getElementById("time").innerText="00:00";
+                        */
+                        
                     }
                 });
                 wx.onVoicePlayEnd({
                     success: function (res) {
                         window.localId = res.localId; // 返回音频的本地ID
+                        Stop();
+                        /*
+                        stopTiming();
+                        document.getElementById("CD").style.animationPlayState = "paused";
                         x=0;
-                        document.getElementById("time").innerText="00";
+                        document.getElementById("time").innerText="00:00";
+                        */
                     }
+
                 });
                 //播放 暂停
                 var ctl=document.getElementById("btn2");
@@ -79,8 +103,9 @@ function init(){
                      else {
                         if (c==0) {
                             c=1;   
-                            x=0; 
-                            document.getElementById("time").innerText="00";       
+                            Stop(true);
+                            //x=0; 
+                            //document.getElementById("time").innerText="00";       
                         }
                         if (!flag){
                             flag=true;
@@ -124,9 +149,12 @@ function init(){
                             wx.stopVoice({
                                 localId:localId,
                                 success:function(){
+                                    Stop();
+                                    /*
                                     stopTiming();
                                     x=0;
                                     document.getElementById("time").innerText="00";
+                                    */
                                 } 
                             })
                          }
