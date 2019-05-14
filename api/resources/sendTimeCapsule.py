@@ -3,6 +3,8 @@ from flask_restful import Resource, reqparse, inputs, abort
 from api.common.database import database
 from api.common.utils import checkTime
 from config.config import cfg
+import hashlib
+import base64
 import json
 import requests
 
@@ -67,7 +69,16 @@ class sendTimeCapsule(Resource):
 			if args["file_id"] is None:
 				abort(400, message = "Missing parameter: file_id.")
 			else:
-				database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, args["file_id"])
+				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Public/getMedia?media_id=%s" % args["file_id"], timeout = 20)
+				try: 
+					t = json.loads(r.text)
+					if t["status"] == 0:
+						f = open("media/%s.amr" % hashlib.md5(args["file_id"].encode(encoding = 'UTF-8')).hexdigest(), "wb")
+						f.write(base64.b64decode(t["data"]))
+						f.close()
+						database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, args["file_id"])
+				except:
+					abort(404, message = "Media not found.")
 		info = database.getInfo(session["open_id"])
 		return {
 			"count": database.getTimeCapsules(),
