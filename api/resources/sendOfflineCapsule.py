@@ -43,7 +43,7 @@ class sendOfflineCapsule(Resource):
 			abort(400, message = "Invaild capsule tag.")
 		if not database.getTagStatus(args["capsule_tag"]):
 			abort(409, message = "The capsule tag already exists.")
-		database.addOfflineCapsule(session["sender_name"], session["sender_tel"],  args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
+		database.addOfflineCapsule(args["sender_name"], args["sender_tel"],  args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
 		return {
 			"receiver_name": args["receiver_name"],
 			"count": database.getStatisticsByTel(args["receiver_tel"])
