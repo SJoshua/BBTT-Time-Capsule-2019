@@ -61,7 +61,7 @@ class sendTimeCapsule(Resource):
 			abort(403, message = "Please update information first.")
 		args = parser.parse_args()
 		if not checkTel(args["receiver_tel"]):
-			abort(400, message = "Invaild telephone number.")
+			abort(400, message = "Invalid telephone number.")
 		if args["type"] == "text":
 			if args["message"] is None:
 				abort(400, message = "Missing parameter: message.")
@@ -83,8 +83,13 @@ class sendTimeCapsule(Resource):
 						abort(404, message = "Media not found.")
 				except:
 					abort(404, message = "Media not found.")
+		cnt = 0
+		if args["from_qrcode"]:
+			cnt = database.getStatisticsByTel(args["receiver_tel"])
+		else:
+			cnt = database.getTimeCapsules()
 		return {
-			"count": database.getTimeCapsules(),
+			"count": cnt,
 			"period": args["period"],
 			"name": info[1]
 		}

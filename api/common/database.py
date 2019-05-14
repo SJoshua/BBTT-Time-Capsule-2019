@@ -58,7 +58,7 @@ class database:
 
 	def getStatisticsByTel(tel):
 		(con, cur) = database.getCursor()
-		cur.execute("SELECT COUNT(*) FROM offline_capsules WHERE receiver_tel = ?", [tel])
+		cur.execute("SELECT COUNT(*) FROM time_capsules WHERE receiver_tel = ?", [tel])
 		cnt = cur.fetchone()
 		cur.close()
 		con.close()
