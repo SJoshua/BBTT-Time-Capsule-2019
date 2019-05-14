@@ -72,6 +72,8 @@ HTTP Request Method: **POST**
 
 | Field         | Type    | Required | Description                                                    |
 |---------------|---------|----------|----------------------------------------------------------------|
+| sender_name   | String  | Yes      | Sender's name.                                                 |
+| sender_tel    | String  | Yes      | Sender's telephone number.                                     |
 | receiver_name | String  | Yes      | Receiver's name.                                               |
 | receiver_tel  | String  | Yes      | Receiver's telephone number.                                   |
 | receiver_addr | String  | Yes      | Receiver's address.                                            |
@@ -87,8 +89,8 @@ HTTP Request Method: **GET**
 Requires no parameters.
 
 #### Response
-| Field         | Type            | Description                                                                                                    |
-|---------------|-----------------|----------------------------------------------------------------------------------------------------------------|
+| Field         | Type            | Description                                                                                                            |
+|---------------|-----------------|------------------------------------------------------------------------------------------------------------------------|
 | question_list | Array of String | A array of three questions. The id of a question is `[CATEGORY_INDEX] * 100 + [QUESTION_INDEX]`, such as `100`, `203`. |
 
 ### getQRCode
@@ -135,6 +137,8 @@ HTTP Request Method: **POST**
 
 ### isOngoing	
 Use this method to know if the event is ongoing.	
+
+HTTP Request Method: **GET**
 
 Requires no parameters.	
 

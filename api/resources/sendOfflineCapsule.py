@@ -13,6 +13,8 @@ HTTP Request Method: **POST**
 
 | Field         | Type    | Required | Description                                                    |
 |---------------|---------|----------|----------------------------------------------------------------|
+| sender_name   | String  | Yes      | Sender's name.                                                 |
+| sender_tel    | String  | Yes      | Sender's telephone number.                                     |
 | receiver_name | String  | Yes      | Receiver's name.                                               |
 | receiver_tel  | String  | Yes      | Receiver's telephone number.                                   |
 | receiver_addr | String  | Yes      | Receiver's address.                                            |
@@ -23,6 +25,8 @@ HTTP Request Method: **POST**
 
 parser = reqparse.RequestParser()
 
+parser.add_argument('sender_name', type = str, required = True)
+parser.add_argument('sender_tel', type = str, required = True)
 parser.add_argument('receiver_name', type = str, required = True)
 parser.add_argument('receiver_tel', type = str, required = True)
 parser.add_argument('receiver_addr', type = str, required = True)
@@ -34,27 +38,12 @@ class sendOfflineCapsule(Resource):
 	def post(self):
 		if checkTime() != 0:
 			abort(416, message = "Event is not ongoing.")
-		if "open_id" not in session:
-			sess_id = request.cookies.get("PHPSESSID")
-			if sess_id is not None:
-				r = requests.get("https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo", timeout = 5, cookies = dict(PHPSESSID = sess_id))
-				try:
-					t = json.loads(r.text)
-					if "openid" in t:
-						session["open_id"] = t["openid"]
-				except:
-					pass
-		if "open_id" not in session:
-			abort(401, message = "Please bind Wechat account first.")
-		info = database.getInfo(session["open_id"])
-		if info is None:
-			abort(403, message = "Please update information first.")
 		args = parser.parse_args()
 		if checkTag(args["capsule_tag"]) == False:
 			abort(400, message = "Invaild capsule tag.")
 		if not database.getTagStatus(args["capsule_tag"]):
 			abort(409, message = "The capsule tag already exists.")
-		database.addOfflineCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
+		database.addOfflineCapsule(session["sender_name"], session["sender_tel"],  args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
 		return {
 			"receiver_name": args["receiver_name"],
 			"count": database.getStatisticsByTel(args["receiver_tel"])
