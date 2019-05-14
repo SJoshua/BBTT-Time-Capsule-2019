@@ -94,6 +94,8 @@ function init(){
                             success:function(){
                                 stopTiming();
                                 c=0;
+                                x=0;
+                                document.getElementById("time").innerText="00";
                             } 
                         })
                     }
