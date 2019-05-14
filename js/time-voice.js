@@ -2,7 +2,7 @@ function init(){
     var recordUrl = encodeURIComponent(location.href);
     var addr='url='+recordUrl;
     $.ajax({
-        url:prefix+"wechat/Home/Public/getJsApi",
+        url:"https://hemc.100steps.net/2017/wechat/Home/Public/getJsApi",
         type:"post",
         dataType:"json",
         data:{addr},
