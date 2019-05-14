@@ -1,4 +1,4 @@
-from config.config import cfg, mp_prime, ad_prime, fmp_prime, fad_prime
+from config.config import cfg, mp_prime, ad_prime, fmp_prime, fad_prime, max_tag
 import time
 
 def encodeUID(id):
