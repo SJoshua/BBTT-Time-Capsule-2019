@@ -11,7 +11,7 @@ $.ajax({
     dataType:"json",
     success:function(data){
         if (data.record==true) {
-             document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>'+'  同学';
+             document.getElementById("who").innerHTML=data.name+'  同学';
         }
          else {window.location.href="info.html"}
     },
@@ -33,10 +33,10 @@ $.ajax({
                                 crossDomain: true,
                                 //////////////////////////
     success:function(data){
-        document.getElementById("sent").innerHTML='<strong>'+data.sent+'</strong>';
-        document.getElementById("received_by_qrcode").innerHTML='<strong>'+data.received_by_qrcode+'</strong>';
-        document.getElementById("received_by_tel").innerHTML='<strong>'+data.received_by_tel+'</strong>';
-        document.getElementById("answered").innerHTML='<strong>'+data.answered+'</strong>';
+        document.getElementById("sent").innerHTML=data.sent;
+        document.getElementById("received_by_qrcode").innerHTML=data.received_by_qrcode;
+        document.getElementById("received_by_tel").innerHTML=data.received_by_tel;
+        document.getElementById("answered").innerHTML=data.answered;
     },
     error:function(err){
         if (err.status == 401) {

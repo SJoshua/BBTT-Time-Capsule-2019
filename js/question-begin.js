@@ -11,7 +11,7 @@ $.ajax({
   dataType:"json",
   success:function(data){
       if (data.record==true) {
-           document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>';
+           document.getElementById("who").innerHTML=data.name;
       }
        else {window.location.href="info.html"}
   },

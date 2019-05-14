@@ -11,7 +11,7 @@ $.ajax({
   dataType:"json",
   success:function(data){
       if (data.record==true) {
-           document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>'+'  同学';
+           document.getElementById("who").innerHTML=data.name+'  同学';
       }
        else {window.location.href="info.html"}
   },
