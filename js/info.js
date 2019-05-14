@@ -46,7 +46,13 @@ submit.addEventListener("click",function(){
             success:function(){
                 ok=true;
                 sessionStorage.setItem('username', name);
-                window.location.href="content.html";
+                console.log(sessionStorage.getItem('where'));
+                if (sessionStorage.getItem('where')=="2") {
+                    window.location.href="QR.html";
+                } 
+                 else{
+                    window.location.href="content.html";
+                 }
             },
             error:function(err){
                 ok=true;
