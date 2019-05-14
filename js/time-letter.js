@@ -4,7 +4,7 @@ submit.addEventListener("click",function(){
     if (ok==true) {
     ok=false;
     var msg=document.getElementById("msg").innerHTML;
-    if (msg=="") {showError("信件不能为空哦")}
+    if (msg=="") {ok=true; showError("信件不能为空哦")}
      else{
          
         $.ajax({
