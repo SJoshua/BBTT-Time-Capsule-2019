@@ -13,16 +13,16 @@ body{
 }
 .tips{
   padding:3%;
+  font-size:6vw;
+}
+.center{
+  text-align:center;
+  width:100%;
 }
 .btn1{
-    width:35%;
-    position:absolute;
-    left:50%; top:68%;
-    transform:translate(-50%);
+    width:32%;
 }
 .btn2{
-    width:35%;
-    position:absolute;
-    left:50%; top:82%;
-    transform:translate(-50%);
+    width:32%;
+    margin-top:4%;
 }
