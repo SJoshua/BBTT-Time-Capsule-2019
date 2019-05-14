@@ -53,7 +53,7 @@ function submit() {
                     "receiver_name":receivepeople,
                     "receiver_tel":receivephone,
                     "receiver_addr":address,
-                    "capsule_id":code,
+                    "capsule_tag":code,
                     "period":sel1,
                     "seal":ifseal,
                   },
