@@ -25,7 +25,7 @@ $.ajax({
     type:"post",
     dataType:"json",
     data:{
-        "uid":GetRequest(),
+        "uid":GetRequest().uid,
     },
     success:function(data){
         if (data.record==false) {showError("收件人信息不存在")}
