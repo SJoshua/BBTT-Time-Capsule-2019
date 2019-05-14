@@ -85,7 +85,7 @@ class sendTimeCapsule(Resource):
 					abort(404, message = "Media not found.")
 		cnt = 0
 		if args["from_qrcode"]:
-			cnt = databse.getStatisticsByTel(args["receiver_tel"])
+			cnt = database.getStatisticsByTel(args["receiver_tel"])
 		else:
 			cnt = database.getTimeCapsules()
 		return {
