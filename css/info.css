@@ -18,13 +18,11 @@
     width:100%;
     text-align:center;
   }
-  p{
-    text-indent:2em;
-  }
   .tips{
     width:80%;
     margin-left:10%;
     font-size:5vw;
+    text-indent:2em;
   }
   .btn {
     width: 35%;
