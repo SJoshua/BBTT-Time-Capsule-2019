@@ -37,7 +37,7 @@ class updateInfo(Resource):
 			abort(401, message = "Please bind Wechat account first.")
 		args = parser.parse_args()
 		if not checkTel(args["tel"]):
-			abort(400, message = "Invaild telephone number.")
+			abort(400, message = "Invalid telephone number.")
 		ret = database.getInfo(session["open_id"])
 		if ret is not None:
 			abort(409, message = "User already exists.")
