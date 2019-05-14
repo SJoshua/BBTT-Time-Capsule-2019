@@ -21,6 +21,7 @@ function init(){
         }
     })
 }
+    init();
     var localId=null;
     var serverId=null;
     var t;   //计时器
