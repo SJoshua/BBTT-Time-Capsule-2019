@@ -55,31 +55,33 @@ function Checked(name) {
       }
     }
   }
-
+var ok=true;
 var submit=document.getElementById("submit");
 submit.addEventListener("click",function(){
-    var str="";
-    var sel1=Checked("duration");
-    console.log(sel1);
-    var sel2=Checked("kind");
-    console.log(sel2);
-    var isQR=true;
-    if (sel1=="undefined") {str+="未选活动期限哦<br/>"}
-    if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
-    if (str==""){
-        var name=document.getElementById("name").value;
-        var phone=document.getElementById("phone").value;
-        sessionStorage.setItem('receiver_name', name);
-        sessionStorage.setItem('receiver_tel', phone);
-        sessionStorage.setItem('type', sel2);
-        sessionStorage.setItem('period', sel1);
-        sessionStorage.setItem('from_qrcode', isQR);
-        if (sel1=="half-year") {sessionStorage.setItem('time', "半年");}
-         else {sessionStorage.setItem('time', "一年");}
-        if (sel2=="text") {window.location.href="time-letter.html"} 
-          else {window.location.href="time-voice.html"}
-    }
-    else{
-        showError(str);
+    if (ok==true) {
+      ok=false;
+      var str="";
+      var sel1=Checked("duration");
+      console.log(sel1);
+      var sel2=Checked("kind");
+      console.log(sel2);
+      var isQR=true;
+      if (sel1=="undefined") {str+="未选活动期限哦<br/>"}
+      if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
+      if (str==""){
+          ok=true;
+          var name=document.getElementById("name").value;
+          var phone=document.getElementById("phone").value;
+          sessionStorage.setItem('receiver_name', name);
+          sessionStorage.setItem('receiver_tel', phone);
+          sessionStorage.setItem('type', sel2);
+          sessionStorage.setItem('period', sel1);
+          sessionStorage.setItem('from_qrcode', isQR);
+          if (sel1=="half-year") {sessionStorage.setItem('time', "半年");}
+          else {sessionStorage.setItem('time', "一年");}
+          if (sel2=="text") {window.location.href="time-letter.html"} 
+            else {window.location.href="time-voice.html"}
+      }
+      else{ok=true; showError(str)}
     }
 })
