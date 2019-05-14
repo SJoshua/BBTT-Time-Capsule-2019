@@ -89,7 +89,7 @@ Requires no parameters.
 #### Response
 | Field         | Type            | Description                                                                                                    |
 |---------------|-----------------|----------------------------------------------------------------------------------------------------------------|
-| question_list | Array of String | A array of three questions. The id of a question is `[CATEGORY_INDEX] * 109 + [QUESTION_INDEX]`, such as `100`, `203`. |
+| question_list | Array of String | A array of three questions. The id of a question is `[CATEGORY_INDEX] * 100 + [QUESTION_INDEX]`, such as `100`, `203`. |
 
 ### getQRCode
 Use this method to get QR Code for specified user.
@@ -132,3 +132,16 @@ HTTP Request Method: **POST**
 | record | Boolean | If user's info have been recorded.               |
 | name   | String  | User's name if `record` is **true**.             |
 | tel    | String  | User's telephone number if `record` is **true**. |
+
+### isOngoing	
+Use this method to know if the event is ongoing.	
+
+Requires no parameters.	
+
+#### Response	
+| Field  | Type      | Description                                                                |	
+|--------|-----------|----------------------------------------------------------------------------|
+| status | Integer   | 0 if event is on-going, 1 if event has ended, -1 if event not started yet. |	
+| begin  | Timestamp | The timestamp of the beginning of event.                                   |	
+| end    | Timestamp | The timestamp of the ending of event.                                      |	
+
