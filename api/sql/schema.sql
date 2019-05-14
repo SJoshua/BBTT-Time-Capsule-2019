@@ -33,7 +33,8 @@ CREATE TABLE `DATABASE`.`question_capsules` (
 
 CREATE TABLE `DATABASE`.`offline_capsules` ( 
 	`capsule_id` INT NOT NULL AUTO_INCREMENT , 
-	`sender_id` INT NOT NULL , 
+	`sender_name` TEXT NOT NULL , 
+	`sender_tel` TEXT NOT NULL , 
 	`receiver_name` TEXT NOT NULL , 
 	`receiver_tel` TEXT NOT NULL , 
 	`receiver_addr` TEXT NOT NULL , 

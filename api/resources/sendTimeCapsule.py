@@ -77,6 +77,8 @@ class sendTimeCapsule(Resource):
 						f.write(base64.b64decode(t["data"]))
 						f.close()
 						database.addTimeCapsule(session["open_id"], args["receiver_name"], args["receiver_tel"], args["type"], args["period"], args["from_qrcode"], None, args["file_id"])
+					else:
+						abort(404, message = "Media not found.")
 				except:
 					abort(404, message = "Media not found.")
 		return {

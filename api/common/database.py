@@ -106,10 +106,9 @@ class database:
 		con.commit()
 		con.close()
 
-	def addOfflineCapsule(open_id, receiver_name, receiver_tel, receiver_addr, capsule_id, period, seal):
-		info = database.getInfo(open_id)
+	def addOfflineCapsule(sender_name, sender_tel, receiver_name, receiver_tel, receiver_addr, capsule_id, period, seal):
 		(con, cur) = database.getCursor()
-		cur.execute("INSERT INTO offline_capsules(sender_id, receiver_name, receiver_tel, receiver_addr, capsule_tag, period, seal) VALUES(?, ?, ?, ?, ?, ?, ?)", [info[0], receiver_name, receiver_tel, receiver_addr, capsule_id, period, seal])
+		cur.execute("INSERT INTO offline_capsules(sender_name, sender_tel, receiver_name, receiver_tel, receiver_addr, capsule_tag, period, seal) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", [sender_name,  sender_tel, receiver_name,  receiver_tel, receiver_addr, capsule_id, period, seal])
 		cur.close()
 		con.commit()
 		con.close()
