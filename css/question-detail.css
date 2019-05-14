@@ -8,7 +8,7 @@ body{
 }
 .top {
   width: 100%;
-  margin-top: 10%;
+  margin-top: 8%;
 }
 .center{
   width:100%;
@@ -73,17 +73,18 @@ body{
     position:absolute;
     top:38%; left:50%;
     margin-left:-150px;
+    padding-top:10%;
     background-color:white;
     border-radius: 10px;
-    font-size:20px;
     animation: scaleUp .3s ease both;
     z-index:2;
     text-align:center;
 }
 .sbtn{
-    width:111.6px;
-    height:44.4px;
+    width:5.2em;
+    height:2.5em;
     position:absolute;
     bottom:5%; left:50%;
-    margin-left:-55.8px;
+    margin-left:-2.5em;
 }
+

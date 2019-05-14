@@ -60,7 +60,7 @@ submit.addEventListener("click",function(){
     console.log(sel1);
     var sel2=Checked("kind");
     console.log(sel2);
-    var isQR=false;
+    var isQR=true;
     if (sel1=="undefined") {str+="未选活动期限哦<br/>"}
     if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
     if (str==""){

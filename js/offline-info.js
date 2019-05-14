@@ -36,9 +36,16 @@ function submit() {
              showError("手机号格式错误")
          }
           else{
-            window.location.href="offline-success.html";
               $.ajax({
                   url:prefix+"sendOfflineCapsule",
+                                  ///////////////////////// TEST
+                                  xhrFields: {
+                                    withCredentials: true
+                                },
+                                crossDomain: true,
+                                //////////////////////////
+                                type:"post",
+                                dataType:"json",
                   data:{
                     "receiver_name":receivepeople,
                     "receiver_tel":receivephone,
@@ -47,14 +54,12 @@ function submit() {
                     "period":sel1,
                     "seal":ifseal,
                   },
-                  type:"post",
-                  dataType:"json",
                   success:function(){
-                    window.location.href="offline-success.html";
+                    // window.location.href="offline-success.html";
                   },
                   error:function(err){
                     if (err.status == 401) {
-                        location.href="#BBT微信后台#/Home/Index/index?state="+encodeURIComponent( location.href );
+                        location.href=bbt+encodeURIComponent( location.href );
                     }
                     if (err.status == 403) {
                         location.href="info.html";

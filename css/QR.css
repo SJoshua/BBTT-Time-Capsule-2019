@@ -5,7 +5,7 @@
   .box{
     position:absolute;
     top:0;left:0;
-    background:url(../img/bg.png);  
+    background:url(../img/background.png);  
     background-size:100%;
   }
   /* 遮罩层 */
@@ -111,25 +111,26 @@
   }
   /* 错误弹框 */
   @keyframes scaleUp {
-  from { opacity: 0; transform: scale(.8); }
+    from { opacity: 0; transform: scale(.8); }
   }
   .err{
-    width:300px;
-    height:200px;
-    position:absolute;
-    top:38%; left:50%;
-    margin-left:-150px;
-    background-color:white;
-    border-radius: 10px;
-    font-size:20px;
-    animation: scaleUp .3s ease both;
-    z-index:2;
-    text-align:center;
+      width:300px;
+      height:200px;
+      position:absolute;
+      top:38%; left:50%;
+      margin-left:-150px;
+      padding-top:10%;
+      background-color:white;
+      border-radius: 10px;
+      animation: scaleUp .3s ease both;
+      z-index:2;
+      text-align:center;
   }
   .sbtn{
-    width:111.6px;
-    height:44.4px;
-    position:absolute;
-    bottom:5%; left:50%;
-    margin-left:-55.8px;
+      width:5.2em;
+      height:2.5em;
+      position:absolute;
+      bottom:5%; left:50%;
+      margin-left:-2.5em;
   }
+  

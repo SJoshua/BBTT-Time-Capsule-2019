@@ -1,10 +1,15 @@
 $.ajax({
     url:prefix+"getInfo",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
     type:"get",
     dataType:"json",
     error: function(err) {
         if (err.status == 401) {
-            showError("未绑定微信");
             location.href=bbt+encodeURIComponent( location.href );
         }
     }
@@ -36,6 +41,7 @@ submit.addEventListener("click",function(){
             type:"post",
             dataType:"json",
             success:function(){
+                localStorage.setItem('username', name);
                 window.location.href="content.html";
             },
             error:function(err){

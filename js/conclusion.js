@@ -1,9 +1,13 @@
-var winWidth = $(window).width();
-var winHeight = $(window).height();
-document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
+
 $.ajax({
     url:prefix+"getInfo",
     // url:"./json/test.JSON",
+                                ///////////////////////// TEST
+                                xhrFields: {
+                                    withCredentials: true
+                                },
+                                crossDomain: true,
+                                //////////////////////////
     type:"get",
     dataType:"json",
     success:function(data){
@@ -23,6 +27,12 @@ $.ajax({
     // url:"./json/test2.JSON",
     type:"get",
     dataType:"json",
+                                ///////////////////////// TEST
+                                xhrFields: {
+                                    withCredentials: true
+                                },
+                                crossDomain: true,
+                                //////////////////////////
     success:function(data){
         document.getElementById("sent").innerHTML='<strong>'+data.sent+'</strong>';
         document.getElementById("received_by_qrcode").innerHTML='<strong>'+data.received_by_qrcode+'</strong>';

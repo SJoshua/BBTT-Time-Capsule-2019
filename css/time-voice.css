@@ -5,10 +5,10 @@ body{
     background:url(../img/background.png);  
     background-size:100%;
   }
-  .top {
+    .top {
     width: 100%;
-    margin-top: 10%;
-  }
+    margin-top: 8%;
+    }
 @keyframes roll{
     0% {
         transform: rotate(0deg); 
@@ -18,59 +18,46 @@ body{
     }
 }
 .sing{
-    position:absolute;
+    width:40%;
+    margin-top:5%;
+    margin-left:30%;
     left:50%;
     animation: roll 4s linear infinite;
     animation-play-state: paused;
 }
-@media only screen and (min-width: 320px) {
-    .sing {
-        top:32%;
-        width:120px;
-        height:120px;
-        margin-left:-60px;
-    }
-  }
-  @media only screen and (min-width: 360px) {
-    .sing {
-        top:35%;
-        width:150px;
-        height:150px;
-        margin-left:-75px;
-    }
-  }
-  @media only screen and (min-width: 400px) {
-    .sing {
-        top:35%;
-        width:160px;
-        height:160px;
-        margin-left:-80px;
-    }
-  }
 .progress{
-    position: absolute;
-    top:60%;left:50%;
-    margin-left:-60px;
-    font-size:28px;
+    width:100%;
+    text-align:center;
+    margin-top:5%;
+    font-size:6vw;
     font-weight:600;
 }
-.ctl{
-    margin-right:20px;
+.btn1{
+    width:35%;
+}
+.btn2{
+    width:25%;
+    float:left;
+    margin-top:5%;
+}
+.btn3{
+    width:25%;
+    float:right;
+    margin-top:5%;
 }
 .bottom{
-    position:absolute;
-    width:300px;
-    top:70%; left:50%;
-    margin-left:-140px;
-    text-align:center;
+    margin-top:4%;
+    width:60%;
+    margin-left:20%;
+    text-align: center;
 }
 .center{
     width:100%;
     text-align:center;
 }
 .btn {
-    margin-top:99%;
-    width: 30%;
+    margin-top:4%;
+    width:32%;
   }
 /* 遮罩层 */
 .box2{
@@ -94,17 +81,17 @@ body{
     position:absolute;
     top:38%; left:50%;
     margin-left:-150px;
+    padding-top:10%;
     background-color:white;
     border-radius: 10px;
-    font-size:20px;
     animation: scaleUp .3s ease both;
     z-index:2;
     text-align:center;
 }
 .sbtn{
-    width:111.6px;
-    height:44.4px;
+    width:5.2em;
+    height:2.5em;
     position:absolute;
     bottom:5%; left:50%;
-    margin-left:-55.8px;
+    margin-left:-2.5em;
 }

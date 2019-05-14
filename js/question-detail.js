@@ -1,11 +1,5 @@
-// var winWidth = $(window).width();
-// var winHeight = $(window).height();
-// document.getElementById("background").style.backgroundSize=winWidth+'px '+winHeight+'px';
-// var height = document.documentElement.clientHeight; 
-// document.getElementById("submit").style.top=height*0.85+'px';
-// document.getElementById("main").style.top=height*0.3+'px';
-
 document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
+console.log(localStorage.getItem('qperiod'));
 var submit=document.getElementById("submit");
 submit.addEventListener("click",function(){
     var ans=document.getElementById("words").value;
@@ -14,14 +8,20 @@ submit.addEventListener("click",function(){
         $.ajax({
             url:prefix+"sendQuestionCapsule",
             type:"post",
+                        ///////////////////////// TEST
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        //////////////////////////
             data:{
-                "period":localStorage.getItem('period'),
+                "period":localStorage.getItem('qperiod'),
                 "question":localStorage.getItem('qid'),
-                "ans":ans,
+                "message":ans,
             },
             dataType:"json",
             success:function(){
-                window.location.href="problem-success.html";
+                window.location.href="question-success.html";
             },
             error:function(err){
                 if (err.status == 401) {

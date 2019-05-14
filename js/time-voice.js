@@ -158,7 +158,8 @@ function init(){
         type:"post",
         dataType:"json",
         success:function(data){
-            document.getElementById("count").innerHTML='<strong>'+data.count+'</strong>';
+            localStorage.setItem('count', data.count);
+            window.location.href="time-end.html";
         },
         error:function(err){
             if (err.status == 401) {

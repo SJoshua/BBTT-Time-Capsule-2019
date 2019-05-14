@@ -1,21 +1,4 @@
-$.ajax({
-    url:prefix+"getInfo",
-    // url:"./json/test.JSON",
-    type:"get",
-    dataType:"json",
-    success:function(data){
-        if (data.record==true) {
-             document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>'+'  同学';
-        }
-         else {window.location.href="info.html"}
-    },
-    error:function(err){
-        if (err.status == 401) {
-            location.href=bbt+encodeURIComponent( location.href );
-        }
-    }
-});
-document.getElementById("who").innerHTML='<strong>'+"未命名"+'</strong>'+'  同学';
+document.getElementById("who").innerHTML='<strong>'+localStorage.getItem('username')+'</strong>'+'  同学';
 function Checked(name) {
     var radios = document.getElementsByName(name);
     for (var i = 0; i < radios.length; ++i) {
@@ -46,6 +29,7 @@ submit.addEventListener("click",function(){
     if (sel1=="undefined") {str+="未选活动期限哦<br/>"}
     if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
     if (str==""){
+        console.log(name);
         localStorage.setItem('receiver_name', name);
         localStorage.setItem('receiver_tel', phone);
         localStorage.setItem('type', sel2);

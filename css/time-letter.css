@@ -8,26 +8,23 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
-  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
 
 .input-textarea {
-
   height: 340px;
   width: 80%;
   outline: none;
   background-color: #FEFCD3;
   line-height: 40px;
-  padding: 0 10px;
   background-image: url(../img/background-line.svg);
   background-size: auto 40px;
   background-repeat: repeat;
   overflow: scroll;
   background-attachment: local;
   font-size: 16px;
-  margin-left: 10%;
+  margin-left:10%;
 }
 
 [contenteditable] {
@@ -38,13 +35,11 @@ body {
   width: 100%;
   /* top:5%; */
 }
-.center{
-  width:100%;
-  text-align:center;
-}
 .btn{
-  width:35%;
-  margin-top:7%;
+  width:28%;
+  margin-left:36%;
+  margin-top:2%;
+  margin-bottom:5%;
 }
   /* 遮罩层 */
   .box2{
@@ -60,24 +55,25 @@ body {
   /* 错误弹框 */
   @keyframes scaleUp {
     from { opacity: 0; transform: scale(.8); }
-    }
-    .err{
+  }
+  .err{
       width:300px;
       height:200px;
       position:absolute;
       top:38%; left:50%;
       margin-left:-150px;
+      padding-top:10%;
       background-color:white;
       border-radius: 10px;
-      font-size:16px;
       animation: scaleUp .3s ease both;
       z-index:2;
       text-align:center;
-    }
-    .sbtn{
-      width:111.6px;
-      height:44.4px;
+  }
+  .sbtn{
+      width:5.2em;
+      height:2.5em;
       position:absolute;
       bottom:5%; left:50%;
-      margin-left:-55.8px;
-    }
+      margin-left:-2.5em;
+  }
+  

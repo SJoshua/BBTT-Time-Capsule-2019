@@ -2,15 +2,12 @@ body{
     background:url(../img/background.png);  
     background-size:100%;
   }
-  .top {
-    width: 100%;
-    margin-top:25%;
-  }
-  .center{
-    width:100%;
-    text-align:center;
-  }
-  .btn {
-    width: 35%;
-    margin-top: 6%;
-  }
+.top {
+  width: 100%;
+  margin-top:25%;
+}
+.btn {
+  width: 35%;
+  margin-top: 6%;
+  margin-left:32.5%;
+}

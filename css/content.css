@@ -3,30 +3,35 @@ body {
     background-size: 100%;
     text-align: center;
   }
-  
-  .top {
+.top {
     width: 100%;
-    margin-top:2%;
-  }
+    margin-top:3%;
+}
+.bottom{
+    position:relative;
+    width: 80%;
+    margin-top:3%;
+   }
 .banner{
     width:90%;
 }
 .event{
     display:none;
-    position:absolute;
+    position:relative;
     width:100%;
+    margin-top:5%;
 }
 .event.e1{
-    top:20%;
+    top:25%;
 }
 .event.e2{
-    top:30%;
+    top:35%;
 }
 .event.e3{
-    top:40%;
+    top:45%;
 }
 .event.e4{
-    top:50%;
+    top:55%;
 }
 @keyframes pop{
     from {
@@ -39,11 +44,3 @@ body {
         display:block;
     }
 }
-.center{
-    width:100%;
-    text-align:center;
-}
-.bottom{
-   width: 100%;
-   margin-top:75%;
-  }

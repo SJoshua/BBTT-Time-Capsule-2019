@@ -1,11 +1,4 @@
-$.ajax({
-    url:prefix+"getInfo",
-    type:"get",
-    dataType:"json",
-    success:function(data){
-        document.getElementById("who").innerHTML=data.name;
-    }
-});
+document.getElementById("who").innerHTML='<strong>'+localStorage.getItem('username')+'</strong>'+'  同学';
 function change(){
     var q1=document.getElementById("q1");
     var q2=document.getElementById("q2");
@@ -15,31 +8,29 @@ function change(){
     q3.style.display="none";
     $.ajax({
         url:prefix+"getQuestions",
-        // url:"./json/test2.JSON",
         type:"get",
         dataType:"json",
+                    ///////////////////////// TEST
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    //////////////////////////
         success:function(data){
             var i=0;
             id=new Array(4);
             text=new Array(4);
-            for (var num in data){
-                console.log(num+" "+data[num]);
+            for (var num in data.question_list){
+                console.log(num+" "+data.question_list[num]);
                 i++;
                 id[i]=num;
-                text[i]=data[num];
+                text[i]=data.question_list[num];
             }
             q1.innerHTML="<strong>Q&nbsp</strong>"+text[1];
             q2.innerHTML="<strong>Q&nbsp</strong>"+text[2];
             q3.innerHTML="<strong>Q&nbsp</strong>"+text[3]; 
         },
-    });
-    // id=new Array(4);
-    // text=new Array(4);
-    // id[1]=1; id[2]=2; id[3]=3;
-    // text[1]="你好"; text[2]="哈哈哈哈哈哈哈哈哈哈"; text[3]="大学之道在明明德在亲民在止于至善知止而后有定定";
-    // q1.innerHTML="<strong>Q&nbsp</strong>"+"你有没有一次偷偷哭过？";
-    // q2.innerHTML="<strong>Q&nbsp</strong>"+"在你想象中，最可怕的心理折磨是什么？";
-    // q3.innerHTML="<strong>Q&nbsp</strong>"+"也许未来的自己很忙碌，经常不记得吃早饭，你想对那时的自己叮嘱写什么？";     
+    });    
     var t1=window.setTimeout(pop1,50);
     var t2=window.setTimeout(pop2,200);
     var t3=window.setTimeout(pop3,300);
@@ -71,9 +62,15 @@ function Checked(name) {
     }
   }
 function enter(k){
-    var sel=Checked("duration");
-    localStorage.setItem('period', sel);
-    localStorage.setItem('qid',id[k]);
-    localStorage.setItem('qtext',text[k]);
-    window.location.href="question-detail.html";
+    var sel="";
+    sel=Checked("duration");
+    if (sel="undefined") {showError("还没选活动周期哦~")}
+     else{
+        localStorage.setItem('qperiod', sel);
+        localStorage.setItem('qid',id[k]);
+        localStorage.setItem('qtext',text[k]);
+        console.log(sel);
+        console.log(localStorage.getItem('qperiod'));
+        window.location.href="question-detail.html";
+     }
 }

@@ -1,6 +1,12 @@
 // 绑定微信
 $.ajax({
     url:prefix+"getInfo",
+    ///////////////////////// TEST
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    //////////////////////////
     type:"get",
     dataType:"json",
     success:function(data){
@@ -13,6 +19,6 @@ $.ajax({
         }
     }
 })
-// location.href=bbt+encodeURIComponent( location.href );
+
 
 
