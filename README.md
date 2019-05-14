@@ -17,4 +17,4 @@ Although Flask-RESTful is used, the API is not RESTful. swtcl.
 * `python3 install.py` 
 
 ## To-do
-* Disable API after specified date.
+* TEST.
