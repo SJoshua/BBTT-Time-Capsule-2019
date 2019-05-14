@@ -1,4 +1,4 @@
-document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
+document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+sessionStorage.getItem('qtext');
 console.log(localStorage.getItem('qperiod'));
 var submit=document.getElementById("submit");
 var ok=true;
@@ -18,8 +18,8 @@ submit.addEventListener("click",function(){
                         crossDomain: true,
                         //////////////////////////
             data:{
-                "period":localStorage.getItem('qperiod'),
-                "question":localStorage.getItem('qid'),
+                "period":sessionStorage.getItem('qperiod'),
+                "question":sessionStorage.getItem('qid'),
                 "message":ans,
             },
             dataType:"json",

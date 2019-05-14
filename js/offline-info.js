@@ -32,15 +32,16 @@ function submit() {
     if (sel2=="yes") {ifseal=true;}
      else {ifseal=false;}
     if (sendpeople == "" || sendphone == "" || code == "" || receivepeople == "" || receivephone == "" || address == "" || sel1 == "undefined" || sel2 == "undefined") {
-      ok=true;
-     showError("消息没填完整哦")
+      str=str+"消息没填完整哦";
+      exit;
     }
-     else{
-         if ((!judge(sendphone)) || (!judge(receivephone))){
-          ok=true;
-             showError("手机号格式错误")
-         }
-          else{
+    if (!judge(sendphone)) {
+          str=str+"寄信人手机号格式错误";
+    }
+    if (!judge(receivephone)){
+          str=str+"收件人手机号格式错误";
+    }
+    if (str="" ){
               $.ajax({
                   url:prefix+"sendOfflineCapsule",
                                   ///////////////////////// TEST

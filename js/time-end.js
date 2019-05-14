@@ -11,7 +11,7 @@ $.ajax({
     dataType:"json",
     success:function(data){
         if (data.record==true) {
-             document.getElementById("who").innerHTML='<strong>'+data.name+'</strong>'+'  同学';
+             document.getElementById("who").innerHTML=data.name+'  同学';
         }
          else {window.location.href="info.html"}
     },
@@ -21,6 +21,6 @@ $.ajax({
         }
     }
 });
-document.getElementById("count").innerHTML='<strong>'+localStorage.getItem('count')+'</strong>';
-document.getElementById("time").innerHTML='<strong>'+localStorage.getItem('time')+'</strong>';
+document.getElementById("count").innerHTML=sessionStorage.getItem('count');
+document.getElementById("time").innerHTML=sessionStorage.getItem('time');
 
