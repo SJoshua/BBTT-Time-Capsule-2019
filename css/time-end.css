@@ -12,17 +12,7 @@ body{
   margin-bottom:5%;
 }
 .tips{
-  margin:2px;
-}
-.greeting{
-  text-align:left;
-  font-size:8vw;
-  margin-bottom:2%;
-}
-p{
-    margin:0;
-    text-indent:2em;
-    font-size:6vw;
+  padding:3%;
 }
 .btn1{
     width:35%;
