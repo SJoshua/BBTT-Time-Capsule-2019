@@ -1,16 +1,15 @@
 function init(){
-    var recordUrl = encodeURIComponent(location.href);
     $.ajax({
         url:"https://hemc.100steps.net/2017/wechat/Home/Public/getJsApi",
         type:"post",
         dataType:"json",
-        data:{recordUrl},
+        data:{url:location.href},
         success:function(arr){
             wx.config({
                 debug:false, 
                 appId:arr.appId, 
                 timestamp: arr.timestamp, 
-                nonceStr: arr.noncestr, 
+                nonceStr: arr.nonceStr, 
                 signature: arr.signature,
                 jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice'] 
             });
@@ -149,7 +148,7 @@ function init(){
                     "type":localStorage.getItem('type'),
                     "period":localStorage.getItem('receiver_period'),
                     "from_qrcode":localStorage.getItem('from_qrcode'),
-                    "file_id":localStorage.getItem('serverId'),
+                    "file_id":serverId,
                 },
                 type:"post",
                 dataType:"json",
