@@ -74,11 +74,11 @@ function enter(k){
     console.log(sel);
     if (sel=="undefined") {showError("还没选活动周期哦~")}
      else{
-        localStorage.setItem('qperiod', sel);
-        localStorage.setItem('qid',id[k]);
-        localStorage.setItem('qtext',text[k]);
+        sessionStorage.setItem('qperiod', sel);
+        sessionStorage.setItem('qid',id[k]);
+        sessionStorage.setItem('qtext',text[k]);
         console.log(sel);
-        console.log(localStorage.getItem('qperiod'));
+        console.log(sessionStorage.getItem('qperiod'));
         window.location.href="question-detail.html";
      }
 }

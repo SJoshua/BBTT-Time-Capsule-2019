@@ -21,6 +21,6 @@ $.ajax({
         }
     }
 });
-document.getElementById("count").innerHTML='<strong>'+localStorage.getItem('count')+'</strong>';
-document.getElementById("time").innerHTML='<strong>'+localStorage.getItem('time')+'</strong>';
+document.getElementById("count").innerHTML='<strong>'+sessionStorage.getItem('count')+'</strong>';
+document.getElementById("time").innerHTML='<strong>'+sessionStorage.getItem('time')+'</strong>';
 

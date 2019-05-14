@@ -176,18 +176,18 @@ function init(){
                                     $.ajax({
                                         url:prefix+"sendTimeCapsule",
                                         data:{
-                                            "receiver_name":localStorage.getItem('receiver_name'),
-                                            "receiver_tel":localStorage.getItem('receiver_tel'),
-                                            "type":localStorage.getItem('type'),
-                                            "period":localStorage.getItem('period'),
-                                            "from_qrcode":localStorage.getItem('from_qrcode'),
+                                            "receiver_name":sessionStorage.getItem('receiver_name'),
+                                            "receiver_tel":sessionStorage.getItem('receiver_tel'),
+                                            "type":sessionStorage.getItem('type'),
+                                            "period":sessionStorage.getItem('period'),
+                                            "from_qrcode":sessionStorage.getItem('from_qrcode'),
                                             "file_id":serverId,
                                         },
                                         type:"post",
                                         dataType:"json",
                                         success:function(data){
                                             ok=true;
-                                            localStorage.setItem('count', data.count);
+                                            sessionStorage.setItem('count', data.count);
                                             window.location.href="time-end.html";
                                         },
                                         error:function(err){

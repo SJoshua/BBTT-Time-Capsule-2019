@@ -45,7 +45,7 @@ submit.addEventListener("click",function(){
             dataType:"json",
             success:function(){
                 ok=true;
-                localStorage.setItem('username', name);
+                sessionStorage.setItem('username', name);
                 window.location.href="content.html";
             },
             error:function(err){

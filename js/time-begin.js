@@ -52,13 +52,13 @@ submit.addEventListener("click",function(){
     if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
     if (str==""){
         console.log(name);
-        localStorage.setItem('receiver_name', name);
-        localStorage.setItem('receiver_tel', phone);
-        localStorage.setItem('type', sel2);
-        localStorage.setItem('period', sel1);
-        localStorage.setItem('from_qrcode', isQR);
-        if (sel1=="half-year") {localStorage.setItem('time', "半年");}
-         else {localStorage.setItem('time', "一年");}
+        sessionStorage.setItem('receiver_name', name);
+        sessionStorage.setItem('receiver_tel', phone);
+        sessionStorage.setItem('type', sel2);
+        sessionStorage.setItem('period', sel1);
+        sessionStorage.setItem('from_qrcode', isQR);
+        if (sel1=="half-year") {sessionStorage.setItem('time', "半年");}
+         else {sessionStorage.setItem('time', "一年");}
         if (sel2=="text") {window.location.href="time-letter.html"} 
           else {window.location.href="time-voice.html"}
     }

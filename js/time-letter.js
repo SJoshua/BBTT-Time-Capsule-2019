@@ -18,16 +18,16 @@ submit.addEventListener("click",function(){
             type:"post",
             dataType:"json",
             data:{
-                "receiver_name":localStorage.getItem('receiver_name'),
-                "receiver_tel":localStorage.getItem('receiver_tel'),
-                "type":localStorage.getItem('type'),
-                "period":localStorage.getItem('period'),
-                "from_qrcode":localStorage.getItem('from_qrcode'),
+                "receiver_name":sessionStorage.getItem('receiver_name'),
+                "receiver_tel":sessionStorage.getItem('receiver_tel'),
+                "type":sessionStorage.getItem('type'),
+                "period":sessionStorage.getItem('period'),
+                "from_qrcode":sessionStorage.getItem('from_qrcode'),
                 "message":msg,
             },
             success:function(data){
                 ok=true;
-                localStorage.setItem('count', data.count);
+                sessionStorage.setItem('count', data.count);
                 window.location.href="time-end.html";
             },
             error:function(err){

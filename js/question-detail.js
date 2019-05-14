@@ -18,8 +18,8 @@ submit.addEventListener("click",function(){
                         crossDomain: true,
                         //////////////////////////
             data:{
-                "period":localStorage.getItem('qperiod'),
-                "question":localStorage.getItem('qid'),
+                "period":sessionStorage.getItem('qperiod'),
+                "question":sessionStorage.getItem('qid'),
                 "message":ans,
             },
             dataType:"json",
