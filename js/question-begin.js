@@ -64,7 +64,8 @@ function Checked(name) {
 function enter(k){
     var sel="";
     sel=Checked("duration");
-    if (sel="undefined") {showError("还没选活动周期哦~")}
+    console.log(sel);
+    if (sel=="undefined") {showError("还没选活动周期哦~")}
      else{
         localStorage.setItem('qperiod', sel);
         localStorage.setItem('qid',id[k]);
