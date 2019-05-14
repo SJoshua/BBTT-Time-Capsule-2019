@@ -36,10 +36,21 @@ function Redo(){
     serverId=null;
     stopTiming();
     x=0;
-    document.getElementById("time").innerText="00";
+    document.getElementById("time").innerText="00:00";
     jud=0;
     c=0;
     document.getElementById("btn1").src="./img/start.png";
+    document.getElementById("btn2").src="./img/play.png";
+}
+
+function Stop(pause){
+    stopTiming();
+    document.getElementById("CD").style.animationPlayState = "paused";
+    x=0;
+    document.getElementById("time").innerText="00:00";
+    document.getElementById("btn1").src="./img/start.png";
+    document.getElementById("btn2").src="./img/play.png";
+    if(!pause) flag = false;
 }
 init();
 function init(){
@@ -62,20 +73,28 @@ function init(){
                     // 录音时间超过一分钟没有停止的时候会执行 complete 回调
                     complete: function (res) {
                         window.localId = res.localId;
+                        Stop();
+                        /*
                         stopTiming();
                         document.getElementById("CD").style.animationPlayState = "paused";
                         x=0;
-                        document.getElementById("time").innerText="00";
+                        document.getElementById("time").innerText="00:00";
+                        */
+                        
                     }
                 });
                 wx.onVoicePlayEnd({
                     success: function (res) {
                         window.localId = res.localId; // 返回音频的本地ID
+                        Stop();
+                        /*
                         stopTiming();
                         document.getElementById("CD").style.animationPlayState = "paused";
                         x=0;
-                        document.getElementById("time").innerText="00";
+                        document.getElementById("time").innerText="00:00";
+                        */
                     }
+
                 });
                 //播放 暂停
                 var ctl=document.getElementById("btn2");
@@ -84,8 +103,9 @@ function init(){
                      else {
                         if (c==0) {
                             c=1;   
-                            x=0; 
-                            document.getElementById("time").innerText="00";       
+                            Stop(true);
+                            //x=0; 
+                            //document.getElementById("time").innerText="00";       
                         }
                         if (!flag){
                             flag=true;
@@ -129,9 +149,12 @@ function init(){
                             wx.stopVoice({
                                 localId:localId,
                                 success:function(){
+                                    Stop();
+                                    /*
                                     stopTiming();
                                     x=0;
                                     document.getElementById("time").innerText="00";
+                                    */
                                 } 
                             })
                          }
