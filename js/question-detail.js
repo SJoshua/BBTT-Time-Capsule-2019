@@ -6,7 +6,7 @@ submit.addEventListener("click",function(){
     if (ok==true) {
     ok=false;
     var ans=document.getElementById("words").value;
-    if (ans=="") {showError("回答不能为空");}
+    if (ans=="") {ok=true; showError("回答不能为空");}
      else {
         $.ajax({
             url:prefix+"sendQuestionCapsule",
