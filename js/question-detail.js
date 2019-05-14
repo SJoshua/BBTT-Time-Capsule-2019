@@ -1,7 +1,10 @@
 document.getElementById("ask").innerHTML="<strong>Q&nbsp</strong>"+localStorage.getItem('qtext');
 console.log(localStorage.getItem('qperiod'));
 var submit=document.getElementById("submit");
+var ok=true;
 submit.addEventListener("click",function(){
+    if (ok==true) {
+    ok=false;
     var ans=document.getElementById("words").value;
     if (ans=="") {showError("回答不能为空");}
      else {
@@ -21,6 +24,7 @@ submit.addEventListener("click",function(){
             },
             dataType:"json",
             success:function(){
+                ok=true;
                 window.location.href="question-success.html";
             },
             error:function(err){
@@ -35,5 +39,7 @@ submit.addEventListener("click",function(){
                 }
             }
         })
+    }
+
     }
 })

@@ -125,47 +125,52 @@ function init(){
                     if (localId==null) {showError("你还没录音呢");}
                      else {Redo();}
                 }
+                var ok=true;
                 document.getElementById("finish").onclick=function(){
                     if (jud==0){showError("你还没录音呢");}
                      else {
-                        wx.uploadVoice({
-                            localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-                            isShowProgressTips: 1, // 默认为1，显示进度提示
-                            success: function (res) {
-                                serverId = res.serverId; // 返回音频的服务器端ID
-                                $.ajax({
-                                    url:prefix+"sendTimeCapsule",
-                                    data:{
-                                        "receiver_name":localStorage.getItem('receiver_name'),
-                                        "receiver_tel":localStorage.getItem('receiver_tel'),
-                                        "type":localStorage.getItem('type'),
-                                        "period":localStorage.getItem('period'),
-                                        "from_qrcode":localStorage.getItem('from_qrcode'),
-                                        "file_id":serverId,
-                                    },
-                                    type:"post",
-                                    dataType:"json",
-                                    success:function(data){
-                                        localStorage.setItem('count', data.count);
-                                        window.location.href="time-end.html";
-                                    },
-                                    error:function(err){
-                                        if (err.status == 401) {
-                                            location.href=bbt+encodeURIComponent( location.href );
+                         if (ok==true) {
+                            ok=false;
+                            wx.uploadVoice({
+                                localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                                isShowProgressTips: 1, // 默认为1，显示进度提示
+                                success: function (res) {
+                                    serverId = res.serverId; // 返回音频的服务器端ID
+                                    $.ajax({
+                                        url:prefix+"sendTimeCapsule",
+                                        data:{
+                                            "receiver_name":localStorage.getItem('receiver_name'),
+                                            "receiver_tel":localStorage.getItem('receiver_tel'),
+                                            "type":localStorage.getItem('type'),
+                                            "period":localStorage.getItem('period'),
+                                            "from_qrcode":localStorage.getItem('from_qrcode'),
+                                            "file_id":serverId,
+                                        },
+                                        type:"post",
+                                        dataType:"json",
+                                        success:function(data){
+                                            ok=true;
+                                            localStorage.setItem('count', data.count);
+                                            window.location.href="time-end.html";
+                                        },
+                                        error:function(err){
+                                            if (err.status == 401) {
+                                                location.href=bbt+encodeURIComponent( location.href );
+                                            }
+                                            if (err.status == 403) {
+                                                location.href="info.html";
+                                            }
+                                            if (err.status == 400) {
+                                                console.log(err.message);
+                                            }
+                                            if (err.status == 404) {
+                                                showError("上传录音失败");
+                                            }
                                         }
-                                        if (err.status == 403) {
-                                            location.href="info.html";
-                                        }
-                                        if (err.status == 400) {
-                                            console.log(err.message);
-                                        }
-                                        if (err.status == 404) {
-                                            showError("上传录音失败");
-                                        }
-                                    }
-                                  })
-                            }
-                        });
+                                    })
+                                }
+                            });
+                         }
                      }
                 }
             })

@@ -15,7 +15,11 @@ $.ajax({
     }
 })
 var submit=document.getElementById("submit");
+var ok=true;
 submit.addEventListener("click",function(){
+    if (ok==true) {
+
+    ok=false;
     var str="";
     var name=document.getElementById("name").value;
     if (name==""){
@@ -41,6 +45,7 @@ submit.addEventListener("click",function(){
             type:"post",
             dataType:"json",
             success:function(){
+                ok=true;
                 localStorage.setItem('username', name);
                 window.location.href="content.html";
             },
@@ -53,6 +58,8 @@ submit.addEventListener("click",function(){
     }
     else{
         showError(str);
+    }
+
     }
 })
 
