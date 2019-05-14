@@ -55,7 +55,7 @@ function init(){
                 timestamp: arr.timestamp, 
                 nonceStr: arr.nonceStr, 
                 signature: arr.signature,
-                jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice'] 
+                jsApiList: ['startRecord','stopRecord','onVoiceRecordEnd','onVoicePlayEnd','playVoice','pauseVoice','uploadVoice','stopVoice'] 
             });
             wx.ready(function(){
                 wx.onVoiceRecordEnd({
@@ -71,6 +71,8 @@ function init(){
                 wx.onVoicePlayEnd({
                     success: function (res) {
                         window.localId = res.localId; // 返回音频的本地ID
+                        stopTiming();
+                        document.getElementById("CD").style.animationPlayState = "paused";
                         x=0;
                         document.getElementById("time").innerText="00";
                     }
