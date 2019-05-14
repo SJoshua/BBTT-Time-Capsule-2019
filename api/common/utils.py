@@ -1,4 +1,5 @@
-from config.config import mp_prime, ad_prime, fmp_prime, fad_prime, max_tag
+from config.config import cfg, mp_prime, ad_prime, fmp_prime, fad_prime
+import time
 
 def encodeUID(id):
 	return "%x" % (int(id) * mp_prime + ad_prime)
@@ -25,3 +26,14 @@ def checkTag(tag):
 	except:
 		return False
 
+def getTimestamp():
+	return int(time.mktime(time.gmtime(time.time())) + 8 * 60 * 60)
+
+def checkTime():
+	status = 0
+	cur = getTimestamp()
+	if cur < cfg["begin"]:
+		status = -1
+	if cur > cfg["end"]:
+		status = 1
+	return status

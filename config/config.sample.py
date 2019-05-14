@@ -1,10 +1,12 @@
+from api.common.utils import toTimestamp
+
 cfg = {
 	"host": "localhost",
 	"user": "DATABASE_USERNAME",
 	"passwd": "DATABASE_PASSWORD",
 	"database": "DATABASE_NAME",
-	"startTime": 1557849600,
-	"endTime": 1589471999,
+	"begin": toTimestamp("2019-05-14 20:00:00"),
+	"end": toTimestamp("2020-05-14 19:59:59"),
 	"secret_key": "dev"
 }
 
