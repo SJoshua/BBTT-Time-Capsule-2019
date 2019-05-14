@@ -30,14 +30,16 @@ $.ajax({
     success:function(data){
         if (data.record==false) {showError("收件人信息不存在")}
          else{
-            document.getElementById("name").innerText=data.name;
-            document.getElementById("phone").innerText=data.tel;
+            document.getElementById("name").value=data.name;
+            document.getElementById("phone").value=data.tel;
+            document.getElementById("name").setAttribute("readonly","readonly");
+            document.getElementById("phone").setAttribute("readonly","readonly");
          }
     },
     error:function(err){
         if (err.status == 400) {
             alert("二维码无效");
-            // window.location.href="index.html";//exit?
+            window.location.href="blank.html";
         }
     }
 });
@@ -65,6 +67,8 @@ submit.addEventListener("click",function(){
     if (sel1=="undefined") {str+="未选活动期限哦<br/>"}
     if (sel2=="undefined") {str+="未选信件类型哦<br/>"}
     if (str==""){
+        var name=document.getElementById("name").value;
+        var phone=document.getElementById("phone").value;
         localStorage.setItem('receiver_name', name);
         localStorage.setItem('receiver_tel', phone);
         localStorage.setItem('type', sel2);
