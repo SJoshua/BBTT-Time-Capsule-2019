@@ -16,12 +16,14 @@ body{
   margin-left:8%;
   margin-bottom:5%;
 }
+.hello{
+  text-indent:2em;
+}
 .who{
   font-size:7vw;
 }
 p{
   margin:0;
-  text-indent:2em;
   font-size:5vw;
 }
 .img {
