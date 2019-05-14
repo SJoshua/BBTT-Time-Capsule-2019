@@ -31,11 +31,12 @@ function Pause(){
 function Redo(){
     localId=null;
     serverId=null;
+    stopTiming();
     x=0;
     document.getElementById("time").innerText="00";
     jud=0;
     c=0;
-    ctl2.src="./img/start.png";
+    document.getElementById("btn1").src="./img/start.png";
 }
 init();
 function init(){
@@ -67,6 +68,8 @@ function init(){
                 wx.onVoicePlayEnd({
                     success: function (res) {
                         window.localId = res.localId; // 返回音频的本地ID
+                        x=0;
+                        document.getElementById("time").innerText="00";
                     }
                 });
                 //播放 暂停
@@ -89,15 +92,6 @@ function init(){
                             Pause();
                             ctl.src="./img/play.png";
                         }
-                        wx.stopVoice({
-                            localId:localId,
-                            success:function(){
-                                stopTiming();
-                                c=0;
-                                x=0;
-                                document.getElementById("time").innerText="00";
-                            } 
-                        })
                     }
                 }
                 //录音 开始 结束
@@ -125,7 +119,19 @@ function init(){
                 //重录
                 document.getElementById("btn3").onclick=function(){
                     if (localId==null) {showError("你还没录音呢");}
-                     else {Redo();}
+                     else {
+                         if (c==1) {
+                            wx.stopVoice({
+                                localId:localId,
+                                success:function(){
+                                    stopTiming();
+                                    x=0;
+                                    document.getElementById("time").innerText="00";
+                                } 
+                            })
+                         }
+                         Redo();
+                        }
                 }
                 var ok=true;
                 document.getElementById("finish").onclick=function(){
