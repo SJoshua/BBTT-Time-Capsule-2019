@@ -37,3 +37,7 @@ def checkTime():
 	if cur > cfg["end"]:
 		status = 1
 	return status
+
+def checkTel(s):
+	s = str(s)
+	return s.isdigit() and len(s) == 11

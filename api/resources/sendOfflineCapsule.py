@@ -1,7 +1,7 @@
 from flask import session, request
 from flask_restful import Resource, reqparse, inputs, abort
 from api.common.database import database
-from api.common.utils import checkTag, checkTime
+from api.common.utils import checkTag, checkTime, checkTel
 import json
 import requests
 
@@ -39,8 +39,10 @@ class sendOfflineCapsule(Resource):
 		if checkTime() != 0:
 			abort(416, message = "Event is not ongoing.")
 		args = parser.parse_args()
+		if not checkTel(args["sender_tel"]) or not checkTel(args["receiver_tel"]):
+			abort(400, message = "Invalid telephone number.")
 		if checkTag(args["capsule_tag"]) == False:
-			abort(400, message = "Invaild capsule tag.")
+			abort(400, message = "Invalid capsule tag.")
 		if not database.getTagStatus(args["capsule_tag"]):
 			abort(409, message = "The capsule tag already exists.")
 		database.addOfflineCapsule(args["sender_name"], args["sender_tel"],  args["receiver_name"], args["receiver_tel"], args["receiver_addr"], args["capsule_tag"], args["period"], args["seal"])
