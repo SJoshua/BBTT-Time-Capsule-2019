@@ -1,4 +1,8 @@
-from api.common.utils import toTimestamp
+import time
+
+def toTimestamp(str):
+	array = time.strptime(str, "%Y-%m-%d %H:%M:%S")
+	return int(time.mktime(array))
 
 cfg = {
 	"host": "localhost",
